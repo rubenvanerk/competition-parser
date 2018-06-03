@@ -112,7 +112,8 @@ class DbHelper
         '{$this->config['competition']['date']}', 
         '{$this->config['competition']['location']}', 
         '{$this->config['competition']['clocktype']}', 
-        '" . slugify($this->config['competition']['name']) . "'
+        '" . slugify($this->config['competition']['name']) . "', 
+        'true'
         )");
         $stmt->execute();
 

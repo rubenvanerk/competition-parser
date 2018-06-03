@@ -10,11 +10,11 @@ return array(
         'port' => getenv('DB_PARSER_PORT'),
     ],
     'competition' => [
-        'filename' => 'ILSE Dordrecht 2018 2018-03-10 (1).pdf',
-        'name' => 'ILSE Dordrecht 2018',
-        'date' => '2018-03-10',
-        'location' => 'Eindhoven',
-        'clocktype' => 0, // 0 = unknown, 1 = electronic, 2 = handclocked
+        'filename' => 'OrangeCup 2017 2-12-2017 (1).pdf',
+        'name' => 'Orange Cup 2017',
+        'date' => '2017-12-02',
+        'location' => 'Dordrecht',
+        'clocktype' => 1, // 0 = unknown, 1 = electronic, 2 = handclocked
         'type' => 'splash', // options: splash, german
     ],
     'parser' => [
@@ -22,7 +22,7 @@ return array(
             'event_signifiers' => ['Programmanr', 'Event'],
             'event_designifiers' => ['DISKWALIFICATIE CODES'] // signifies a line is definitely not a event line
         ],
-        'result_rejectors' => ['DSQ', 'disq', 'DNS', 'DC 20', 'DC 1', 'Selectietijd', 'Splash Meet Manager'],
+        'result_rejectors' => ['DSQ', 'disq', 'DNS', 'DC 20', 'DC 1', 'Selectietijd', 'Splash Meet Manager', 'DNF'],
         'genders' => [
             'male_signifiers' => ['boys', 'men', 'heren', 'messieurs', 'garçons', 'jongens'],
             'female_signifiers' => ['women', 'dames', 'filles', 'meisjes'],
