@@ -10,7 +10,10 @@ function getLineType($line, $type)
 {
     switch ($type) {
         case 'splash':
-            if (contains($line, $GLOBALS['config']['parser']['splash']['event_signifiers'])) return 'event';
+            if (contains($line, $GLOBALS['config']['parser']['splash']['event_signifiers'])
+            && !contains($line, $GLOBALS['config']['parser']['splash']['event_designifiers'])) {
+                return 'event';
+            }
             elseif (hasValidResult($line)) return 'result';
             break;
         case 'german':
@@ -26,7 +29,7 @@ function getLineType($line, $type)
  */
 function hasValidResult($line)
 {
-    $hasResult = preg_match("/[0-9]{2}\.[0-9]{2}\s/", $line);
+    $hasResult = preg_match("/[0-9]{2}\.[0-9]{2}/", $line);
     $isValid = !contains($line, $GLOBALS['config']['parser']['result_rejectors']);
     return $hasResult && $isValid;
 }
@@ -190,7 +193,7 @@ function printCompetition($competition) {
         usleep(400000);
         foreach ($event->getResults() as $result) {
             print_r($result->getYearOfBirth() . " " . $result->getFirstName() . " " . $result->getLastName() . " " . $result->getFirstTime() . PHP_EOL);
-            usleep(300000);
+            usleep(200000);
         }
     }
 }

@@ -7,7 +7,7 @@ class DbHelper
 
     public function __construct()
     {
-        $this->config = include('../config.php');
+        $this->config = include('config.php');
         $dbConfig = $this->config['database'];
         $this->connection = new PDO(
             'pgsql:host=' . $dbConfig['host'] . ';port=' . $dbConfig['port'] . ';dbname=' . $dbConfig['name'],

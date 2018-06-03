@@ -26,12 +26,15 @@ foreach ($lines as $line) {
             $result = Result::createFromLine($line);
             $competition->addResultToCurrentEvent($result);
             break;
+        default:
+//            print_r('Could not parse this line: ' . $line . PHP_EOL);
+//            sleep(1);
     }
 }
 try {
-    printCompetition($competition);
-//    $dbHelper = new DbHelper();
-//    $dbHelper->saveCompetitionToDatabase($competition);
+//    printCompetition($competition);
+    $dbHelper = new DbHelper();
+    $dbHelper->saveCompetitionToDatabase($competition);
 } catch (Exception $e) {
     print_r('Something terrible happend' . PHP_EOL);
     print_r($e->getMessage());

@@ -1,11 +1,5 @@
 {
   "require": {
-    "smalot/pdfparser": "^0.12.0",
-    "doctrine/orm": "2.4.*"
-  },
-  "autoload": {
-    "psr-0": {
-      "": "src/"
-    }
+    "smalot/pdfparser": "^0.12.0"
   }
 }

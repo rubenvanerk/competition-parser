@@ -19,9 +19,10 @@ return array(
     ],
     'parser' => [
         'splash' => [
-            'event_signifiers' => ['Programmanr', 'Event']
+            'event_signifiers' => ['Programmanr', 'Event'],
+            'event_designifiers' => ['DISKWALIFICATIE CODES'] // signifies a line is definitely not a event line
         ],
-        'result_rejectors' => ['DSQ', 'disq', 'DNS', 'DC 20', 'DC 1', 'Selectietijd'],
+        'result_rejectors' => ['DSQ', 'disq', 'DNS', 'DC 20', 'DC 1', 'Selectietijd', 'Splash Meet Manager'],
         'genders' => [
             'male_signifiers' => ['boys', 'men', 'heren', 'messieurs', 'garçons', 'jongens'],
             'female_signifiers' => ['women', 'dames', 'filles', 'meisjes'],
