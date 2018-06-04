@@ -2,27 +2,39 @@
 
 return array(
     'pdf_folder' => 'competitions/',
+//    'database' => [
+//        'host' => getenv('DB_PARSER_HOST'),
+//        'name' => getenv('DB_PARSER_NAME'),
+//        'username' => getenv('DB_PARSER_USERNAME'),
+//        'password' => getenv('DB_PARSER_PASSWORD'),
+//        'port' => getenv('DB_PARSER_PORT'),
+//    ],
     'database' => [
-        'host' => getenv('DB_PARSER_HOST'),
-        'name' => getenv('DB_PARSER_NAME'),
-        'username' => getenv('DB_PARSER_USERNAME'),
-        'password' => getenv('DB_PARSER_PASSWORD'),
-        'port' => getenv('DB_PARSER_PORT'),
+        'host' => 'localhost',
+        'name' => 'lifesaving_rankings',
+        'username' => 'lifesaving_rankings_django',
+        'password' => '5EydU!G3jwTuewDq',
+        'port' => '5432',
     ],
     'competition' => [
-        'filename' => 'OrangeCup 2017 2-12-2017 (1).pdf',
-        'name' => 'Orange Cup 2017',
+        'filename' => 'Deutschland Pokal 2017.pdf',
+        'name' => 'Deutchland Pokal 2017',
         'date' => '2017-12-02',
-        'location' => 'Dordrecht',
+        'location' => 'Warendorf',
         'clocktype' => 1, // 0 = unknown, 1 = electronic, 2 = handclocked
-        'type' => 'splash', // options: splash, german
+        'type' => 'german', // options: splash, german
     ],
     'parser' => [
         'splash' => [
             'event_signifiers' => ['Programmanr', 'Event'],
-            'event_designifiers' => ['DISKWALIFICATIE CODES'] // signifies a line is definitely not a event line
+            'event_designifiers' => ['DISKWALIFICATIE CODES'], // signifies a line is definitely not a event line
+            'result_rejectors' => ['DSQ', 'disq', 'DNS', 'DC 20', 'DC 1', 'Selectietijd', 'Splash Meet Manager', 'DNF']
         ],
-        'result_rejectors' => ['DSQ', 'disq', 'DNS', 'DC 20', 'DC 1', 'Selectietijd', 'Splash Meet Manager', 'DNF'],
+        'german' => [
+            'event_signifiers' => ['over all heats'],
+            'event_designifiers' => [], // signifies a line is definitely not a event line
+            'result_rejectors' => ['WR:', 'd.n.s.', 'DC ']
+        ],
         'genders' => [
             'male_signifiers' => ['boys', 'men', 'heren', 'messieurs', 'garçons', 'jongens'],
             'female_signifiers' => ['women', 'dames', 'filles', 'meisjes'],

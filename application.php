@@ -6,6 +6,8 @@ require_all('classes');
 
 $config = include('config.php');
 
+define("EVENT_TYPE", $config['competition']['type']);
+
 $competition = new Competition();
 $currentEventAvailable = false;
 
@@ -36,6 +38,6 @@ try {
     $dbHelper = new DbHelper();
     $dbHelper->saveCompetitionToDatabase($competition);
 } catch (Exception $e) {
-    print_r('Something terrible happend' . PHP_EOL);
+    print_r('Something terrible happened' . PHP_EOL);
     print_r($e->getMessage());
 }

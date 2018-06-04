@@ -6,6 +6,7 @@ class Result
     private $lastName;
     private $yearOfBirth;
     private $times;
+    private $originalLine;
 
     /**
      * Result constructor.
@@ -13,13 +14,15 @@ class Result
      * @param string $lastName
      * @param int $yearOfBirth last two digits of the year
      * @param array $times
+     * @param $line
      */
-    public function __construct($firstName, $lastName, $yearOfBirth, $times)
+    public function __construct($firstName, $lastName, $yearOfBirth, $times, $line)
     {
         $this->firstName = $firstName;
         $this->lastName = $lastName;
         $this->yearOfBirth = $yearOfBirth;
         $this->times = $times;
+        $this->originalLine = $line;
     }
 
     /**
@@ -33,10 +36,10 @@ class Result
         $yearOfBirth = getYearOfBirthFromLine($line);
         $times = getTimesFromLine($line);
         if($firstName && $lastName && $yearOfBirth && $times) {
-            return new Result($firstName, $lastName, $yearOfBirth, $times);
+            return new Result($firstName, $lastName, $yearOfBirth, $times, $line);
         }
-        print_r($line . PHP_EOL);
-        sleep(1);
+        var_dump($line);
+        sleep(2);
         return null;
     }
 
