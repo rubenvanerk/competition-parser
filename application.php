@@ -9,32 +9,35 @@ $config = include('config.php');
 define("EVENT_TYPE", $config['competition']['type']);
 
 $competition = new Competition();
-$currentEventAvailable = false;
 
 $parser = new \Smalot\PdfParser\Parser();
 $pdf = $parser->parseFile($config['pdf_folder'] . $config['competition']['filename']);
 
+$competitionParser = CompetitionParser::getInstance();
+
 $lines = explode("\n", $pdf->getText());
 foreach ($lines as $line) {
-    $lineType = getLineType($line, $config['competition']['type']);
+    $lineType = $competitionParser->getLineType($line);
     switch ($lineType) {
         case 'event':
-            $event = Event::createFromLine($line);
-            $success = $competition->addEvent($event);
-            $currentEventAvailable = $success;
+            $eventId = $competitionParser->getEventIdFromLine($line);
+            $gender = $competitionParser->getGenderFromLine($line);
+            $event = Event::create($eventId, $gender);
+            $competition->addEvent($event);
             break;
         case 'result':
-            if(!$currentEventAvailable) continue;
-            $result = Result::createFromLine($line);
+            $firstName = $competitionParser->getFirstNameFromLine($line);
+            $lastName = $competitionParser->getLastNameFromLine($line);
+            $yearOfBirth = $competitionParser->getYearOfBirthFromLine($line);
+            $times = $competitionParser->getTimesFromLine($line);
+            $result = Result::create($firstName, $lastName, $yearOfBirth, $times);
+
             $competition->addResultToCurrentEvent($result);
             break;
-        default:
-//            print_r('Could not parse this line: ' . $line . PHP_EOL);
-//            sleep(1);
     }
 }
 try {
-//    printCompetition($competition);
+    printCompetition($competition);
     $dbHelper = new DbHelper();
     $dbHelper->saveCompetitionToDatabase($competition);
 } catch (Exception $e) {

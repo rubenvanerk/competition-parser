@@ -18,15 +18,11 @@ class Event
         $this->results = [];
     }
 
-    /**
-     * @param string $line
-     * @return Event|null
-     */
-    public static function createFromLine($line)
+    public static function create($eventId, $gender)
     {
-        $eventId = getEventId($line);
-        $gender = getGender($line);
-        if ($eventId && $gender) return new Event($eventId, $gender);
+        if($eventId && $gender) {
+            return new Event($eventId, $gender);
+        }
         return null;
     }
 

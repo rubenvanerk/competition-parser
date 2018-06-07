@@ -12,7 +12,8 @@ class DbHelper
         $this->connection = new PDO(
             'pgsql:host=' . $dbConfig['host'] . ';port=' . $dbConfig['port'] . ';dbname=' . $dbConfig['name'],
             $dbConfig['username'],
-            $dbConfig['password']
+            $dbConfig['password'],
+            array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8")
         );
     }
 
@@ -50,6 +51,7 @@ class DbHelper
      * @param Result $result
      * @param Event $event
      * @return int athlete id
+     * @throws Exception
      */
     private function getOrInsertAthlete($result, $event) {
         $stmt = $this->connection->prepare("SELECT * FROM rankings_athlete WHERE LOWER(last_name) = LOWER('{$result->getEscapedLastName()}')
@@ -69,9 +71,14 @@ class DbHelper
      * @param Result $result
      * @param Event $event
      * @return mixed
+     * @throws Exception
      */
     private function insertAthlete($result, $event) {
         $slug = slugify($result->getFirstName() . " " . $result->getLastName());
+        if(!$slug) {
+            throw new Exception("Created slug is empty for " . $result->getFirstName() . " " . $result->getLastName());
+        }
+        print_r(slugify($result->getFirstName() . " " . $result->getLastName()) . PHP_EOL);
 
         $inserted = false;
 

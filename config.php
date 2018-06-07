@@ -17,12 +17,12 @@ return array(
         'port' => '5432',
     ],
     'competition' => [
-        'filename' => 'Deutschland Pokal 2017.pdf',
+        'filename' => 'Deutschland Pokal 2017 (2).pdf',
         'name' => 'Deutchland Pokal 2017',
         'date' => '2017-12-02',
         'location' => 'Warendorf',
         'clocktype' => 1, // 0 = unknown, 1 = electronic, 2 = handclocked
-        'type' => 'german', // options: splash, german
+        'type' => 'German', // options: Splash, German
     ],
     'parser' => [
         'splash' => [

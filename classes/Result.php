@@ -6,7 +6,6 @@ class Result
     private $lastName;
     private $yearOfBirth;
     private $times;
-    private $originalLine;
 
     /**
      * Result constructor.
@@ -14,32 +13,20 @@ class Result
      * @param string $lastName
      * @param int $yearOfBirth last two digits of the year
      * @param array $times
-     * @param $line
      */
-    public function __construct($firstName, $lastName, $yearOfBirth, $times, $line)
+    public function __construct($firstName, $lastName, $yearOfBirth, $times)
     {
         $this->firstName = $firstName;
         $this->lastName = $lastName;
         $this->yearOfBirth = $yearOfBirth;
         $this->times = $times;
-        $this->originalLine = $line;
     }
 
-    /**
-     * @param $line
-     * @return null|Result
-     */
-    public static function createFromLine($line)
+    public static function create($firstName, $lastName, $yearOfBirth, $times)
     {
-        $firstName = getFirstNameFromLine($line);
-        $lastName = getLastNameFromLine($line);
-        $yearOfBirth = getYearOfBirthFromLine($line);
-        $times = getTimesFromLine($line);
         if($firstName && $lastName && $yearOfBirth && $times) {
-            return new Result($firstName, $lastName, $yearOfBirth, $times, $line);
+            return new Result($firstName, $lastName, $yearOfBirth, $times);
         }
-        var_dump($line);
-        sleep(2);
         return null;
     }
 
