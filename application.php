@@ -37,7 +37,7 @@ foreach ($lines as $line) {
     }
 }
 try {
-    printCompetition($competition);
+//    printCompetition($competition);
     $dbHelper = new DbHelper();
     $dbHelper->saveCompetitionToDatabase($competition);
 } catch (Exception $e) {

@@ -10,10 +10,9 @@ class DbHelper
         $this->config = include('config.php');
         $dbConfig = $this->config['database'];
         $this->connection = new PDO(
-            'pgsql:host=' . $dbConfig['host'] . ';port=' . $dbConfig['port'] . ';dbname=' . $dbConfig['name'],
+            'pgsql:host=' . $dbConfig['host'] . ';port=' . $dbConfig['port'] . ';dbname=' . $dbConfig['name'] . ';options=\'--client_encoding=UTF8\'',
             $dbConfig['username'],
-            $dbConfig['password'],
-            array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8")
+            $dbConfig['password']
         );
     }
 
@@ -25,6 +24,7 @@ class DbHelper
     {
         $competitionId = $this->saveCompetition();
         $competition->setCompetitionId($competitionId);
+        print_r($competitionId);
         foreach ($competition->getEvents() as $event) {
             foreach ($event->getResults() as $result) {
                 $this->saveResult($result, $event, $competition);
@@ -78,7 +78,6 @@ class DbHelper
         if(!$slug) {
             throw new Exception("Created slug is empty for " . $result->getFirstName() . " " . $result->getLastName());
         }
-        print_r(slugify($result->getFirstName() . " " . $result->getLastName()) . PHP_EOL);
 
         $inserted = false;
 
@@ -86,9 +85,12 @@ class DbHelper
             $stmt = $this->connection->prepare("SELECT first_name, last_name FROM rankings_athlete WHERE slug = '$slug'");
             $stmt->execute();
             if (!$stmt->fetch()) {
-                $this->connection->prepare("INSERT INTO rankings_athlete
+                $stmtRes = $this->connection->prepare("INSERT INTO rankings_athlete
                         VALUES (DEFAULT, '{$result->getFirstName()}', '{$result->getEscapedLastName()}',
                         '{$result->getYearOfBirth()}', '{$event->getGender()}', '{$slug}')")->execute();
+                if(!$stmtRes)
+                    print_r($result->getFirstName() . " " . $result->getLastName() . PHP_EOL);
+                sleep(4);
                 $inserted = true;
             } else {
                 $lastChar = substr($slug, -1);

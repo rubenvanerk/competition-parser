@@ -1,9 +1,6 @@
 <?php
 $config = include('config.php');
 
-const EVENT_TYPE_SPLASH = 'splash';
-const EVENT_TYPE_GERMAN = 'german';
-
 /**
  * Scan the api path, recursively including all PHP files
  *
@@ -29,8 +26,17 @@ function require_all($dir, $depth = 0)
  */
 function slugify($string)
 {
-    return strtolower(trim(preg_replace('~[^0-9a-z]+~i', '-', html_entity_decode(preg_replace('~&([a-z]{1,2})(?:acute|cedil|circ|grave|lig|orn|ring|slash|th|tilde|uml);~i', '$1', htmlentities($string, ENT_QUOTES, 'UTF-8')), ENT_QUOTES, 'UTF-8')), '-'));
-}
+    $string = htmlentities(mb_convert_encoding($string, 'UTF-8', 'ASCII'), ENT_SUBSTITUTE, "UTF-8");
+
+    $pattern = '~&([a-z]{1,2})(?:acute|cedil|circ|grave|lig|orn|ring|slash|th|tilde|uml);~i';
+    $string = preg_replace($pattern, '$1', $string);
+
+    $string = html_entity_decode($string, ENT_QUOTES, 'UTF-8');
+
+    $pattern = '~[^0-9a-z]+~i';
+    $string = preg_replace($pattern, '-', $string);
+
+    return strtolower(trim($string, '-'));}
 
 /**
  * @param $time

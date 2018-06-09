@@ -44,7 +44,7 @@ abstract class CompetitionParser
      */
     public function getEventIdFromLine($line)
     {
-        $disciplines = $GLOBALS['config']['parser']['disciplines'];
+        $disciplines = $GLOBALS['config']['parser'][strtolower(EVENT_TYPE)]['disciplines'];
         $discipline = 0;
         foreach ($disciplines as $eventId) {
             foreach ($eventId as $description) {

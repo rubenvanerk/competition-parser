@@ -35,7 +35,8 @@ class Result
      */
     public function getLastName()
     {
-        return $this->lastName;
+        return mb_convert_encoding($this->lastName, 'UTF-8', 'ASCII');
+;
     }
 
     /**
@@ -43,7 +44,7 @@ class Result
      */
     public function getFirstName()
     {
-        return $this->firstName;
+        return mb_convert_encoding($this->firstName, 'UTF-8', 'ASCII');
     }
 
     /**
