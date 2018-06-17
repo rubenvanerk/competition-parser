@@ -24,7 +24,6 @@ class DbHelper
     {
         $competitionId = $this->saveCompetition();
         $competition->setCompetitionId($competitionId);
-        print_r($competitionId);
         foreach ($competition->getEvents() as $event) {
             foreach ($event->getResults() as $result) {
                 $this->saveResult($result, $event, $competition);
@@ -54,8 +53,9 @@ class DbHelper
      * @throws Exception
      */
     private function getOrInsertAthlete($result, $event) {
-        $stmt = $this->connection->prepare("SELECT * FROM rankings_athlete WHERE LOWER(last_name) = LOWER('{$result->getEscapedLastName()}')
-                                AND LOWER(first_name) = LOWER('{$result->getFirstName()}') AND year_of_birth = {$result->getYearOfBirth()}");
+        $sql = "SELECT * FROM rankings_athlete WHERE LOWER(name) = LOWER('{$result->getName()}')";
+        if($result->getYearOfBirth() !== 'unknown') $sql .= " AND year_of_birth = '{$result->getYearOfBirth()}'";
+        $stmt = $this->connection->prepare($sql);
         $stmt->execute();
 
         $row = $stmt->fetch();
@@ -74,23 +74,22 @@ class DbHelper
      * @throws Exception
      */
     private function insertAthlete($result, $event) {
-        $slug = slugify($result->getFirstName() . " " . $result->getLastName());
+        $slug = slugify($result->getName());
         if(!$slug) {
-            throw new Exception("Created slug is empty for " . $result->getFirstName() . " " . $result->getLastName());
+            throw new Exception("Created slug is empty for " . $result->getName());
         }
 
         $inserted = false;
 
         while(!$inserted) {
-            $stmt = $this->connection->prepare("SELECT first_name, last_name FROM rankings_athlete WHERE slug = '$slug'");
+            $stmt = $this->connection->prepare("SELECT * FROM rankings_athlete WHERE slug = '$slug'");
             $stmt->execute();
             if (!$stmt->fetch()) {
                 $stmtRes = $this->connection->prepare("INSERT INTO rankings_athlete
-                        VALUES (DEFAULT, '{$result->getFirstName()}', '{$result->getEscapedLastName()}',
-                        '{$result->getYearOfBirth()}', '{$event->getGender()}', '{$slug}')")->execute();
+                        VALUES (DEFAULT, NULL, NULL,
+                        {$result->getYearOfBirthOrNull()}, '{$event->getGender()}', '{$slug}', '{$result->getName()}')")->execute();
                 if(!$stmtRes)
-                    print_r($result->getFirstName() . " " . $result->getLastName() . PHP_EOL);
-                sleep(4);
+                    throw new Exception("Failed to insert: " . $result->getName());
                 $inserted = true;
             } else {
                 $lastChar = substr($slug, -1);
@@ -104,13 +103,7 @@ class DbHelper
             }
         }
 
-        $stmt = $this->connection->prepare("SELECT * FROM rankings_athlete WHERE LOWER(last_name) = LOWER('{$result->getEscapedLastName()}')
-                                AND LOWER(first_name) = LOWER('{$result->getFirstName()}') AND year_of_birth = {$result->getYearOfBirth()}");
-        $stmt->execute();
-        $row = $stmt->fetch();
-        $athleteId = $row[0];
-
-        return $athleteId;
+        return $this->connection->lastInsertId();
     }
 
     private function saveCompetition()

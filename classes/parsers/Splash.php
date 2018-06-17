@@ -51,6 +51,15 @@ class Splash extends CompetitionParser
         return trim(utf8_encode($matches[0]));
     }
 
+    /**
+     * @param $line
+     * @return string
+     */
+    function getNameFromLine($line)
+    {
+        return $this->getFirstNameFromLine($line) . " " . $this->getLastNameFromLine($line);
+    }
+
 
     /**
      * @param string line

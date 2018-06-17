@@ -70,6 +70,7 @@ abstract class CompetitionParser
     /**
      * @param string $line
      * @return string
+     * @deprecated use getNameFromLine()
      */
     public function getFirstNameFromLine($line)
     {
@@ -79,9 +80,18 @@ abstract class CompetitionParser
     /**
      * @param string $line
      * @return string
+     * @deprecated use getNameFromLine()
      */
     function getLastNameFromLine($line)
     {
+        return '';
+    }
+
+    /**
+     * @param $line
+     * @return string
+     */
+    function getNameFromLine($line) {
         return '';
     }
 

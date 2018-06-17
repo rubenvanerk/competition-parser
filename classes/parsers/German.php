@@ -55,6 +55,15 @@ class German extends CompetitionParser
         return $lastName;
     }
 
+    /**
+     * @param $line
+     * @return string
+     */
+    function getNameFromLine($line)
+    {
+        return $this->getFirstNameFromLine($line) . " " . $this->getLastNameFromLine($line);
+    }
+
 
     /**
      * @param string line

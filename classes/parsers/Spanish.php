@@ -1,6 +1,6 @@
 <?php
 
-class Splash extends CompetitionParser
+class Spanish extends CompetitionParser
 {
     private static $_instance;
 
@@ -15,8 +15,8 @@ class Splash extends CompetitionParser
 
     public function getLineType($line)
     {
-        if ($this->lineContains($line, $GLOBALS['config']['parser']['splash']['event_signifiers'])
-            && !$this->lineContains($line, $GLOBALS['config']['parser']['splash']['event_designifiers'])) {
+        if ($this->lineContains($line, $GLOBALS['config']['parser']['spanish']['event_signifiers'])
+            && !$this->lineContains($line, $GLOBALS['config']['parser']['spanish']['event_designifiers'])) {
             return 'event';
         } elseif ($this->hasValidResult($line)) return 'result';
         return '';
@@ -24,8 +24,8 @@ class Splash extends CompetitionParser
 
     private function hasValidResult($line)
     {
-        $hasResult = preg_match("/[0-9]{2}\.[0-9]{2}/", $line);
-        $isValid = !$this->lineContains($line, $GLOBALS['config']['parser']['splash']['result_rejectors']);
+        $hasResult = preg_match("/[0-9]{2}:[0-9]{2}:[0-9]{2}/", $line);
+        $isValid = !$this->lineContains($line, $GLOBALS['config']['parser']['spanish']['result_rejectors']);
         return $hasResult && $isValid;
     }
 
@@ -35,9 +35,19 @@ class Splash extends CompetitionParser
      */
     public function getFirstNameFromLine($line)
     {
-        $matches = array();
-        preg_match('/(\s?[A-Z][a-z\x{0040}-\x{00ff}]+-?)+/', utf8_decode($line), $matches);
-        return trim(utf8_encode($matches[0]));
+        $name = array();
+        preg_match('/[0-9]{4}\s[A-Z]+/', utf8_decode($line), $name);
+        print_r(utf8_decode($line) . PHP_EOL);
+        var_dump($name);
+        sleep(3);
+        if($name) {
+            $firstName = trim($name[0]);
+            return trim($firstName);
+        } else {
+            preg_match('/,\s?([A-Z\x{0090}-\x{00ff}]+-?\.?\s)+/', utf8_decode($line), $name);
+            $firstName = substr($name[0], 1);
+            return trim($firstName);
+        }
     }
 
     /**
@@ -46,11 +56,26 @@ class Splash extends CompetitionParser
      */
     function getLastNameFromLine($line)
     {
-        $matches = array();
-        preg_match('/(\s\'?[a-z]+)*((\s?[A-Z\x{00C0}-\x{00DF}]{2,}\s?)+([\']\w+\s)?-?)+/', utf8_decode($line), $matches);
-        return trim(utf8_encode($matches[0]));
+        $name = array();
+        preg_match('/\s{2}(\s?[A-Z\x{0090}-\x{00ff}]+-?)+/', utf8_decode($line), $name);
+        if($name) {
+            $lastName = trim($name[0]);
+            return trim($lastName);
+        } else {
+            preg_match('/(\s?[A-Z\x{0090}-\x{00ff}]+-?)+/', utf8_decode($line), $name);
+            $lastName = trim($name[0]);
+            return trim($lastName);
+        }
     }
 
+    /**
+     * @param $line
+     * @return string
+     */
+    function getNameFromLine($line)
+    {
+        return $this->getFirstNameFromLine($line) . " " . $this->getLastNameFromLine($line);
+    }
 
     /**
      * @param string line
@@ -71,6 +96,11 @@ class Splash extends CompetitionParser
     {
         $times = array();
         preg_match('/[0-9]{0,2}[:]?[0-9]{1,2}[.][0-9]{2}/', $line, $times);
+        $i = 0;
+        foreach ($times as $time) {
+            $times[$i] = $time[5] = ".";
+            $i++;
+        }
         return $times;
     }
 }

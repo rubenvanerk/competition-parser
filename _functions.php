@@ -67,18 +67,18 @@ function printCompetition($competition)
     print_r($GLOBALS['config']['competition']);
     sleep(1);
     foreach ($competition->getEvents() as $event) {
-        print_r($GLOBALS['config']['parser']['disciplines'][$event->getId()][0] . " " . $event->getGenderName() . PHP_EOL);
-//        usleep(400000);
+        print_r($GLOBALS['config']['parser']['splash']['disciplines'][$event->getId()][0] . " " . $event->getGenderName() . PHP_EOL);
+        usleep(400000);
     }
-//    usleep(400000);
+    usleep(400000);
     foreach ($competition->getEvents() as $event) {
         print_r(PHP_EOL);
-        print_r($GLOBALS['config']['parser']['disciplines'][$event->getId()][0] . " " . $event->getGenderName() . PHP_EOL);
-//        usleep(400000);
+        print_r($GLOBALS['config']['parser']['splash']['disciplines'][$event->getId()][0] . " " . $event->getGenderName() . PHP_EOL);
+        usleep(400000);
         foreach ($event->getResults() as $result) {
             if(is_null($result)) var_dump($result);
-            print_r($result->getYearOfBirth() . " " . $result->getFirstName() . " " . $result->getLastName() . " " . $result->getFirstTime() . PHP_EOL);
-//            usleep(200000);
+            print_r($result->getYearOfBirth() . " " . $result->getName() . " " . $result->getFirstTime() . PHP_EOL);
+            usleep(200000);
         }
     }
 }

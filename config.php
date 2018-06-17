@@ -10,12 +10,13 @@ return array(
         'port' => getenv('DB_PARSER_PORT'),
     ],
     'competition' => [
-        'filename' => 'Deutschland Pokal 2017 (2).pdf',
-        'name' => 'Deutschland Pokal 2017',
-        'date' => '2017-12-02',
-        'location' => 'Warendorf',
-        'clocktype' => 1, // 0 = unknown, 1 = electronic, 2 = handclocked
-        'type' => 'German', // options: Splash, German
+        'filename' => 'ripcurlrescue2018.csv',
+        'filetype' => 'csv',
+        'name' => 'Rip Curl Rescue 2018',
+        'date' => '2018-05-18',
+        'location' => 'Cannes',
+        'clocktype' => 0, // 0 = unknown, 1 = electronic, 2 = handclocked
+        'type' => 'French', // options: Splash, German, Spanish, French
     ],
     'parser' => [
         'splash' => [
@@ -60,9 +61,51 @@ return array(
                 14 => ["50 m pop met vliezen"],
             ]
         ],
+        'spanish' => [
+            'event_signifiers' => ['masculino', 'femenino'],
+            'event_designifiers' => ['DISKWALIFICATIE CODES'], // signifies a line is definitely not an event line
+            'result_rejectors' => ['00:00:00'],
+            'disciplines' => [
+                1 => ["100 m. remolque de maniquí"],
+                2 => ["50 m. remolque de maniquí"],
+                3 => ["200 m. natación con obstáculos"],
+                4 => ["100 m. socorrista"],
+                5 => ["100 m. combinada de salvamento"],
+                6 => ["200 m. supersocorrista"],
+                7 => ["50 m obstacle swim"],
+                8 => ["50 m free style"],
+                9 => ["50 m freestyle with fins"],
+                10 => ["50 m manikin"],
+                11 => ["50 m slepen"],
+                12 => ["25 m pop"],
+                13 => ["50 m vrij met torpedo"],
+                14 => ["50 m pop met vliezen"],
+            ]
+        ],
+        'french' => [
+            'event_signifiers' => ['Dames', 'Messieurs'],
+            'event_designifiers' => [], // signifies a line is definitely not an event line
+            'result_rejectors' => ['F/DQ'],
+            'disciplines' => [
+                1 => ["100 m Man. Palmes"],
+                2 => ["50 m Man."],
+                3 => ["200 m Obstacles"],
+                4 => ["100 m Bouée Tube"],
+                5 => ["100 m Combiné"],
+                6 => ["200 m SLS"],
+                7 => ["50 m obstacle swim nope"],
+                8 => ["50 m free style nope"],
+                9 => ["50 m freestyle with nope"],
+                10 => ["50 m nope"],
+                11 => ["50 m nope"],
+                12 => ["25 m nope"],
+                13 => ["50 m nope met torpedo"],
+                14 => ["50 m nope met vliezen"],
+            ]
+        ],
         'genders' => [
-            'male_signifiers' => ['boys', 'men', 'heren', 'messieurs', 'garçons', 'jongens'],
-            'female_signifiers' => ['women', 'dames', 'filles', 'meisjes'],
+            'male_signifiers' => ['Messieurs'],
+            'female_signifiers' => ['Dames'],
         ]
     ]
 );
