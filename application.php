@@ -10,12 +10,26 @@ define("EVENT_TYPE", $config['competition']['type']);
 
 $competition = new Competition();
 
-$parser = new \Smalot\PdfParser\Parser();
-$pdf = $parser->parseFile($config['pdf_folder'] . $config['competition']['filename']);
 
 $competitionParser = CompetitionParser::getInstance();
+$fileName = $config['pdf_folder'] . $config['competition']['filename'];
 
-$lines = explode("\n", $pdf->getText());
+switch ($config['competition']['filetype']) {
+    case 'csv':
+        $lines = file($fileName, FILE_IGNORE_NEW_LINES);
+        define('ENCODING', "UTF-8");
+        break;
+    case 'pdf':
+        $parser = new \Smalot\PdfParser\Parser();
+        $pdf = $parser->parseFile($fileName);
+        $lines = explode("\n", $pdf->getText());
+        define('ENCODING', "ASCII");
+        break;
+    default:
+        print_r('SET FILETYPE');
+        break;
+}
+
 foreach ($lines as $line) {
     $lineType = $competitionParser->getLineType($line);
     switch ($lineType) {
@@ -26,11 +40,10 @@ foreach ($lines as $line) {
             $competition->addEvent($event);
             break;
         case 'result':
-            $firstName = $competitionParser->getFirstNameFromLine($line);
-            $lastName = $competitionParser->getLastNameFromLine($line);
+            $name = $competitionParser->getNameFromLine($line);
             $yearOfBirth = $competitionParser->getYearOfBirthFromLine($line);
             $times = $competitionParser->getTimesFromLine($line);
-            $result = Result::create($firstName, $lastName, $yearOfBirth, $times);
+            $result = Result::create($name, $yearOfBirth, $times);
 
             $competition->addResultToCurrentEvent($result);
             break;
