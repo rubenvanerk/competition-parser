@@ -113,7 +113,6 @@ abstract class CompetitionParser
         return [];
     }
 
-
     /**
      * checks if any of the values in array occurs in string
      * @param string $line
@@ -126,6 +125,15 @@ abstract class CompetitionParser
             if (stripos($line, $needle) !== false) return true;
         }
         return false;
+    }
+
+    /**
+     * @param array $lines
+     * @param int $type
+     * @return array
+     */
+    function createUsableLines($lines, $type) {
+        return $lines;
     }
 
 }

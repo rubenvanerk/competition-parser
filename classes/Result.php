@@ -45,7 +45,6 @@ class Result
         return $this->yearOfBirth;
     }
 
-
     /**
      * @return int
      */
@@ -53,6 +52,14 @@ class Result
     {
         if($this->yearOfBirth == 'unknown') return "NULL";
         return "'$this->yearOfBirth'";
+    }
+
+    /**
+     * @return array
+     */
+    public function getTimes()
+    {
+        return $this->times;
     }
 
     /**

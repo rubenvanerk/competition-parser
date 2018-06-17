@@ -39,11 +39,14 @@ class DbHelper
      */
     private function saveResult($result, $event, $competition)
     {
-        $time = toSqlInterval($result->getFirstTime());
         $athleteId = $this->getOrInsertAthlete($result, $event);
-        $stmt = $this->connection->prepare("INSERT INTO rankings_individualresult 
+
+        foreach($result->getTimes() as $time) {
+            $time = toSqlInterval($time);
+            $stmt = $this->connection->prepare("INSERT INTO rankings_individualresult 
               VALUES (DEFAULT, '{$time}', '{$athleteId}', '{$competition->getId()}', '{$event->getId()}')");
-        $stmt->execute();
+            $stmt->execute();
+        }
     }
 
     /**
@@ -54,7 +57,7 @@ class DbHelper
      */
     private function getOrInsertAthlete($result, $event) {
         $sql = "SELECT * FROM rankings_athlete WHERE LOWER(name) = LOWER('{$result->getName()}')";
-        if($result->getYearOfBirth() !== 'unknown') $sql .= " AND year_of_birth = '{$result->getYearOfBirth()}'";
+        if($result->getYearOfBirth() !== 'unknown') $sql .= " AND year_of_birth = {$result->getYearOfBirth()}";
         $stmt = $this->connection->prepare($sql);
         $stmt->execute();
 

@@ -30,6 +30,8 @@ switch ($config['competition']['filetype']) {
         break;
 }
 
+$lines = $competitionParser->createUsableLines($lines, $config['competition']['line_conversion']);
+
 foreach ($lines as $line) {
     $lineType = $competitionParser->getLineType($line);
     switch ($lineType) {
@@ -50,9 +52,9 @@ foreach ($lines as $line) {
     }
 }
 try {
-//    printCompetition($competition);
-    $dbHelper = new DbHelper();
-    $dbHelper->saveCompetitionToDatabase($competition);
+    printCompetition($competition);
+//    $dbHelper = new DbHelper();
+//    $dbHelper->saveCompetitionToDatabase($competition);
 } catch (Exception $e) {
     print_r('Something terrible happened' . PHP_EOL);
     print_r($e->getMessage());

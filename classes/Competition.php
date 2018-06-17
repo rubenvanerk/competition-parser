@@ -16,7 +16,7 @@ class Competition
      */
     public function addEvent($event)
     {
-        if (get_class($event) == 'Event'
+        if (!is_null($event) && get_class($event) == 'Event'
             && $this->currentEventIsNullOrDifferent($event)) {
             $this->events[] = $event;
             return true;

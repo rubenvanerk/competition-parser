@@ -10,13 +10,14 @@ return array(
         'port' => getenv('DB_PARSER_PORT'),
     ],
     'competition' => [
-        'filename' => 'ripcurlrescue2018.csv',
-        'filetype' => 'csv',
-        'name' => 'Rip Curl Rescue 2018',
-        'date' => '2018-05-18',
-        'location' => 'Cannes',
+        'filename' => 'Open Spanish Nationals 2018 2018-05-05.pdf',
+        'filetype' => 'pdf',
+        'name' => 'Open Spanish National Championships 2018',
+        'date' => '2018-05-05',
+        'location' => 'Madrid',
         'clocktype' => 0, // 0 = unknown, 1 = electronic, 2 = handclocked
-        'type' => 'French', // options: Splash, German, Spanish, French
+        'type' => 'Spanish', // options: Splash, German, Spanish, French
+        'line_conversion' => 1, // options: competition specific, see competition class convertLines()
     ],
     'parser' => [
         'splash' => [
@@ -62,8 +63,8 @@ return array(
             ]
         ],
         'spanish' => [
-            'event_signifiers' => ['masculino', 'femenino'],
-            'event_designifiers' => ['DISKWALIFICATIE CODES'], // signifies a line is definitely not an event line
+            'event_signifiers' => ['masculino', 'femenino', 'm.'],
+            'event_designifiers' => ['Elim.T'], // signifies a line is definitely not an event line
             'result_rejectors' => ['00:00:00'],
             'disciplines' => [
                 1 => ["100 m. remolque de maniquí"],
@@ -71,7 +72,7 @@ return array(
                 3 => ["200 m. natación con obstáculos"],
                 4 => ["100 m. socorrista"],
                 5 => ["100 m. combinada de salvamento"],
-                6 => ["200 m. supersocorrista"],
+                6 => ["200 m. supersocorrista", "200 m. súper socorrista"],
                 7 => ["50 m obstacle swim"],
                 8 => ["50 m free style"],
                 9 => ["50 m freestyle with fins"],
@@ -80,6 +81,10 @@ return array(
                 12 => ["25 m pop"],
                 13 => ["50 m vrij met torpedo"],
                 14 => ["50 m pop met vliezen"],
+            ],
+            'genders' => [
+                'male_signifiers' => ['masculino', 'M'],
+                'female_signifiers' => ['femenino', 'F']
             ]
         ],
         'french' => [
@@ -101,11 +106,11 @@ return array(
                 12 => ["25 m nope"],
                 13 => ["50 m nope met torpedo"],
                 14 => ["50 m nope met vliezen"],
+            ],
+            'genders' => [
+                'male_signifiers' => 'Dames',
+                'female_signifiers' => 'Messieurs'
             ]
-        ],
-        'genders' => [
-            'male_signifiers' => ['Messieurs'],
-            'female_signifiers' => ['Dames'],
         ]
     ]
 );
