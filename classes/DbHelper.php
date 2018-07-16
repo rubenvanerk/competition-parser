@@ -25,7 +25,9 @@ class DbHelper
         $competitionId = $this->saveCompetition();
         $competition->setCompetitionId($competitionId);
         foreach ($competition->getEvents() as $event) {
+            print_r("EVENTID " . $event->getId() . PHP_EOL);
             foreach ($event->getResults() as $result) {
+                print_r($result->getName() . ' ' . json_encode($result->getTimes()) . PHP_EOL);
                 $this->saveResult($result, $event, $competition);
             }
         }

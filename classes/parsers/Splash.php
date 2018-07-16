@@ -13,6 +13,17 @@ class Splash extends CompetitionParser
         return self::$_instance;
     }
 
+    /**
+     * @param $line
+     * @return string
+     */
+    public function getGenderFromLine($line)
+    {
+        if ($this->lineContains($line, $GLOBALS['config']['parser']['splash']['genders']['female_signifiers'])) return 2;
+        elseif ($this->lineContains($line, $GLOBALS['config']['parser']['splash']['genders']['male_signifiers'])) return 1;
+        return 0;
+    }
+
     public function getLineType($line)
     {
         if ($this->lineContains($line, $GLOBALS['config']['parser']['splash']['event_signifiers'])
@@ -36,7 +47,7 @@ class Splash extends CompetitionParser
     public function getFirstNameFromLine($line)
     {
         $matches = array();
-        preg_match('/(\s?[A-Z][a-z\x{0040}-\x{00ff}]+-?)+/', utf8_decode($line), $matches);
+        preg_match('/(\s?[A-Z]?[a-z\x{0060}-\x{00ff}]+-?)+/', utf8_decode($line), $matches);
         return trim(utf8_encode($matches[0]));
     }
 
@@ -80,6 +91,6 @@ class Splash extends CompetitionParser
     {
         $times = array();
         preg_match('/[0-9]{0,2}[:]?[0-9]{1,2}[.][0-9]{2}/', $line, $times);
-        return $times;
+        return [$times[0]];
     }
 }

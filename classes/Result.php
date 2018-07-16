@@ -24,6 +24,7 @@ class Result
         if($name && $yearOfBirth && $times) {
             return new Result($name, $yearOfBirth, $times);
         }
+        var_dump($name, $yearOfBirth, $times);
         return null;
     }
 

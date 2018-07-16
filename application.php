@@ -52,9 +52,9 @@ foreach ($lines as $line) {
     }
 }
 try {
-    printCompetition($competition);
-//    $dbHelper = new DbHelper();
-//    $dbHelper->saveCompetitionToDatabase($competition);
+//    printCompetition($competition);
+    $dbHelper = new DbHelper();
+    $dbHelper->saveCompetitionToDatabase($competition);
 } catch (Exception $e) {
     print_r('Something terrible happened' . PHP_EOL);
     print_r($e->getMessage());
