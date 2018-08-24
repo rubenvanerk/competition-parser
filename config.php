@@ -10,27 +10,29 @@ return array(
         'port' => getenv('DB_PARSER_PORT'),
     ],
     'competition' => [
-        'filename' => 'Italian Championships 2018 2018-07-11.pdf',
+        'filename' => 'bk-2018.pdf',
         'filetype' => 'pdf',
-        'name' => 'Italian Championships',
-        'date' => '2018-07-11',
-        'location' => 'Rome',
-        'clocktype' => 0, // 0 = unknown, 1 = electronic, 2 = handclocked
-        'type' => 'Italian', // options: Splash, German, Spanish, French
-        'line_conversion' => 0, // options: competition specific, see competition class convertLines()
+        'name' => 'Belgisch Kampioenschap Reddend Zwemmen 2018',
+        'date' => '2018-01-17',
+        'location' => 'Seraing, Belgium',
+        'clocktype' => 0, // 0 = unknown, 1 = electronic, 2 = hadndclocked
+        'type' => 'Splash', // options: Splash, German, Spanish, French
+        'line_conversion' => false, // options: competition specific, see competition class convertLines()
     ],
     'parser' => [
         'splash' => [
             'event_signifiers' => ['Programmanr', 'Event'],
             'event_designifiers' => ['DISKWALIFICATIE CODES'], // signifies a line is definitely not an event line
-            'result_rejectors' => ['DSQ', 'disq', 'DNS', 'DC 20', 'DC 1', 'Selectietijd', 'Splash Meet Manager', 'DNF'],
+            'result_rejectors' => ['DSQ', 'disq', 'DNS', 'DC 20', 'DC 1', 'Selectietijd', 'Splash Meet Manager', 'DNF', 'BR CAD', 'BR OPEN', 'BR JUN', 'BR M', 'BR BEN', 'BR MIN'],
+            'event_rejectors' => ['Jongens', 'Meisjes'],
+            'parse_yob' => 1,
             'disciplines' => [
-                1 => ["100m manikin carry with fins", "100m popduiken met zwemvliezen", "100 m. remolque de maniquí", "100m manikin (ring) carry with fins", "100 m Manikin Carry with Fins", "100m mannequin palmes", "100 manikin carry with fins"],
-                2 => ["50m manikin carry", "50m popduiken", "50 m. remolque de maniquí", "50m Mannequin", "50 manikin carry"],
-                3 => ["200m obstacle swim", "200m hinderniszwemmen", "200 m. natación con obstáculos", "200 m Obstacle Swim", "200m Obstacles"],
-                4 => ["100m manikin tow with fins", "100m lifesaver", "100 m. socorrista", "100 m Manikin Tow with Fins", "100 manikin tow with fins", "100m Manikin Tow with Fins"],
-                5 => ["100m rescue medley", "100m reddingswisselslag", "100 m. combinada de salvamento", "100 m Rescue Medley", "100m Combiné"],
-                6 => ["200m superlifesaver", "200 m. supersocorrista", "200m super lifesaver", "200 m Super Lifesaver"],
+                1 => ["100m manikin carry with fins", "100m popduiken met zwemvliezen", "100 m. remolque de maniquí", "100m manikin (ring) carry with fins", "100 m Manikin Carry with Fins", "100m mannequin palmes", "100 manikin carry with fins", "A2-Popredden met vinnen"],
+                2 => ["50m manikin carry", "50m popduiken", "50 m. remolque de maniquí", "50m Mannequin", "50 manikin carry", "A4-Popredden"],
+                3 => ["200m obstacle swim", "200m hinderniszwemmen", "200 m. natación con obstáculos", "200 m Obstacle Swim", "200m Obstacles", "A1-Hinderniszwemmen"],
+                4 => ["100m manikin tow with fins", "100m lifesaver", "100 m. socorrista", "100 m Manikin Tow with Fins", "100 manikin tow with fins", "100m Manikin Tow with Fins", "A5-Lifesaver"],
+                5 => ["100m rescue medley", "100m reddingswisselslag", "100 m. combinada de salvamento", "100 m Rescue Medley", "100m Combiné", "A3-Reddingscombiné"],
+                6 => ["200m superlifesaver", "200 m. supersocorrista", "200m super lifesaver", "200 m Super Lifesaver", "A6-Super Lifesaver"],
                 7 => ["50 m obstacle swim"],
                 8 => ["50 m free style"],
                 9 => ["50 m freestyle with fins"],
@@ -41,8 +43,8 @@ return array(
                 14 => ["50 m pop met vliezen"],
             ],
             'genders' => [
-                'male_signifiers' => ['Men'],
-                'female_signifiers' => ['Women']
+                'male_signifiers' => ['Men5', 'Heren'],
+                'female_signifiers' => ['Women5', 'Dames']
             ]
         ],
         'german' => [
@@ -134,6 +136,32 @@ return array(
                 11 => ["50 m slepen"],
                 12 => ["25 m pop"],
                 13 => ["50 m vrij met torpedo"],
+                14 => ["50m Manichino455 pinne"],
+            ],
+            'genders' => [
+                'male_signifiers' => ['Men'],
+                'female_signifiers' => ['Women']
+            ]
+        ],
+        'hytek' => [
+            'event_signifiers' => ['Event'],
+            'event_designifiers' => [], // signifies a line is definitely not an event line
+            'event_rejectors' => ['Under 14'], // rejects current event, results below this are not included
+            'result_rejectors' => ['SA REC', 'National:', 'APLSC:', 'WORLD:'],
+            'parse_yob' => 0,
+            'disciplines' => [
+                1 => ["100 LC Metre Fins Manikin Carry", "100 LC Meter Manikin Rescue", "100 LC Meter Manikin Carr"],
+                2 => ["50 LC Metre Manikin Carry", "50 LC Meter Manikin Rescue", "50 LC Meter Manikin Carr"],
+                3 => ["200 LC Metre Obstacle", "200 LC Metre Masters Obstacle", "200 LC Meter Obstacle", "200 LC Meter Obstacles"],
+                4 => ["100 LC Metre Fins Manikin Tow", "100 LC Meter Manikin Tow", "100 LC Meter Manikin Tow"],
+                5 => ["100 LC Metre Rescue Medley", "100 LC Meter Rescue Medley", "100 LC Meter Rescue Medle"],
+                6 => ["200 LC Metre Super Lifesaver", "200 LC Meter Super Lifesaver", "200 LC Meter Su"],
+                7 => ["50m Nuoto con ostac45oli"],
+                8 => ["50 m freeffff style"],
+                10 => ["50 m mafffnikin"],
+                11 => ["50 m slefffpen"],
+                12 => ["25 m pfffop"],
+                13 => ["50 m vrifffj met torpedo"],
                 14 => ["50m Manichino455 pinne"],
             ],
             'genders' => [

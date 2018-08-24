@@ -18,9 +18,9 @@ class Event
         $this->results = [];
     }
 
-    public static function create($eventId, $gender)
+    public static function create($eventId, $gender, $includeEvent)
     {
-        if($eventId && $gender) {
+        if($eventId && $gender && $includeEvent) {
             return new Event($eventId, $gender);
         }
         return null;

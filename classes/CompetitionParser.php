@@ -136,4 +136,11 @@ abstract class CompetitionParser
         return $lines;
     }
 
+    /**
+     * @param $line
+     * @return bool
+     */
+    function shouldIncludeEvent($line) {
+        return true;
+    }
 }

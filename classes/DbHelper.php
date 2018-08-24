@@ -113,23 +113,23 @@ class DbHelper
 
     private function saveCompetition()
     {
+        $competitionSlug = slugify($this->config['competition']['name']);
+        if(strlen($competitionSlug) >= 50) $competitionSlug = substr($competitionSlug, 0, 49);
+
         $stmt = $this->connection->prepare("INSERT INTO rankings_competition VALUES 
         (DEFAULT, 
         '{$this->config['competition']['name']}', 
         '{$this->config['competition']['date']}', 
         '{$this->config['competition']['location']}', 
         '{$this->config['competition']['clocktype']}', 
-        '" . slugify($this->config['competition']['name']) . "', 
+        '" . $competitionSlug . "', 
         'true'
         )");
         $stmt->execute();
 
-        $getCompId = $this->connection->prepare(
-            "SELECT id FROM rankings_competition 
-                      WHERE slug = '" . slugify($this->config['competition']['name']) . "'"
-        );
-        $getCompId->execute();
-        $competitionRow = $getCompId->fetch();
-        return $competitionRow[0];
+        var_dump($stmt->errorInfo());
+        sleep(5);
+
+        return $this->connection->lastInsertId();
     }
 }

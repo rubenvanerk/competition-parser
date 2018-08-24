@@ -6,6 +6,8 @@ class Splash extends CompetitionParser
 
     public static function getInstance()
     {
+        define("PARSE_YOB", $GLOBALS['config']['parser'][strtolower(self::class)]['parse_yob']);
+
         if (!(self::$_instance instanceof self)) {
             self::$_instance = new self;
         }
@@ -68,7 +70,7 @@ class Splash extends CompetitionParser
      */
     function getNameFromLine($line)
     {
-        return $this->getFirstNameFromLine($line) . " " . $this->getLastNameFromLine($line);
+        return utf8_decode($this->getFirstNameFromLine($line) . " " . $this->getLastNameFromLine($line));
     }
 
 
@@ -92,5 +94,10 @@ class Splash extends CompetitionParser
         $times = array();
         preg_match('/[0-9]{0,2}[:]?[0-9]{1,2}[.][0-9]{2}/', $line, $times);
         return [$times[0]];
+    }
+
+    function shouldIncludeEvent($line)
+    {
+        return !$this->lineContains($line, $GLOBALS['config']['parser']['splash']['event_rejectors']);
     }
 }

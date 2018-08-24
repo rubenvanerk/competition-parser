@@ -20,6 +20,8 @@ class Competition
             && $this->currentEventIsNullOrDifferent($event)) {
             $this->events[] = $event;
             return true;
+        } elseif (is_null($event)) {
+            $this->events[] = $event;
         } else {
             return false;
         }
@@ -82,6 +84,19 @@ class Competition
         elseif ($event->getGender() !== $currentEvent->getGender()
             || $event->getId() !== $currentEvent->getId()) return true;
         return false;
+    }
+
+    public function removeNullEvents()
+    {
+        $this->events = array_filter($this->events, function($var){return !is_null($var);} );
+    }
+
+    /**
+     * @return bool
+     */
+    public function hasCurrentEvent()
+    {
+        return !is_null($this->getCurrentEvent());
     }
 
 

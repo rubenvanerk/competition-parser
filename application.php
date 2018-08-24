@@ -10,7 +10,6 @@ define("EVENT_TYPE", $config['competition']['type']);
 
 $competition = new Competition();
 
-
 $competitionParser = CompetitionParser::getInstance();
 $fileName = $config['pdf_folder'] . $config['competition']['filename'];
 
@@ -33,15 +32,20 @@ switch ($config['competition']['filetype']) {
 $lines = $competitionParser->createUsableLines($lines, $config['competition']['line_conversion']);
 
 foreach ($lines as $line) {
+//    print_r($line . PHP_EOL);
+//    continue;
     $lineType = $competitionParser->getLineType($line);
     switch ($lineType) {
         case 'event':
+            print_r($line . PHP_EOL);
             $eventId = $competitionParser->getEventIdFromLine($line);
             $gender = $competitionParser->getGenderFromLine($line);
-            $event = Event::create($eventId, $gender);
+            $includeEvent = $competitionParser->shouldIncludeEvent($line);
+            $event = Event::create($eventId, $gender, $includeEvent);
             $competition->addEvent($event);
             break;
         case 'result':
+            if(!$competition->hasCurrentEvent()) continue;
             $name = $competitionParser->getNameFromLine($line);
             $yearOfBirth = $competitionParser->getYearOfBirthFromLine($line);
             $times = $competitionParser->getTimesFromLine($line);
@@ -51,6 +55,9 @@ foreach ($lines as $line) {
             break;
     }
 }
+
+$competition->removeNullEvents();
+
 try {
 //    printCompetition($competition);
     $dbHelper = new DbHelper();

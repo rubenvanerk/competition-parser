@@ -21,7 +21,7 @@ class Result
 
     public static function create($name, $yearOfBirth, $times)
     {
-        if($name && $yearOfBirth && $times) {
+        if($name && $times && (!PARSE_YOB || $yearOfBirth)) {
             return new Result($name, $yearOfBirth, $times);
         }
         var_dump($name, $yearOfBirth, $times);
