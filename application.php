@@ -21,7 +21,7 @@ switch ($config['competition']['filetype']) {
     case 'pdf':
         $parser = new \Smalot\PdfParser\Parser();
         $pdf = $parser->parseFile($fileName);
-        $lines = explode("\n", $pdf->getText());
+        $lines = $competitionParser->getLines($pdf);
         define('ENCODING', "ASCII");
         break;
     default:
@@ -32,8 +32,6 @@ switch ($config['competition']['filetype']) {
 $lines = $competitionParser->createUsableLines($lines, $config['competition']['line_conversion']);
 
 foreach ($lines as $line) {
-//    print_r($line . PHP_EOL);
-//    continue;
     $lineType = $competitionParser->getLineType($line);
     switch ($lineType) {
         case 'event':
@@ -41,7 +39,7 @@ foreach ($lines as $line) {
             $eventId = $competitionParser->getEventIdFromLine($line);
             $gender = $competitionParser->getGenderFromLine($line);
             $includeEvent = $competitionParser->shouldIncludeEvent($line);
-            $event = Event::create($eventId, $gender, $includeEvent);
+            $event = Event::create($eventId, $gender, $includeEvent, $line);
             $competition->addEvent($event);
             break;
         case 'result':
@@ -49,7 +47,7 @@ foreach ($lines as $line) {
             $name = $competitionParser->getNameFromLine($line);
             $yearOfBirth = $competitionParser->getYearOfBirthFromLine($line);
             $times = $competitionParser->getTimesFromLine($line);
-            $result = Result::create($name, $yearOfBirth, $times);
+            $result = Result::create($name, $yearOfBirth, $times, $line);
 
             $competition->addResultToCurrentEvent($result);
             break;

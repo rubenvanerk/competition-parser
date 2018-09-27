@@ -5,23 +5,25 @@ class Event
     private $eventId;
     private $gender;
     private $results;
+    private $originalLine;
 
     /**
      * Event constructor.
      * @param int $eventId
      * @param int $gender 0 = unknown, 1 = male, 2 = female
      */
-    public function __construct($eventId, $gender)
+    public function __construct($eventId, $gender, $line)
     {
         $this->eventId = $eventId;
         $this->gender = $gender;
+        $this->originalLine = $line;
         $this->results = [];
     }
 
-    public static function create($eventId, $gender, $includeEvent)
+    public static function create($eventId, $gender, $includeEvent, $line)
     {
         if($eventId && $gender && $includeEvent) {
-            return new Event($eventId, $gender);
+            return new Event($eventId, $gender, $line);
         }
         return null;
     }
@@ -56,6 +58,14 @@ class Event
     public function getGender()
     {
         return $this->gender;
+    }
+
+    /**
+     * @return string
+     */
+    public function getOriginalLine()
+    {
+        return $this->getOriginalLine();
     }
 
     public function getGenderName()

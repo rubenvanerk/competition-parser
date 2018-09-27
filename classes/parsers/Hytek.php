@@ -6,6 +6,7 @@ class Hytek extends CompetitionParser
 
     public static function getInstance()
     {
+        define("PARSE_YOB", $GLOBALS['config']['parser'][strtolower(self::class)]['parse_yob']);
         if (!(self::$_instance instanceof self)) {
             self::$_instance = new self;
         }
@@ -25,10 +26,20 @@ class Hytek extends CompetitionParser
             case 'sa-champs':
                 $i = 0;
                 foreach ($lines as $line) {
-                    if((preg_match('/^\s*[0-9]{0,2}:?[0-9]{2}\.[0-9]{2}\s?[0-9]?\s*$/', $line)) && !strpos($line, 'SA REC 2017'))
+                    if((preg_match('/\s*[0-9]{0,2}:?[0-9]{2}\.[0-9]{2}/', $line)) && !strpos($line, 'SA REC 2017'))
                     {
                         $resultLines[$i - 1] .= " " . $line;
                         $resultLines[$i] = '';
+                    }
+                    $i++;
+                }
+                break;
+            case 'irish-2018':
+                $i = 0;
+                foreach ($lines as $line) {
+                    if((preg_match('/[0-9]{0,2}:?[0-9]{2}\.[0-9]{2}/', $line)))
+                    {
+                        $resultLines[$i] .= " " . $lines[$i + 1];
                     }
                     $i++;
                 }
@@ -44,7 +55,7 @@ class Hytek extends CompetitionParser
                     $i++;
                 }
                 break;
-            default:
+            case 'something-else':
                 $i = 0;
                 foreach ($lines as $line) {
                     if(($position = strpos($line, 'Event')) && $position > 10)
@@ -102,7 +113,7 @@ class Hytek extends CompetitionParser
         $nameParts = explode(',', $name);
         $nameParts = array_map('trim', $nameParts);
         $nameParts = array_reverse($nameParts);
-        $nameParts[0] = preg_replace('/\s+/', '', $nameParts[0]);
+//        $nameParts[0] = preg_replace('/\s+/', '', $nameParts[0]);
         $name = implode(' ', $nameParts);
         return trim($name);
     }
@@ -131,5 +142,4 @@ class Hytek extends CompetitionParser
     {
         return !$this->lineContains($line, $GLOBALS['config']['parser']['hytek']['event_rejectors']);
     }
-
 }

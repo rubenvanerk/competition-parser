@@ -10,14 +10,14 @@ return array(
         'port' => getenv('DB_PARSER_PORT'),
     ],
     'competition' => [
-        'filename' => 'bk-2018.pdf',
+        'filename' => 'dcp.pdf',
         'filetype' => 'pdf',
-        'name' => 'Belgisch Kampioenschap Reddend Zwemmen 2018',
-        'date' => '2018-01-17',
-        'location' => 'Seraing, Belgium',
-        'clocktype' => 0, // 0 = unknown, 1 = electronic, 2 = hadndclocked
-        'type' => 'Splash', // options: Splash, German, Spanish, French
-        'line_conversion' => false, // options: competition specific, see competition class convertLines()
+        'name' => 'DLRG Cup Pool 2018',
+        'date' => '2018-09-22',
+        'location' => 'Warendorf, Germany',
+        'clocktype' => 1, // 0 = unknown, 1 = electronic, 2 = hadndclocked
+        'type' => 'JAuswertung', // options: Splash, German, Spanish, French
+        'line_conversion' => 'event', // options: competition specific, see competition class convertLines()
     ],
     'parser' => [
         'splash' => [
@@ -146,13 +146,13 @@ return array(
         'hytek' => [
             'event_signifiers' => ['Event'],
             'event_designifiers' => [], // signifies a line is definitely not an event line
-            'event_rejectors' => ['Under 14'], // rejects current event, results below this are not included
-            'result_rejectors' => ['SA REC', 'National:', 'APLSC:', 'WORLD:'],
+            'event_rejectors' => ['Under 14', 'Relay'], // rejects current event, results below this are not included
+            'result_rejectors' => ['SA REC', 'National:', 'APLSC:', 'WORLD:', 'Euro:', 'World: '],
             'parse_yob' => 0,
             'disciplines' => [
-                1 => ["100 LC Metre Fins Manikin Carry", "100 LC Meter Manikin Rescue", "100 LC Meter Manikin Carr"],
-                2 => ["50 LC Metre Manikin Carry", "50 LC Meter Manikin Rescue", "50 LC Meter Manikin Carr"],
-                3 => ["200 LC Metre Obstacle", "200 LC Metre Masters Obstacle", "200 LC Meter Obstacle", "200 LC Meter Obstacles"],
+                1 => ["100 LC Metre Fins Manikin Carry", "100 LC Meter Manikin Rescue", "100 LC Meter Manikin Carr", "100 LC Meter manikin carry"],
+                2 => ["50 LC Metre Manikin Carry", "50 LC Meter Manikin Rescue", "50 LC Meter Manikin Carr", "50 LC Meter mankin carry"],
+                3 => ["200 LC Metre Obstacle", "200 LC Metre Masters Obstacle", "200 LC Meter Obstacle", "200 LC Meter Obstacles", "200 LC Meter 0bstacles"],
                 4 => ["100 LC Metre Fins Manikin Tow", "100 LC Meter Manikin Tow", "100 LC Meter Manikin Tow"],
                 5 => ["100 LC Metre Rescue Medley", "100 LC Meter Rescue Medley", "100 LC Meter Rescue Medle"],
                 6 => ["200 LC Metre Super Lifesaver", "200 LC Meter Super Lifesaver", "200 LC Meter Su"],
@@ -165,8 +165,32 @@ return array(
                 14 => ["50m Manichino455 pinne"],
             ],
             'genders' => [
-                'male_signifiers' => ['Men'],
-                'female_signifiers' => ['Women']
+                'male_signifiers' => ['Men', 'Boys'],
+                'female_signifiers' => ['Women', 'Girls']
+            ]
+        ],
+        'jauswertung' => [
+            'event_signifiers' => ['Ergebnisse'],
+            'event_designifiers' => [], // signifies a line is definitely not an event line
+            'event_rejectors' => [], // rejects current event, results below this are not included
+            'result_rejectors' => [],
+            'parse_yob' => 0,
+            'disciplines' => [
+                1 => ["100m Manikin Carry with Fins"],
+                2 => ["50m Manikin Carry"],
+                3 => ["200m Obstacle Swim"],
+                4 => ["100m Manikin Tow with Fins"],
+                5 => ["100m Rescue Medley"],
+                6 => ["200m Super Lifesaver"],
+                7 => ["50m Obstacle Swim"],
+                9 => ["50m Freestyle with Fins"],
+                10 => ["50m Manikin Carry (relay leg 3)"],
+                12 => ["25m Manikin Carry"],
+                14 => ["50m Manikin Carry with Fins (relay leg 4)"],
+            ],
+            'genders' => [
+                'male_signifiers' => ['männlich'],
+                'female_signifiers' => ['weiblich']
             ]
         ]
     ]

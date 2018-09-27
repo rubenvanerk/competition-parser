@@ -21,6 +21,15 @@ abstract class CompetitionParser
     }
 
     /**
+     * @param \Smalot\PdfParser\Document $pdf
+     * @return array
+     */
+    public function getLines(\Smalot\PdfParser\Document $pdf)
+    {
+        return explode("\n", $pdf->getText());
+    }
+
+    /**
      * @param $line
      * @return bool
      */

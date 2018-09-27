@@ -5,26 +5,29 @@ class Result
     private $name;
     private $yearOfBirth;
     private $times;
+    private $originalLine;
 
     /**
      * Result constructor.
      * @param string $name
      * @param int $yearOfBirth last two digits of the year
      * @param array $times
+     * @param $line
      */
-    public function __construct($name, $yearOfBirth, $times)
+    public function __construct($name, $yearOfBirth, $times, $line)
     {
         $this->name = $name;
         $this->yearOfBirth = $yearOfBirth;
         $this->times = $times;
+        $this->originalLine = $line;
     }
 
-    public static function create($name, $yearOfBirth, $times)
+    public static function create($name, $yearOfBirth, $times, $line)
     {
         if($name && $times && (!PARSE_YOB || $yearOfBirth)) {
-            return new Result($name, $yearOfBirth, $times);
+            return new Result($name, $yearOfBirth, $times, $line);
         }
-        var_dump($name, $yearOfBirth, $times);
+        var_dump($name, $yearOfBirth, $times, $line);
         return null;
     }
 
@@ -69,5 +72,13 @@ class Result
     public function getFirstTime()
     {
         return $this->times[0];
+    }
+
+    /**
+     * @return string
+     */
+    public function getOriginalLine()
+    {
+        return $this->originalLine;
     }
 }
