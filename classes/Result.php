@@ -24,10 +24,12 @@ class Result
 
     public static function create($name, $yearOfBirth, $times, $line)
     {
+        $name = preg_replace('/\s{2,}/', '', $name);
         if($name && $times && (!PARSE_YOB || $yearOfBirth)) {
             return new Result($name, $yearOfBirth, $times, $line);
         }
         var_dump($name, $yearOfBirth, $times, $line);
+        sleep(5);
         return null;
     }
 

@@ -32,6 +32,8 @@ switch ($config['competition']['filetype']) {
 $lines = $competitionParser->createUsableLines($lines, $config['competition']['line_conversion']);
 
 foreach ($lines as $line) {
+//    print_r($line . PHP_EOL);
+//    continue;
     $lineType = $competitionParser->getLineType($line);
     switch ($lineType) {
         case 'event':

@@ -113,7 +113,13 @@ class Hytek extends CompetitionParser
         $nameParts = explode(',', $name);
         $nameParts = array_map('trim', $nameParts);
         $nameParts = array_reverse($nameParts);
-//        $nameParts[0] = preg_replace('/\s+/', '', $nameParts[0]);
+
+        $nameParts[0] = preg_replace('/\s*-/', '-', $nameParts[0]);
+        $nameParts[1] = preg_replace('/\s*-/', '-', $nameParts[1]);
+
+        $nameParts[0] = preg_replace('/\s*(?=[a-z])/', '', $nameParts[0]);
+        $nameParts[1] = preg_replace('/\s*(?=[a-z])/', '', $nameParts[1]);
+
         $name = implode(' ', $nameParts);
         return trim($name);
     }
@@ -134,8 +140,8 @@ class Hytek extends CompetitionParser
     function getTimesFromLine($line)
     {
         $times = array();
-        preg_match_all('/[0-9]{0,2}:?[0-9]{2}\.[0-9]{2}/', $line, $times);
-        return $times[0];
+        preg_match_all('/([0-9]:)?[0-9]{2}\.[0-9]{2}/', $line, $times);
+        return [end($times[0])];
     }
 
     function shouldIncludeEvent($line)

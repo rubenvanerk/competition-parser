@@ -62,6 +62,11 @@ abstract class CompetitionParser
                 }
             }
         }
+
+        if (!$discipline) {
+            print_r($line . " " . $discipline . PHP_EOL);
+        }
+
         return $discipline;
     }
 
@@ -71,8 +76,8 @@ abstract class CompetitionParser
      */
     public function getGenderFromLine($line)
     {
-        if ($this->lineContains($line, $GLOBALS['config']['parser']['genders']['female_signifiers'])) return 2;
-        elseif ($this->lineContains($line, $GLOBALS['config']['parser']['genders']['male_signifiers'])) return 1;
+        if ($this->lineContains($line, $GLOBALS['config']['parser'][strtolower(EVENT_TYPE)]['genders']['female_signifiers'])) return 2;
+        elseif ($this->lineContains($line, $GLOBALS['config']['parser'][strtolower(EVENT_TYPE)]['genders']['male_signifiers'])) return 1;
         return 0;
     }
 

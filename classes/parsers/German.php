@@ -6,6 +6,7 @@ class German extends CompetitionParser
 
     public static function getInstance()
     {
+        define("PARSE_YOB", $GLOBALS['config']['parser'][strtolower(self::class)]['parse_yob']);
         if (!(self::$_instance instanceof self)) {
             self::$_instance = new self;
         }
@@ -36,7 +37,7 @@ class German extends CompetitionParser
     public function getFirstNameFromLine($line)
     {
         $name = array();
-        preg_match('/(\s?[A-Za-z\x{0040}-\x{00ff}]+-?)+\s?,\s([A-Za-z\x{00e0}-\x{00ff}]+-?)+/', utf8_decode($line), $name);
+        preg_match('/(\s?[A-Za-z\x{0040}-\x{00ff}]+-?\'?)+\s?,\s([A-Za-z\x{0040}-\x{00ff}]+-?)+/', utf8_decode($line), $name);
         $name = trim($name[0]);
         $firstName = substr($name, strpos($name, ',') + 1);
         return trim($firstName);
@@ -49,7 +50,7 @@ class German extends CompetitionParser
     function getLastNameFromLine($line)
     {
         $name = array();
-        preg_match('/(\s?[A-Za-z\x{0040}-\x{00ff}]+-?)+\s?,\s([A-Za-z\x{00e0}-\x{00ff}]+-?)+/', utf8_decode($line), $name);
+        preg_match('/(\s?[A-Za-z\x{0040}-\x{00ff}]+-?\'?)+\s?,\s([A-Za-z\x{0040}-\x{00ff}]+-?)+/', utf8_decode($line), $name);
         $name = trim($name[0]);
         $lastName = substr($name, 0, strpos($name, ','));
         return $lastName;
@@ -61,6 +62,8 @@ class German extends CompetitionParser
      */
     function getNameFromLine($line)
     {
+//        $line = str_replace('   ,', ',', $line);
+        $line = preg_replace('!\s+!', ' ', $line);
         return $this->getFirstNameFromLine($line) . " " . $this->getLastNameFromLine($line);
     }
 

@@ -127,8 +127,19 @@ class DbHelper
         )");
         $stmt->execute();
 
-        var_dump($stmt->errorInfo());
-        sleep(5);
+        if($stmt->errorCode() == '23505') {
+            $sql = "SELECT * FROM rankings_competition WHERE name = '{$this->config['competition']['name']}'";
+            $stmt = $this->connection->prepare($sql);
+            $stmt->execute();
+
+            $row = $stmt->fetch();
+            $competitionId = $row[0];
+
+            print_r('Found competition with same name: ' . $competitionId . PHP_EOL);
+            sleep(5);
+
+            return $competitionId;
+        }
 
         return $this->connection->lastInsertId();
     }

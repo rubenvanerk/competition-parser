@@ -75,7 +75,6 @@ function printCompetition($competition)
         print_r($GLOBALS['config']['parser']['splash']['disciplines'][$event->getId()][0] . " " . $event->getGenderName() . PHP_EOL);
         usleep(400000);
         foreach ($event->getResults() as $result) {
-            if(is_null($result)) var_dump($result);
             print_r($result->getYearOfBirth() . " " . $result->getName() . " " . json_encode($result->getTimes()) . PHP_EOL);
 //            usleep(200000);
         }
