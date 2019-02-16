@@ -2,7 +2,9 @@
 
 abstract class CompetitionParser
 {
+    /** @var CompetitionParser $_instance */
     private static $_instance;
+    protected $config = [];
 
     /**
      * @return CompetitionParser
@@ -29,21 +31,23 @@ abstract class CompetitionParser
         return explode("\n", $pdf->getText());
     }
 
+
     /**
      * @param $line
      * @return bool
      */
-    private function hasValidResult($line)
-    {
-        return false;
-    }
+    abstract protected function hasValidResult($line);
 
     /**
      * @param string $line
      * @return string
      */
-    function getLineType($line)
+    public function getLineType($line)
     {
+        if ($this->lineContains($line, self::$_instance->config['event_signifiers'])
+            && !$this->lineContains($line, self::$_instance->config['event_designifiers'])) {
+            return 'event';
+        } elseif (self::$_instance->hasValidResult($line)) return 'result';
         return '';
     }
 
@@ -53,7 +57,8 @@ abstract class CompetitionParser
      */
     public function getEventIdFromLine($line)
     {
-        $disciplines = $GLOBALS['config']['parser'][strtolower(EVENT_TYPE)]['disciplines'];
+        $disciplines = self::$_instance->config['disciplines'];
+
         $discipline = 0;
         foreach ($disciplines as $eventId) {
             foreach ($eventId as $description) {
@@ -76,56 +81,28 @@ abstract class CompetitionParser
      */
     public function getGenderFromLine($line)
     {
-        if ($this->lineContains($line, $GLOBALS['config']['parser'][strtolower(EVENT_TYPE)]['genders']['female_signifiers'])) return 2;
-        elseif ($this->lineContains($line, $GLOBALS['config']['parser'][strtolower(EVENT_TYPE)]['genders']['male_signifiers'])) return 1;
+        if ($this->lineContains($line, self::$_instance->config['genders']['female_signifiers'])) return 2;
+        elseif ($this->lineContains($line, self::$_instance->config['genders']['male_signifiers'])) return 1;
         return 0;
-    }
-
-    /**
-     * @param string $line
-     * @return string
-     * @deprecated use getNameFromLine()
-     */
-    public function getFirstNameFromLine($line)
-    {
-        return '';
-    }
-
-    /**
-     * @param string $line
-     * @return string
-     * @deprecated use getNameFromLine()
-     */
-    function getLastNameFromLine($line)
-    {
-        return '';
     }
 
     /**
      * @param $line
      * @return string
      */
-    function getNameFromLine($line) {
-        return '';
-    }
+    protected abstract function getNameFromLine($line);
 
     /**
      * @param string line
      * @return string
      */
-    function getYearOfBirthFromLine($line)
-    {
-        return '';
-    }
+    protected abstract function getYearOfBirthFromLine($line);
 
     /**
      * @param string $line
      * @return array
      */
-    function getTimesFromLine($line)
-    {
-        return [];
-    }
+    protected abstract function getTimesFromLine($line);
 
     /**
      * checks if any of the values in array occurs in string
@@ -154,7 +131,5 @@ abstract class CompetitionParser
      * @param $line
      * @return bool
      */
-    function shouldIncludeEvent($line) {
-        return true;
-    }
+    protected abstract function shouldIncludeEvent($line);
 }

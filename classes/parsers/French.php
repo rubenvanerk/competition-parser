@@ -10,22 +10,42 @@ class French extends CompetitionParser
             self::$_instance = new self;
         }
 
+        self::$_instance->config = [
+            'event_signifiers' => ['Dames', 'Messieurs'],
+            'event_designifiers' => [], // signifies a line is definitely not an event line
+            'result_rejectors' => ['F/DQ'],
+            'disciplines' => [
+                1 => ["100 m Man. Palmes"],
+                2 => ["50 m Man."],
+                3 => ["200 m Obstacles"],
+                4 => ["100 m Bouée Tube"],
+                5 => ["100 m Combiné"],
+                6 => ["200 m SLS"],
+                7 => ["50 m obstacle swim nope"],
+                8 => ["50 m free style nope"],
+                9 => ["50 m freestyle with nope"],
+                10 => ["50 m nope"],
+                11 => ["50 m nope"],
+                12 => ["25 m nope"],
+                13 => ["50 m nope met torpedo"],
+                14 => ["50 m nope met vliezen"],
+            ],
+            'genders' => [
+                'male_signifiers' => 'Messieurs',
+                'female_signifiers' => 'Dames'
+            ],
+            'parse_yob' => 1
+        ];
+
+        define("PARSE_YOB", self::$_instance->config['parse_yob']);
+
         return self::$_instance;
     }
 
-    public function getLineType($line)
-    {
-        if ($this->lineContains($line, $GLOBALS['config']['parser']['french']['event_signifiers'])
-            && !$this->lineContains($line, $GLOBALS['config']['parser']['french']['event_designifiers'])) {
-            return 'event';
-        } elseif ($this->hasValidResult($line)) return 'result';
-        return '';
-    }
-
-    private function hasValidResult($line)
+    protected function hasValidResult($line)
     {
         $hasResult = preg_match("/\"[0-9]{1}'[0-9]{2}\"\"[0-9]{2}\"/", $line);
-        $isValid = !$this->lineContains($line, $GLOBALS['config']['parser']['french']['result_rejectors']);
+        $isValid = !$this->lineContains($line, $this->config['result_rejectors']);
         return $hasResult && $isValid;
     }
 
@@ -80,4 +100,11 @@ class French extends CompetitionParser
         $time = str_replace('""', '.', $time);
         return [$time];
     }
+
+    protected function shouldIncludeEvent($line)
+    {
+        return true;
+    }
+
+
 }

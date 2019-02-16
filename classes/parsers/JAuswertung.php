@@ -6,10 +6,36 @@ class JAuswertung extends CompetitionParser
 
     public static function getInstance()
     {
-        define("PARSE_YOB", $GLOBALS['config']['parser'][strtolower(self::class)]['parse_yob']);
         if (!(self::$_instance instanceof self)) {
             self::$_instance = new self;
         }
+
+        self::$_instance->config = [
+            'event_signifiers' => ['Ergebnisse'],
+            'event_designifiers' => [], // signifies a line is definitely not an event line
+            'event_rejectors' => [], // rejects current event, results below this are not included
+            'result_rejectors' => [],
+            'parse_yob' => 0,
+            'disciplines' => [
+                1 => ["100m Manikin Carry with Fins"],
+                2 => ["50m Manikin Carry"],
+                3 => ["200m Obstacle Swim"],
+                4 => ["100m Manikin Tow with Fins"],
+                5 => ["100m Rescue Medley"],
+                6 => ["200m Super Lifesaver"],
+                7 => ["50m Obstacle Swim"],
+                9 => ["50m Freestyle with Fins"],
+                10 => ["50m Manikin Carry (relay leg 3)"],
+                12 => ["25m Manikin Carry"],
+                14 => ["50m Manikin Carry with Fins (relay leg 4)"],
+            ],
+            'genders' => [
+                'male_signifiers' => ['männlich'],
+                'female_signifiers' => ['weiblich']
+            ]
+        ];       
+        
+        define("PARSE_YOB", self::$_instance->config['parse_yob']);
 
         return self::$_instance;
     }
@@ -38,30 +64,10 @@ class JAuswertung extends CompetitionParser
         return $resultLines;
     }
 
-    /**
-     * @param $line
-     * @return string
-     */
-    public function getGenderFromLine($line)
-    {
-        if ($this->lineContains($line, $GLOBALS['config']['parser']['jauswertung']['genders']['female_signifiers'])) return 2;
-        elseif ($this->lineContains($line, $GLOBALS['config']['parser']['jauswertung']['genders']['male_signifiers'])) return 1;
-        return 0;
-    }
-
-    public function getLineType($line)
-    {
-        if ($this->lineContains($line, $GLOBALS['config']['parser']['jauswertung']['event_signifiers'])
-            && !$this->lineContains($line, $GLOBALS['config']['parser']['jauswertung']['event_designifiers'])) {
-            return 'event';
-        } elseif ($this->hasValidResult($line)) return 'result';
-        return '';
-    }
-
-    private function hasValidResult($line)
+    protected function hasValidResult($line)
     {
         $hasResult = preg_match("/[0-9]:[0-9]{2}\,[0-9]{2}/", $line);
-        $isValid = !$this->lineContains($line, $GLOBALS['config']['parser']['jauswertung']['result_rejectors']);
+        $isValid = !$this->lineContains($line, $this->config['result_rejectors']);
         return $hasResult && $isValid;
     }
 
@@ -107,7 +113,7 @@ class JAuswertung extends CompetitionParser
 
     function shouldIncludeEvent($line)
     {
-        return !$this->lineContains($line, $GLOBALS['config']['parser']['jauswertung']['event_rejectors']);
+        return !$this->lineContains($line, $this->config['event_rejectors']);
     }
 
     /**
@@ -124,4 +130,5 @@ class JAuswertung extends CompetitionParser
         }
         return $lines;
     }
+
 }

@@ -6,27 +6,47 @@ class German extends CompetitionParser
 
     public static function getInstance()
     {
-        define("PARSE_YOB", $GLOBALS['config']['parser'][strtolower(self::class)]['parse_yob']);
         if (!(self::$_instance instanceof self)) {
             self::$_instance = new self;
         }
 
+        self::$_instance->config = [
+            'event_signifiers' => ['over all heats'],
+            'event_designifiers' => [], // signifies a line is definitely not an event line
+            'result_rejectors' => ['WR:', 'd.n.s.', 'DC '],
+            'disciplines' => [
+                1 => ["100m manikin carry with fins", "100m popduiken met zwemvliezen", "100 m. remolque de maniquí", "100m manikin (ring) carry with fins", "100 m Manikin Carry with Fins", "100m mannequin palmes", "100 manikin carry with fins"],
+                2 => ["50m manikin carry", "50m popduiken", "50 m. remolque de maniquí", "50m Mannequin", "50 manikin carry", "50 m manikin"],
+                3 => ["200m obstacle swim", "200m hinderniszwemmen", "200 m. natación con obstáculos", "200 m Obstacle Swim", "200m Obstacles"],
+                4 => ["100m manikin tow with fins", "100m lifesaver", "100 m. socorrista", "100 m Manikin Tow with Fins", "100 manikin tow with fins"],
+                5 => ["100m rescue medley", "100m reddingswisselslag", "100 m. combinada de salvamento", "100 m Rescue Medley", "100m Combiné"],
+                6 => ["200m superlifesaver", "200 m. supersocorrista", "200m super lifesaver", "200 m Super Lifesaver"],
+                7 => ["50 m obstacle swim"],
+                8 => ["50 m free style"],
+                9 => ["50 m freestyle with fins"],
+                10 => ["50 m manikin nope this is relay"],
+                11 => ["50 m slepen"],
+                12 => ["25 m pop"],
+                13 => ["50 m vrij met torpedo"],
+                14 => ["50 m pop met vliezen"],
+            ],
+            'genders' => [
+                'male_signifiers' => ['Men'],
+                'female_signifiers' => ['Women']
+            ],
+            'parse_yob' => 1,
+        ];
+
+        define("PARSE_YOB", self::$_instance->config['parse_yob']);
+
         return self::$_instance;
     }
 
-    public function getLineType($line)
-    {
-        if ($this->lineContains($line, $GLOBALS['config']['parser']['german']['event_signifiers'])
-            && !$this->lineContains($line, $GLOBALS['config']['parser']['german']['event_designifiers'])) {
-            return 'event';
-        } elseif ($this->hasValidResult($line)) return 'result';
-        return '';
-    }
 
-    private function hasValidResult($line)
+    protected function hasValidResult($line)
     {
         $hasResult = preg_match("/[0-9]{2},[0-9]{2}/", $line);
-        $isValid = !$this->lineContains($line, $GLOBALS['config']['parser']['german']['result_rejectors']);
+        $isValid = !$this->lineContains($line, $this->config['result_rejectors']);
         return $hasResult && $isValid;
     }
 
@@ -93,5 +113,10 @@ class German extends CompetitionParser
             $i++;
         }
         return isset($times[0]) ? $times : [];
+    }
+
+    protected function shouldIncludeEvent($line)
+    {
+        return true;
     }
 }

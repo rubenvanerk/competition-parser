@@ -10,24 +10,44 @@ class Spanish extends CompetitionParser
             self::$_instance = new self;
         }
 
+        self::$_instance->config = [
+            'event_signifiers' => ['masculino', 'femenino', 'm.'],
+            'event_designifiers' => ['Elim.T'], // signifies a line is definitely not an event line
+            'result_rejectors' => ['00:00:00'],
+            'disciplines' => [
+                1 => ["100 m. remolque de maniquí"],
+                2 => ["50 m. remolque de maniquí"],
+                3 => ["200 m. natación con obstáculos"],
+                4 => ["100 m. socorrista"],
+                5 => ["100 m. combinada de salvamento"],
+                6 => ["200 m. supersocorrista", "200 m. súper socorrista"],
+                7 => ["50 m obstacle swim"],
+                8 => ["50 m free style"],
+                9 => ["50 m freestyle with fins"],
+                10 => ["50 m manikin"],
+                11 => ["50 m slepen"],
+                12 => ["25 m pop"],
+                13 => ["50 m vrij met torpedo"],
+                14 => ["50 m pop met vliezen"],
+            ],
+            'genders' => [
+                'male_signifiers' => ['masculino', 'M'],
+                'female_signifiers' => ['femenino', 'F']
+            ],
+            'parse_yob' => 1
+        ];
+
+        define("PARSE_YOB", self::$_instance->config['parse_yob']);
+
         return self::$_instance;
     }
 
-    public function getLineType($line)
-    {
-        if ($this->lineContains($line, $GLOBALS['config']['parser']['spanish']['event_signifiers'])
-            && !$this->lineContains($line, $GLOBALS['config']['parser']['spanish']['event_designifiers'])) {
-            return 'event';
-        } elseif ($this->hasValidResult($line)) return 'result';
-        return '';
-    }
-
-    private function hasValidResult($line)
+    protected function hasValidResult($line)
     {
         $hasResult = preg_match("/[0-9]{2}:[0-9]{2}:[0-9]{2}/", $line);
         $hasComma = preg_match("/,/", $line);
         preg_match_all("/[0-9]{2}:[0-9]{2}:[0-9]{2}/", $line, $times);
-        $isValid = !$this->lineContains($line, $GLOBALS['config']['parser']['spanish']['result_rejectors']);
+        $isValid = !$this->lineContains($line, $this->config['result_rejectors']);
         if(count($times[0]) > 2) print_r($line . PHP_EOL);
         return $hasComma && $hasResult && count($times[0]) > 0 && count($times[0]) < 3 && $isValid;
     }
@@ -93,17 +113,6 @@ class Spanish extends CompetitionParser
         return $times;
     }
 
-    /**
-     * @param $line
-     * @return string
-     */
-    public function getGenderFromLine($line)
-    {
-        if ($this->lineContains($line, $GLOBALS['config']['parser']['spanish']['genders']['female_signifiers'])) return 2;
-        elseif ($this->lineContains($line, $GLOBALS['config']['parser']['spanish']['genders']['male_signifiers'])) return 1;
-        return 0;
-    }
-
     public function createUsableLines($lines, $type)
     {
         if(!$type) return $lines;
@@ -124,5 +133,10 @@ class Spanish extends CompetitionParser
             }
         }
         return $usableLines;
+    }
+
+    protected function shouldIncludeEvent($line)
+    {
+        return true;
     }
 }

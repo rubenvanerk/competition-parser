@@ -6,10 +6,38 @@ class Hytek extends CompetitionParser
 
     public static function getInstance()
     {
-        define("PARSE_YOB", $GLOBALS['config']['parser'][strtolower(self::class)]['parse_yob']);
         if (!(self::$_instance instanceof self)) {
             self::$_instance = new self;
         }
+
+        self::$_instance->config = [
+            'event_signifiers' => ['Event'],
+            'event_designifiers' => ['Events'], // signifies a line is definitely not an event line
+            'event_rejectors' => ['Under 14', 'Relay'], // rejects current event, results below this are not included
+            'result_rejectors' => ['SA REC', 'National:', 'APLSC:', 'WORLD:', 'Euro:', 'World: ', 'Australian:', '10:00.00', '5:00.00', 'DQ'],
+            'parse_yob' => 0,
+            'disciplines' => [
+                1 => ["100 LC Metre Fins Manikin Carry", "100 LC Meter Manikin Rescue", "100 LC Meter Manikin Carr", "100 LC Meter manikin carry", "100 LC Meter Manikin Carry", "Manikin Carry w/Fins"],
+                2 => ["50 LC Metre Manikin Carry", "50 LC Meter Manikin Rescue", "50 LC Meter Manikin Carr", "50 LC Meter mankin carry"],
+                3 => ["200 LC Metre Obstacle", "200 LC Metre Masters Obstacle", "200 LC Meter Obstacle", "200 LC Meter Obstacles", "200 LC Meter 0bstacles"],
+                4 => ["100 LC Metre Fins Manikin Tow", "100 LC Meter Manikin Tow", "100 LC Meter Manikin Tow", "100 LC Meter Manikin Tow"],
+                5 => ["100 LC Metre Rescue Medley", "100 LC Meter Rescue Medley", "100 LC Meter Rescue Medle", "Rescue Medley"],
+                6 => ["200 LC Metre Super Lifesaver", "200 LC Meter Super Lifesaver", "200 LC Meter Su", "uper Lifesaver"],
+                7 => ["50m Nuoto con ostac45oli"],
+                8 => ["50 m freeffff style"],
+                10 => ["50 m mafffnikin"],
+                11 => ["50 m slefffpen"],
+                12 => ["25 m pfffop"],
+                13 => ["50 m vrifffj met torpedo"],
+                14 => ["50m Manichino455 pinne"],
+            ],
+            'genders' => [
+                'male_signifiers' => ['Men', 'Boys'],
+                'female_signifiers' => ['Women', 'Girls']
+            ]
+        ];
+        
+        define("PARSE_YOB", self::$_instance->config['parse_yob']);
 
         return self::$_instance;
     }
@@ -74,30 +102,10 @@ class Hytek extends CompetitionParser
         return $resultLines;
     }
 
-    /**
-     * @param $line
-     * @return string
-     */
-    public function getGenderFromLine($line)
-    {
-        if ($this->lineContains($line, $GLOBALS['config']['parser']['hytek']['genders']['female_signifiers'])) return 2;
-        elseif ($this->lineContains($line, $GLOBALS['config']['parser']['hytek']['genders']['male_signifiers'])) return 1;
-        return 0;
-    }
-
-    public function getLineType($line)
-    {
-        if ($this->lineContains($line, $GLOBALS['config']['parser']['hytek']['event_signifiers'])
-            && !$this->lineContains($line, $GLOBALS['config']['parser']['hytek']['event_designifiers'])) {
-            return 'event';
-        } elseif ($this->hasValidResult($line)) return 'result';
-        return '';
-    }
-
-    private function hasValidResult($line)
+    protected function hasValidResult($line)
     {
         $hasResult = preg_match("/[0-9]{2}\.[0-9]{2}/", $line);
-        $isValid = !$this->lineContains($line, $GLOBALS['config']['parser']['hytek']['result_rejectors']);
+        $isValid = !$this->lineContains($line, $this->config['result_rejectors']);
         return $hasResult && $isValid;
     }
 
@@ -150,6 +158,6 @@ class Hytek extends CompetitionParser
 
     function shouldIncludeEvent($line)
     {
-        return !$this->lineContains($line, $GLOBALS['config']['parser']['hytek']['event_rejectors']);
+        return !$this->lineContains($line, $this->config['event_rejectors']);
     }
 }
