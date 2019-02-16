@@ -10,14 +10,14 @@ return array(
         'port' => getenv('DB_PARSER_PORT'),
     ],
     'competition' => [
-        'filename' => 'lwc2018-nat-youth.pdf',
+        'filename' => 'worldgames2017fix.pdf',
         'filetype' => 'pdf',
-        'name' => 'World Championships National Teams Youth 2018',
-        'date' => '2018-11-20', // yyyy-mm-dd
-        'location' => 'Adelaide, Australia',
-        'clocktype' => 1, // 0 = unknown, 1 = electronic, 2 = hadndclocked
-        'type' => 'German', // options: Splash, German, Spanish, French
-        'line_conversion' => '', // options: competition specific, see competition class convertLines()
+        'name' => 'World Games 2017',
+        'date' => '2019-01-12', // yyyy-mm-dd
+        'location' => 'Wroclaw, Poland',
+        'clocktype' => 0, // 0 = unknown, 1 = electronic, 2 = hadndclocked
+        'type' => 'WorldGames2017', // options: Splash, German, Spanish, French
+        'line_conversion' => 'yes', // options: competition specific, see competition class convertLines()
     ],
     'parser' => [
         'splash' => [
@@ -124,35 +124,35 @@ return array(
             ]
         ],
         'italian' => [
-            'event_signifiers' => ['Women', 'Men'],
+            'event_signifiers' => ['Donne', 'Uomini'],
             'event_designifiers' => ['Es.', 'Ragazzi'], // signifies a line is definitely not an event line
             'result_rejectors' => ['F/DQ'],
             'disciplines' => [
-                1 => ["100m Manikin Carry Fins", "100m Manikin Carry w.Fins"],
-                2 => ["50m Manikin Carry"],
-                3 => ["200m Obstacle Swim"],
-                4 => ["100m Manikin Tow Fins", "100m Manikin Tow w. Fins"],
-                5 => ["100m Rescue Medley"],
-                6 => ["200m Super Lifesaver"],
-                7 => ["50m Nuoto con ostac45oli"],
+                1 => ["100m Manikin Carry Fins", "100m Manichino pinne - "],
+                2 => ["50m Manikin Carry", "50m Trasporto manichino"],
+                3 => ["200m Obstacle Swim", "200m Nuoto con ostacoli"],
+                4 => ["100m Manikin Tow Fins", "100m Manich pinne torpedo"],
+                5 => ["100m Rescue Medley", "100m Percorso misto"],
+                6 => ["200m Super Lifesaver", "200m Super Lifesaver"],
+                7 => ["50m Nuoto con ostacoli"],
                 8 => ["50 m free style"],
-                9 => ["50 m freestyle with fins"],
-                10 => ["50 m manikin"],
+                9 => ["50 m freestyle with fins", "50m Pinne"],
+                10 => ["50m Trasp manichino acqua"],
                 11 => ["50 m slepen"],
                 12 => ["25 m pop"],
                 13 => ["50 m vrij met torpedo"],
-                14 => ["50m Manichino455 pinne"],
+                14 => ["50m Trasp man pinne acqua"],
             ],
             'genders' => [
-                'male_signifiers' => ['Men'],
-                'female_signifiers' => ['Women']
+                'male_signifiers' => ['Uomini'],
+                'female_signifiers' => ['Donne']
             ]
         ],
         'hytek' => [
             'event_signifiers' => ['Event'],
             'event_designifiers' => ['Events'], // signifies a line is definitely not an event line
             'event_rejectors' => ['Under 14', 'Relay'], // rejects current event, results below this are not included
-            'result_rejectors' => ['SA REC', 'National:', 'APLSC:', 'WORLD:', 'Euro:', 'World: ', 'Australian:', '10:00.00', '5:00.00'],
+            'result_rejectors' => ['SA REC', 'National:', 'APLSC:', 'WORLD:', 'Euro:', 'World: ', 'Australian:', '10:00.00', '5:00.00', 'DQ'],
             'parse_yob' => 0,
             'disciplines' => [
                 1 => ["100 LC Metre Fins Manikin Carry", "100 LC Meter Manikin Rescue", "100 LC Meter Manikin Carr", "100 LC Meter manikin carry", "100 LC Meter Manikin Carry", "Manikin Carry w/Fins"],
@@ -222,5 +222,29 @@ return array(
                 'female_signifiers' => ['Women']
             ]
         ]
+            ,'worldgames2017' => [
+            'event_signifiers' => ['Ergebnisse'],
+            'event_designifiers' => [], // signifies a line is definitely not an event line
+            'event_rejectors' => [], // rejects current event, results below this are not included
+            'result_rejectors' => [],
+            'parse_yob' => 0,
+            'disciplines' => [
+                1 => ["100m Manikin Carry with Fins"],
+                2 => ["50m Manikin Carry"],
+                3 => ["200m Obstacle Swim"],
+                4 => ["100m Manikin Tow with Fins"],
+                5 => ["100m Rescue Medley"],
+                6 => ["200m Super Lifesaver"],
+                7 => ["50m Obstacle Swim"],
+                9 => ["50m Freestyle with Fins"],
+                10 => ["50m Manikin Carry (relay leg 3)"],
+                12 => ["25m Manikin Carry"],
+                14 => ["50m Manikin Carry with Fins (relay leg 4)"],
+            ],
+            'genders' => [
+                'male_signifiers' => ['männlich'],
+                'female_signifiers' => ['weiblich']
+            ]
+        ],
     ]
 );

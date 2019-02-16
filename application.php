@@ -32,12 +32,9 @@ switch ($config['competition']['filetype']) {
 $lines = $competitionParser->createUsableLines($lines, $config['competition']['line_conversion']);
 
 foreach ($lines as $line) {
-//    print_r($line . PHP_EOL);
-//    continue;
     $lineType = $competitionParser->getLineType($line);
     switch ($lineType) {
         case 'event':
-            print_r($line . PHP_EOL);
             $eventId = $competitionParser->getEventIdFromLine($line);
             $gender = $competitionParser->getGenderFromLine($line);
             $includeEvent = $competitionParser->shouldIncludeEvent($line);
@@ -59,9 +56,9 @@ foreach ($lines as $line) {
 $competition->removeNullEvents();
 
 try {
-//    printCompetition($competition);
-    $dbHelper = new DbHelper();
-    $dbHelper->saveCompetitionToDatabase($competition);
+    printCompetition($competition);
+//    $dbHelper = new DbHelper();
+//    $dbHelper->saveCompetitionToDatabase($competition);
 } catch (Exception $e) {
     print_r('Something terrible happened' . PHP_EOL);
     print_r($e->getMessage());
