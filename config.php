@@ -2,27 +2,13 @@
 
 return array(
     'pdf_folder' => 'competitions/',
-//    'database' => [
-//        'host' => getenv('DB_PARSER_HOST'),
-//        'name' => getenv('DB_PARSER_NAME'),
-//        'username' => getenv('DB_PARSER_USERNAME'),
-//        'password' => getenv('DB_PARSER_PASSWORD'),
-//        'port' => getenv('DB_PARSER_PORT'),
-//    ],
     'database' => [
         'host' => getenv('DB_PARSER_HOST'),
-        'name' => 'finswimming_rankings',
-        'username' => 'finswimming_rankings',
-        'password' => 'TATdjtTx9QCWXwdIar9B',
-        'port' => 5432,
+        'name' => getenv('DB_PARSER_NAME'),
+        'username' => getenv('DB_PARSER_USERNAME'),
+        'password' => getenv('DB_PARSER_PASSWORD'),
+        'port' => getenv('DB_PARSER_PORT'),
     ],
-//    'database' => [
-//        'host' => 'localhost',
-//        'name' => 'finswimmingrankings_django',
-//        'username' => 'postgres',
-//        'password' => 'fr0z3n',
-//        'port' => 5432,
-//    ],
     'competition' => [
         'filename' => '2019w1-utrecht-concept-uitslag.pdf',
         'filetype' => 'pdf',
