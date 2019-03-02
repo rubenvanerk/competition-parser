@@ -102,7 +102,7 @@ class Hytek extends CompetitionParser
         return $resultLines;
     }
 
-    protected function hasValidResult($line)
+    public function hasValidResult($line)
     {
         $hasResult = preg_match("/[0-9]{2}\.[0-9]{2}/", $line);
         $isValid = !$this->lineContains($line, $this->config['result_rejectors']);

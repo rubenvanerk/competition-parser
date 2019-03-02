@@ -42,7 +42,7 @@ class Spanish extends CompetitionParser
         return self::$_instance;
     }
 
-    protected function hasValidResult($line)
+    public function hasValidResult($line)
     {
         $hasResult = preg_match("/[0-9]{2}:[0-9]{2}:[0-9]{2}/", $line);
         $hasComma = preg_match("/,/", $line);
@@ -135,7 +135,7 @@ class Spanish extends CompetitionParser
         return $usableLines;
     }
 
-    protected function shouldIncludeEvent($line)
+    public function shouldIncludeEvent($line)
     {
         return true;
     }

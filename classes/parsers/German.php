@@ -43,7 +43,7 @@ class German extends CompetitionParser
     }
 
 
-    protected function hasValidResult($line)
+    public function hasValidResult($line)
     {
         $hasResult = preg_match("/[0-9]{2},[0-9]{2}/", $line);
         $isValid = !$this->lineContains($line, $this->config['result_rejectors']);
@@ -115,7 +115,7 @@ class German extends CompetitionParser
         return isset($times[0]) ? $times : [];
     }
 
-    protected function shouldIncludeEvent($line)
+    public function shouldIncludeEvent($line)
     {
         return true;
     }

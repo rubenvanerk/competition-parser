@@ -46,7 +46,9 @@ function slugify($string)
 function toSqlInterval($time)
 {
     $time = str_replace(',', '.', $time);
-    if (strlen($time) == 5) {
+    if (strlen($time) == 4) {
+        $time = '00:00:0' . $time;
+    } elseif (strlen($time) == 5) {
         $time = '00:00:' . $time;
     } elseif (strlen($time) == 7) {
         $time = '00:0' . $time;
@@ -61,18 +63,18 @@ function toSqlInterval($time)
 /**
  * @param Competition $competition
  */
-function printCompetition($competition)
+function printCompetition($competition, $type)
 {
     print_r($GLOBALS['config']['competition']);
     sleep(1);
     foreach ($competition->getEvents() as $event) {
-        print_r($GLOBALS['config']['parser']['template']['disciplines'][$event->getId()][0] . " " . $event->getGenderName() . PHP_EOL);
+        print_r($GLOBALS['config']['parser'][$type]['disciplines'][$event->getId()][0] . " " . $event->getGenderName() . PHP_EOL);
 //        usleep(400000);
     }
     usleep(400000);
     foreach ($competition->getEvents() as $event) {
         print_r(PHP_EOL);
-        print_r($GLOBALS['config']['parser']['template']['disciplines'][$event->getId()][0] . " " . $event->getGenderName() . PHP_EOL);
+        print_r($GLOBALS['config']['parser'][$type]['disciplines'][$event->getId()][0] . " " . $event->getGenderName() . PHP_EOL);
         usleep(400000);
         foreach ($event->getResults() as $result) {
             print_r($result->getYearOfBirth() . " " . $result->getName() . " " . json_encode($result->getTimes()) . PHP_EOL);

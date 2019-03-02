@@ -47,7 +47,14 @@ abstract class CompetitionParser
         if ($this->lineContains($line, self::$_instance->config['event_signifiers'])
             && !$this->lineContains($line, self::$_instance->config['event_designifiers'])) {
             return 'event';
-        } elseif (self::$_instance->hasValidResult($line)) return 'result';
+        } elseif (self::$_instance->hasValidResult($line)) {
+            return 'result';
+        } elseif (self::$_instance->getGenderFromLine($line)) {
+            return 'gender';
+        }
+
+        print_r($this->lineContains($line, self::$_instance->config['event_signifiers']));
+
         return '';
     }
 
@@ -90,19 +97,19 @@ abstract class CompetitionParser
      * @param $line
      * @return string
      */
-    protected abstract function getNameFromLine($line);
+    public abstract function getNameFromLine($line);
 
     /**
      * @param string line
      * @return string
      */
-    protected abstract function getYearOfBirthFromLine($line);
+    public abstract function getYearOfBirthFromLine($line);
 
     /**
      * @param string $line
      * @return array
      */
-    protected abstract function getTimesFromLine($line);
+    public abstract function getTimesFromLine($line);
 
     /**
      * checks if any of the values in array occurs in string
@@ -131,5 +138,5 @@ abstract class CompetitionParser
      * @param $line
      * @return bool
      */
-    protected abstract function shouldIncludeEvent($line);
+    public abstract function shouldIncludeEvent($line);
 }

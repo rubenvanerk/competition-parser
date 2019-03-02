@@ -20,10 +20,18 @@ class Event
         $this->results = [];
     }
 
+    /**
+     * @param $eventId
+     * @param $gender
+     * @param $includeEvent
+     * @param $line
+     * @return Event|null
+     */
     public static function create($eventId, $gender, $includeEvent, $line)
     {
         if($eventId && $gender && $includeEvent) {
-            return new Event($eventId, $gender, $line);
+            $event = new Event($eventId, $gender, $line);
+            return $event;
         }
         return null;
     }
@@ -65,7 +73,7 @@ class Event
      */
     public function getOriginalLine()
     {
-        return $this->getOriginalLine();
+        return $this->originalLine;
     }
 
     public function getGenderName()

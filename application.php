@@ -22,7 +22,7 @@ switch ($config['competition']['filetype']) {
         $parser = new \Smalot\PdfParser\Parser();
         $pdf = $parser->parseFile($fileName);
         $lines = $competitionParser->getLines($pdf);
-        define('ENCODING', "ASCII");
+        define('ENCODING', "UTF-8");
         break;
     default:
         print_r('SET FILETYPE');
@@ -31,6 +31,7 @@ switch ($config['competition']['filetype']) {
 
 $lines = $competitionParser->createUsableLines($lines, $config['competition']['line_conversion']);
 
+$i = 1;
 foreach ($lines as $line) {
     $lineType = $competitionParser->getLineType($line);
     switch ($lineType) {
@@ -39,6 +40,17 @@ foreach ($lines as $line) {
             $gender = $competitionParser->getGenderFromLine($line);
             $includeEvent = $competitionParser->shouldIncludeEvent($line);
             $event = Event::create($eventId, $gender, $includeEvent, $line);
+            $competition->addEvent($event);
+            break;
+        case 'gender':
+            $gender = $competitionParser->getGenderFromLine($line);
+            $events = $competition->getEvents();
+
+            /** @var Event $currentEvent */
+            $currentEvent = end($events);
+            if(is_null($currentEvent)) continue;
+
+            $event = Event::create($currentEvent->getId(), $gender, true, $currentEvent->getOriginalLine());
             $competition->addEvent($event);
             break;
         case 'result':
@@ -56,9 +68,9 @@ foreach ($lines as $line) {
 $competition->removeNullEvents();
 
 try {
-    printCompetition($competition);
-//    $dbHelper = new DbHelper();
-//    $dbHelper->saveCompetitionToDatabase($competition);
+//    printCompetition($competition, 'finswimming');
+    $dbHelper = new DbHelper();
+    $dbHelper->saveCompetitionToDatabase($competition);
 } catch (Exception $e) {
     print_r('Something terrible happened' . PHP_EOL);
     print_r($e->getMessage());

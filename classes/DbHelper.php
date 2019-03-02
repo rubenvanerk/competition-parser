@@ -123,8 +123,10 @@ class DbHelper
         '{$this->config['competition']['location']}', 
         '{$this->config['competition']['clocktype']}', 
         '" . $competitionSlug . "', 
-        'true'
-        )");
+        'true'" .
+        ($this->config['competition']['pool_length'] ? ", {$this->config['competition']['pool_length']}" : "") .
+        ")"
+        );
         $stmt->execute();
 
         if($stmt->errorCode() == '23505') {
