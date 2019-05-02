@@ -4,10 +4,18 @@ class Competition
 {
     private $competitionId;
     private $events;
+    public $name;
+    public $date;
+    public $location;
+    public $clockType;
 
-    public function __construct()
+    public function __construct($name, $date, $location, $clockType)
     {
         $this->events = [];
+        $this->name = $name;
+        $this->date = $date;
+        $this->location = $location;
+        $this->clockType = $clockType;
     }
 
     /**
@@ -99,5 +107,12 @@ class Competition
         return !is_null($this->getCurrentEvent());
     }
 
+    public function countResults() {
+        $count = 0;
+        foreach ($this->events as $event) {
+            $count += count($event->getResults());
+        }
+        return $count;
+    }
 
 }

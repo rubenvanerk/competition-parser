@@ -1,0 +1,153 @@
+regex:
+  time:
+    1: '/[0-9]{0,2}[:]?[0-9]{1,2}[.][0-9]{2}/'  # 01:35.22
+    2: '/[0-9]{1}:?[0-9]{2}\,[0-9]{2}/'         # 1:35,22
+    3: '/([0-9]:)?[0-9]{2}\.[0-9]{2}/'          # 1:35.22
+  name:
+    1: >
+      /([A-z\x{00C0}-\x{02A0}\x{0390}-\x{0520}\-\']+(,?\s?))+/u
+    2: >
+      /([A-z\x{00C0}-\x{02A0}\x{0390}-\x{0520}\-\']\s?)+/u
+  yob:
+    1: '/\s[0-9]{2}\s/'   # 96
+    2: '/\s[0-9]{4}\s/'   # 1996
+event_signifiers:
+  - 'Programmanr'
+  - 'Event'
+event_designifiers:
+  - 'DISKWALIFICATIE CODES'
+  - 'Leaving the water after an event before permission is given by the official.'
+  - 'Not completing the event in accordance with the event description or general rules.'
+event_rejectors:
+  - 'Relay'
+result_rejectors:
+  - 'DSQ'
+  - 'disq'
+  - 'DNS'
+  - 'Splash Meet Manager'
+  - 'dis'
+  - 'Record'
+genders:
+  male_signifiers:
+    - 'Men'
+    - 'Heren'
+    - 'Boys'
+  female_signifiers:
+    - 'Women'
+    - 'Dames'
+disciplines:
+  1:
+    - '100m manikin carry with fins'
+    - '100m Manikin Carry with Fins'
+    - '100m popduiken met zwemvliezen'
+    - '100 m. remolque de maniquí'
+    - '100m manikin (ring) carry with fins'
+    - '100 m Manikin Carry with Fins'
+    - '100m mannequin palmes'
+    - '100 manikin carry with fins'
+    - 'A2-Popredden met vinnen'
+    - '100m Popredden met vinnen'
+    - '100 LC Metre Fins Manikin Carry'
+    - '100 LC Meter Manikin Rescue'
+    - '100 LC Meter Manikin Carr'
+    - '100 LC Meter manikin carry'
+    - '100 LC Meter Manikin Carry'
+    - 'Manikin Carry w/Fins'
+    - '100 Meter manikin  carry+fins'
+    - '100 Meter manikin carry+fins'
+  2:
+    - '50m manikin carry'
+    - '50m Manikin Carry'
+    - '50m popduiken'
+    - '50 m. remolque de maniquí'
+    - '50m Mannequin'
+    - '50 manikin carry'
+    - 'A4-Popredden'
+    - '50m Popredden'
+    - '50 LC Metre Manikin Carry'
+    - '50 LC Meter Manikin Rescue'
+    - '50 LC Meter Manikin Carr'
+    - '50 LC Meter mankin carry'
+    - '50 Meter mankin carry'
+  3:
+    - '200m obstacle swim'
+    - '200m Obstacle Swim'
+    - '200m hinderniszwemmen'
+    - '200 m. natación con obstáculos'
+    - '200 m Obstacle Swim'
+    - '200m Obstacles'
+    - 'A1-Hinderniszwemmen'
+    - '200 LC Metre Obstacle'
+    - '200 LC Metre Masters Obstacle'
+    - '200 LC Meter Obstacle'
+    - '200 LC Meter Obstacles'
+    - '200 LC Meter 0bstacles'
+    - '200 Meter Obstacle'
+  4:
+    - '100m manikin tow with fins'
+    - '100m lifesaver'
+    - '100 m. socorrista'
+    - '100 m Manikin Tow with Fins'
+    - '100 manikin tow with fins'
+    - '100m Manikin Tow with Fins'
+    - 'A5-Lifesaver'
+    - '100 LC Metre Fins Manikin Tow'
+    - '100 LC Meter Manikin Tow'
+    - '100 LC Meter Manikin Tow'
+    - '100 LC Meter Manikin Tow'
+    - '100 Meter manikin  tow  +fins'
+    - '100 Meter manikin  tow+fins'
+    - '100 Meter manikin tow +fins'
+    - '100 Meter manikin tow+fins'
+    - '100 LC Meter Manakin Tow (Fins)'
+  5:
+    - '100m rescue medley'
+    - '100m Rescue Medley'
+    - '100m reddingswisselslag'
+    - '100 m. combinada de salvamento'
+    - '100 m Rescue Medley'
+    - '100m Combiné'
+    - 'A3-Reddingscombiné'
+    - '100m Reddingscombiné'
+    - '100 LC Metre Rescue Medley'
+    - '100 LC Meter Rescue Medley'
+    - '100 LC Meter Rescue Medle'
+    - 'Rescue Medley'
+  6:
+    - '200m Super Lifesaver'
+    - '200m superlifesaver'
+    - '200 m. supersocorrista'
+    - '200m super lifesaver'
+    - '200 m Super Lifesaver'
+    - 'A6-Super Lifesaver'
+    - '200 LC Metre Super Lifesaver'
+    - '200 LC Meter Super Lifesaver'
+    - '200 LC Meter Su'
+    - 'uper Lifesaver'
+    - '200 Meter superlifesaver'
+    - 'LC Meter Super Life Saver Individual'
+  7:
+    - '50 m obstacle swim'
+    - '50m Obstacle Swim'
+  8:
+    - '50 m free style'
+  9:
+    - '50 m freestyle with fins'
+    - '50m Freestyle with Fins'
+  10:
+    - '50 m manikin'
+    - '50m Manikin Carry (relay leg 3)'
+  11:
+    - '50 m slepen'
+  12:
+    - '25 m pop'
+    - '25m Manikin Carry'
+  13:
+    - '50 m vrij met torpedo'
+  14:
+    - '50 m pop met vliezen'
+    - '50m Manikin Carry with Fins (relay leg 4)'
+  18:
+    - '100m Obstacle Swim'
+    - '100 Meter Obstacle'
+    - '100 LC Meter Obstacle'

@@ -1,21 +1,20 @@
 <?php
-
+define("RESULTS_DIR", 'competitions/');
 
 include 'vendor/autoload.php';
 include '_functions.php';
 
 require_all('classes');
 
-$config = include('config.php');
+$config = $argv[1];
+$config = yaml_parse_file($config);
 
-define("EVENT_TYPE", $config['competition']['type']);
+$competition = new Competition($config['name'], $config['date'], $config['location'], $config['clock_type']);
 
-$competition = new Competition();
+$competitionParser = new CompetitionParser($config);
+$fileName = RESULTS_DIR . $config['file'];
 
-$competitionParser = CompetitionParser::getInstance();
-$fileName = $config['pdf_folder'] . $config['competition']['filename'];
-
-switch ($config['competition']['filetype']) {
+switch (pathinfo($fileName, PATHINFO_EXTENSION)) {
     case 'csv':
         $lines = file($fileName, FILE_IGNORE_NEW_LINES);
         define('ENCODING', "UTF-8");
@@ -23,19 +22,20 @@ switch ($config['competition']['filetype']) {
     case 'pdf':
         $parser = new \Smalot\PdfParser\Parser();
         $pdf = $parser->parseFile($fileName);
-        $lines = $competitionParser->getLines($pdf);
+        $lines = explode("\n", $pdf->getText());
         define('ENCODING', "UTF-8");
         break;
-    case 'text':
+    case 'txt':
         $lines = file($fileName, FILE_IGNORE_NEW_LINES);
         define('ENCODING', "UTF-8");
         break;
     default:
-        print_r('SET FILETYPE');
+        print_r('Unknown filetype ' . pathinfo($fileName, PATHINFO_EXTENSION));
+        exit;
         break;
 }
 
-$lines = $competitionParser->createUsableLines($lines, $config['competition']['line_conversion']);
+$lines = $competitionParser->createUsableLines($lines);
 
 writeToFile($lines);
 
@@ -56,13 +56,13 @@ foreach ($lines as $line) {
 
             /** @var Event $currentEvent */
             $currentEvent = end($events);
-            if(is_null($currentEvent) || !$currentEvent) continue;
+            if (is_null($currentEvent) || !$currentEvent) continue;
 
             $event = Event::create($currentEvent->getId(), $gender, true, $currentEvent->getOriginalLine());
             $competition->addEvent($event);
             break;
         case 'result':
-            if(!$competition->hasCurrentEvent()) continue;
+            if (!$competition->hasCurrentEvent()) continue;
             $name = $competitionParser->getNameFromLine($line);
             $yearOfBirth = $competitionParser->getYearOfBirthFromLine($line);
             $times = $competitionParser->getTimesFromLine($line);
@@ -76,9 +76,9 @@ foreach ($lines as $line) {
 $competition->removeNullEvents();
 
 try {
-     printCompetition($competition, 'template');
-   $dbHelper = new DbHelper();
-   $dbHelper->saveCompetitionToDatabase($competition);
+    printCompetition($competition, 'template');
+    $dbHelper = new DbHelper();
+    $dbHelper->saveCompetitionToDatabase($competition);
 } catch (Exception $e) {
     print_r('Something terrible happened' . PHP_EOL);
     print_r($e->getMessage());

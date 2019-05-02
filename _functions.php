@@ -36,7 +36,8 @@ function slugify($string)
     $pattern = '~[^0-9a-z]+~i';
     $string = preg_replace($pattern, '-', $string);
 
-    return strtolower(trim($string, '-'));}
+    return strtolower(trim($string, '-'));
+}
 
 /**
  * @param $time
@@ -62,30 +63,48 @@ function toSqlInterval($time)
 
 /**
  * @param Competition $competition
+ * @param $type
  */
 function printCompetition($competition, $type)
 {
-    print_r($GLOBALS['config']['competition']);
+    $disciplines = [
+        1 => ["100m Manikin Carry with Fins"],
+        2 => ["50m Manikin Carry"],
+        3 => ["200m Obstacle Swim"],
+        4 => ["100m Manikin Tow with Fins"],
+        5 => ["100m Rescue Medley"],
+        6 => ["200m Super Lifesaver"],
+        7 => ["50m Obstacle Swim"],
+        9 => ["50m Freestyle with Fins"],
+        10 => ["50m Manikin Carry (relay leg 3)"],
+        12 => ["25m Manikin Carry"],
+        14 => ["50m Manikin Carry with Fins (relay leg 4)"],
+        18 => ["100m obs"],
+    ];
+    print_r($competition->name . PHP_EOL);
+    print_r('Number of results: ' . $competition->countResults() . PHP_EOL);
     sleep(1);
     foreach ($competition->getEvents() as $event) {
-        print_r($GLOBALS['config']['parser'][$type]['disciplines'][$event->getId()][0] . " " . $event->getGenderName() . PHP_EOL);
+        print_r($disciplines[$event->getId()][0] . " " . $event->getGenderName() . PHP_EOL);
 //        usleep(400000);
     }
     usleep(400000);
     foreach ($competition->getEvents() as $event) {
         print_r(PHP_EOL);
-        print_r($GLOBALS['config']['parser'][$type]['disciplines'][$event->getId()][0] . " " . $event->getGenderName() . PHP_EOL);
+        print_r($disciplines[$event->getId()][0] . " " . $event->getGenderName() . PHP_EOL);
         usleep(400000);
         foreach ($event->getResults() as $result) {
-            print_r($result->getYearOfBirth() . " " . $result->getName() . " " . json_encode($result->getTimes())  . PHP_EOL);
+            print_r($result->getYearOfBirth() . " " . $result->getName() . " " . json_encode($result->getTimes()) . PHP_EOL);
 //            usleep(200000);
         }
     }
 }
 
-function writeToFile($lines) {
-    $file = fopen("lines.txt","a");
-    foreach($lines as $line) {
+function writeToFile($lines)
+{
+    file_put_contents("lines.txt", "");
+    $file = fopen("lines.txt", "a");
+    foreach ($lines as $line) {
         fwrite($file, $line . PHP_EOL);
     }
     fclose($file);

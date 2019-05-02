@@ -22,7 +22,7 @@ class DbHelper
      */
     public function saveCompetitionToDatabase($competition)
     {
-        $competitionId = $this->saveCompetition();
+        $competitionId = $this->saveCompetition($competition);
         $competition->setCompetitionId($competitionId);
         foreach ($competition->getEvents() as $event) {
             print_r("EVENTID " . $event->getId() . PHP_EOL);
@@ -112,17 +112,21 @@ class DbHelper
         return $this->connection->lastInsertId();
     }
 
-    private function saveCompetition()
+    /**
+     * @param Competition $competition
+     * @return string
+     */
+    private function saveCompetition($competition)
     {
-        $competitionSlug = slugify($this->config['competition']['name']);
+        $competitionSlug = slugify($competition->name);
         if(strlen($competitionSlug) >= 50) $competitionSlug = substr($competitionSlug, 0, 49);
 
         $stmt = $this->connection->prepare("INSERT INTO rankings_competition VALUES 
         (DEFAULT, 
-        '{$this->config['competition']['name']}', 
-        '{$this->config['competition']['date']}', 
-        '{$this->config['competition']['location']}', 
-        '{$this->config['competition']['clocktype']}', 
+        '{$competition->name}', 
+        '{$competition->date}', 
+        '{$competition->location}', 
+        '{$competition->clockType}', 
         '" . $competitionSlug . "', 
         'true'" .
         ", false)"
@@ -132,7 +136,7 @@ class DbHelper
         print_r($stmt);
 
         if($stmt->errorCode() == '23505') {
-            $sql = "SELECT * FROM rankings_competition WHERE name = '{$this->config['competition']['name']}'";
+            $sql = "SELECT * FROM rankings_competition WHERE name = '{$competition->name}'";
             $stmt = $this->connection->prepare($sql);
             $stmt->execute();
 
