@@ -57,7 +57,7 @@ class German extends CompetitionParser
     public function getFirstNameFromLine($line)
     {
         $name = array();
-        preg_match('/(\s?[A-Za-z\x{0040}-\x{00ff}]+-?\'?)+\s?,\s([A-Za-z\x{0040}-\x{00ff}]+-?)+/', utf8_decode($line), $name);
+        preg_match('/(\s?[A-Za-z\x{0040}-\x{00ff}]+-?\'?)+\s?,\s([A-Za-z\x{0040}-\x{00ff}]+-?)+/', $line, $name);
         $name = trim($name[0]);
         $firstName = substr($name, strpos($name, ',') + 1);
         return trim($firstName);
@@ -70,7 +70,7 @@ class German extends CompetitionParser
     function getLastNameFromLine($line)
     {
         $name = array();
-        preg_match('/(\s?[A-Za-z\x{0040}-\x{00ff}]+-?\'?)+\s?,\s([A-Za-z\x{0040}-\x{00ff}]+-?)+/', utf8_decode($line), $name);
+        preg_match('/(\s?[A-Za-z\x{0040}-\x{00ff}]+-?\'?)+\s?,\s([A-Za-z\x{0040}-\x{00ff}]+-?)+/', $line, $name);
         $name = trim($name[0]);
         $lastName = substr($name, 0, strpos($name, ','));
         return $lastName;

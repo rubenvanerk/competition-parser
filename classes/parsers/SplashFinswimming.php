@@ -14,8 +14,8 @@ class SplashFinswimming extends CompetitionParser
         self::$_instance->config = [
             'event_signifiers' => ['Programmanr'],
             'event_designifiers' => [], // signifies a line is definitely not an event line
-            'result_rejectors' => ['DIS', 'Nederlandse records', 'Splash Meet Manager', '0m:'],
-            'event_rejectors' => ['4 x 50m'],
+            'result_rejectors' => ['DIS', 'Nederlandse records', 'Splash Meet Manager', '0m:', 'NR Vinzwemmen', 'NLREC'],
+            'event_rejectors' => ['4 x '],
             'parse_yob' => 1,
             'disciplines' => [
                 1 => ["50m afstand duiken"],
@@ -34,6 +34,7 @@ class SplashFinswimming extends CompetitionParser
                 14 => ["25m afstand duiken"],
                 15 => ["25m met vinnen"],
                 16 => ["100m perslucht"],
+                17 => ["200m perslucht"],
             ],
             'genders' => [
                 'male_signifiers' => ['Heren', 'Jongens'],
@@ -49,7 +50,7 @@ class SplashFinswimming extends CompetitionParser
     public function hasValidResult($line)
     {
         $hasResult = preg_match("/[0-9]{2}\.[0-9]{2}/", $line);
-        $isValid = !$this->lineContains($line, $this->config['result_rejectors']);
+        $isValid = !$this->lineContains($line, $this->config['result_rejectors']) && strpos($line, 'NG') !== 0;
         return $hasResult && $isValid;
     }
 
@@ -82,8 +83,15 @@ class SplashFinswimming extends CompetitionParser
     function getNameFromLine($line)
     {
         $matches = array();
-        preg_match('/(\s?[A-Z]?[a-z\x{0060}-\x{00ff}]+-?)+/', utf8_decode($line), $matches);
-        return trim(utf8_encode($matches[0]));
+//        preg_match('/(\s?[A-Z]?[a-z\x{0060}-\x{00ff}]+-?)+/', utf8_decode($line), $matches);
+        preg_match('/([A-z\x{0060}-\x{00ff}\,?\-]+?\s?)+/', utf8_decode($line), $matches);
+        $name = str_replace(',', '', $matches[0]);
+        preg_match('/([A-Z]+\s?)+\,\s([A-Z][a-z\x{0060}-\x{00ff}]+\s?)+/', utf8_decode($line), $matches);
+//        $nameParts = explode(',', $matches[0]);
+//        $name = trim($nameParts[1]) . ' ' . trim($nameParts[0]);
+
+
+        return trim(utf8_encode($name));
     }
 
 

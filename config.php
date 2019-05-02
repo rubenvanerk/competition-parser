@@ -9,16 +9,23 @@ return array(
         'password' => getenv('DB_PARSER_PASSWORD'),
         'port' => getenv('DB_PARSER_PORT'),
     ],
+//    'database' => [
+//        'host' => getenv('DB_PARSER_HOST'),
+//        'name' => 'finswimming_rankings',
+//        'username' => 'finswimming_rankings',
+//        'password' => getenv('DB_PASS_FINSWIMMING'),
+//        'port' => 5432,
+//    ],
     'competition' => [
-        'filename' => '2019w1-utrecht-concept-uitslag.pdf',
+        'filename' => '2019-misp.pdf',
         'filetype' => 'pdf',
-        'name' => 'Eerste competitiewedstrijd 2019',
-        'date' => '2019-02-17', // yyyy-mm-dd
-        'location' => 'Utrecht, The Netherlands',
-        'clocktype' => 0, // 0 = unknown, 1 = electronic, 2 = hadndclocked
-        'type' => 'SplashFinswimming', // options: see classes/parsers
+        'name' => 'MISP 2019',
+        'date' => '2019-04-28', // yyyy-mm-dd
+        'location' => 'Seraing, Belgium',
+        'clocktype' => 1, // 0 = unknown, 1 = electronic, 2 = handclocked
+        'type' => 'Splash', // options: see classes/parsers
         'line_conversion' => '', // options: competition specific, see competition class convertLines()
-        'pool_length' => 50, // options: competition specific, see competition class convertLines()
+        'pool_length' => 0, // set to falsy if not supported
     ],
     'parser' => [
         'template' => [
@@ -39,6 +46,7 @@ return array(
                 10 => ["50m Manikin Carry (relay leg 3)"],
                 12 => ["25m Manikin Carry"],
                 14 => ["50m Manikin Carry with Fins (relay leg 4)"],
+                18 => ["100m obs"],
             ],
             'genders' => [
                 'male_signifiers' => ['Men'],
@@ -64,10 +72,11 @@ return array(
                 10 => ["800m Surface"],
                 11 => ["1500m Surface"],
                 12 => ["400m Immersion"],
-                13 => ["800m Immersion"],
-                14 => ["25m Apnoea"],
-                15 => ["25m Surface"],
-                16 => ["100m Immersion"],
+                13 => ["800m perslucht"],
+                14 => ["25m afstand duiken"],
+                15 => ["25m met vinnen"],
+                16 => ["100m perslucht"],
+                17 => ["200m perslucht"],
             ],
             'genders' => [
                 'male_signifiers' => ['Men'],

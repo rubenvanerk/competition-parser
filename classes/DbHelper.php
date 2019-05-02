@@ -46,7 +46,7 @@ class DbHelper
         foreach($result->getTimes() as $time) {
             $time = toSqlInterval($time);
             $stmt = $this->connection->prepare("INSERT INTO rankings_individualresult 
-              VALUES (DEFAULT, '{$time}', '{$athleteId}', '{$competition->getId()}', '{$event->getId()}')");
+              VALUES (DEFAULT, '{$time}', '{$athleteId}', '{$competition->getId()}', '{$event->getId()}', NULL, 0, '{$result->getOriginalLine()}')");
             $stmt->execute();
         }
     }
@@ -94,7 +94,7 @@ class DbHelper
                         VALUES (DEFAULT, NULL, NULL,
                         {$result->getYearOfBirthOrNull()}, '{$event->getGender()}', '{$slug}', '{$result->getName()}')")->execute();
                 if(!$stmtRes)
-                    throw new Exception("Failed to insert: " . $result->getName());
+                    throw new Exception("Failed to insert: " . print_r($result, 1));
                 $inserted = true;
             } else {
                 $lastChar = substr($slug, -1);
@@ -124,10 +124,11 @@ class DbHelper
         '{$this->config['competition']['clocktype']}', 
         '" . $competitionSlug . "', 
         'true'" .
-        ($this->config['competition']['pool_length'] ? ", {$this->config['competition']['pool_length']}" : "") .
-        ")"
+        ", false)"
         );
         $stmt->execute();
+
+        print_r($stmt);
 
         if($stmt->errorCode() == '23505') {
             $sql = "SELECT * FROM rankings_competition WHERE name = '{$this->config['competition']['name']}'";

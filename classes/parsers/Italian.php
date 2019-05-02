@@ -11,16 +11,17 @@ class Italian extends CompetitionParser
         }
 
         self::$_instance->config = [
-            'event_signifiers' => ['Donne', 'Uomini'],
-            'event_designifiers' => ['Es.', 'Ragazzi'], // signifies a line is definitely not an event line
-            'result_rejectors' => ['F/DQ'],
+            'event_signifiers' => ['Donne', 'Uomini', 'Assoluti'],
+            'event_designifiers' => ['Es.', 'Ragazzi', 'FEDERAZIONE'], // signifies a line is definitely not an event line
+            'event_rejectors' => ['Staffetta', 'Serie'],
+            'result_rejectors' => ['F/DQ', 'Mondiale', 'Europeo', 'FEDERAZIONE', 'Italiano'],
             'disciplines' => [
-                1 => ["100m Manikin Carry Fins", "100m Manichino pinne - "],
-                2 => ["50m Manikin Carry", "50m Trasporto manichino"],
-                3 => ["200m Obstacle Swim", "200m Nuoto con ostacoli"],
-                4 => ["100m Manikin Tow Fins", "100m Manich pinne torpedo"],
-                5 => ["100m Rescue Medley", "100m Percorso misto"],
-                6 => ["200m Super Lifesaver", "200m Super Lifesaver"],
+                1 => ["100m Manikin Carry Fins", "100m Manichino pinne - ", "Manichino pinne mt.100"],
+                2 => ["50m Manikin Carry", "50m Trasporto manichino", "Trasporto manichino"],
+                3 => ["200m Obstacle Swim", "200m Nuoto con ostacoli", "Nuoto ostacoli mt.200"],
+                4 => ["100m Manikin Tow Fins", "100m Manich pinne torpedo", "Manichino pinne e torpedo"],
+                5 => ["100m Rescue Medley", "100m Percorso misto", "Percorso misto mt.100"],
+                6 => ["200m Super Lifesaver", "200m Super Lifesaver", "Super lifesaver"],
                 7 => ["50m Nuoto con ostacoli"],
                 8 => ["50 m free style"],
                 9 => ["50 m freestyle with fins", "50m Pinne"],
@@ -31,8 +32,8 @@ class Italian extends CompetitionParser
                 14 => ["50m Trasp man pinne acqua"],
             ],
             'genders' => [
-                'male_signifiers' => ['Uomini'],
-                'female_signifiers' => ['Donne']
+                'male_signifiers' => ['Uomini', 'Maschile',],
+                'female_signifiers' => ['Donne', 'Femminile', 'Femmine']
             ],
             'parse_yob' => 1
         ];
@@ -44,10 +45,11 @@ class Italian extends CompetitionParser
 
     public function hasValidResult($line)
     {
-        $hasResult = preg_match("/[0-9]{2}.[0-9]{2}/", $line);
-        $resultIsFromRoundUp = preg_match("/[0-9] [0-9] [0-9]{1,2}./", $line);
+        $line = str_replace(' ' , '', $line);
+        $hasResult = preg_match("/[0-9]{2}\.[0-9]{2}/", $line);
+        // $resultIsFromRoundUp = preg_match("/[0-9] [0-9] [0-9]{1,2}./", $line);
         $isValid = !$this->lineContains($line, $this->config['result_rejectors']);
-        return $hasResult && $isValid && $resultIsFromRoundUp;
+        return $hasResult && $isValid;
     }
 
     /**
@@ -57,10 +59,10 @@ class Italian extends CompetitionParser
     function getNameFromLine($line)
     {
         $name = array();
-        preg_match('/[A-Z\x{00C0}-\x{00D0}]{2,}/', utf8_decode($line), $name);
-        $lastName = implode(' ', $name);
-        preg_match('/[A-Z\x{00C0}-\x{00D0}]{1}[a-z]+/', utf8_decode($line), $name);
-        $firstName = implode(' ', $name);
+        preg_match_all('/([A-Z]{2,}\s?)+/', $line, $name);
+        $lastName = trim($name[0][1]);
+        preg_match('/([A-Z\x{00C0}-\x{00D0}]{1}[a-z]+\s?)+/', $line, $name);
+        $firstName = trim($name[0]);
 
         return $firstName . " " . $lastName;
 
@@ -73,9 +75,9 @@ class Italian extends CompetitionParser
     function getYearOfBirthFromLine($line)
     {
         $matches = array();
-        preg_match('/\s[0-9]{4}\s/', $line, $matches);
+        preg_match('/\s[0-9]{2}\s/', $line, $matches);
         $yearOfBirth = $matches[0];
-        return substr($yearOfBirth, 3, 2);
+        return $yearOfBirth;
     }
 
     /**
@@ -84,6 +86,7 @@ class Italian extends CompetitionParser
      */
     function getTimesFromLine($line)
     {
+        $line = str_replace(' ' , '', $line);
         $times = array();
         preg_match_all('/[0-9]\'[0-9]{2}.[0-9]{2}/', $line, $times);
         if (count($times[0])) {

@@ -1,4 +1,6 @@
 <?php
+
+
 include 'vendor/autoload.php';
 include '_functions.php';
 
@@ -24,12 +26,18 @@ switch ($config['competition']['filetype']) {
         $lines = $competitionParser->getLines($pdf);
         define('ENCODING', "UTF-8");
         break;
+    case 'text':
+        $lines = file($fileName, FILE_IGNORE_NEW_LINES);
+        define('ENCODING', "UTF-8");
+        break;
     default:
         print_r('SET FILETYPE');
         break;
 }
 
 $lines = $competitionParser->createUsableLines($lines, $config['competition']['line_conversion']);
+
+writeToFile($lines);
 
 $i = 1;
 foreach ($lines as $line) {
@@ -48,7 +56,7 @@ foreach ($lines as $line) {
 
             /** @var Event $currentEvent */
             $currentEvent = end($events);
-            if(is_null($currentEvent)) continue;
+            if(is_null($currentEvent) || !$currentEvent) continue;
 
             $event = Event::create($currentEvent->getId(), $gender, true, $currentEvent->getOriginalLine());
             $competition->addEvent($event);
@@ -68,9 +76,9 @@ foreach ($lines as $line) {
 $competition->removeNullEvents();
 
 try {
-//    printCompetition($competition, 'finswimming');
-    $dbHelper = new DbHelper();
-    $dbHelper->saveCompetitionToDatabase($competition);
+     printCompetition($competition, 'template');
+   $dbHelper = new DbHelper();
+   $dbHelper->saveCompetitionToDatabase($competition);
 } catch (Exception $e) {
     print_r('Something terrible happened' . PHP_EOL);
     print_r($e->getMessage());

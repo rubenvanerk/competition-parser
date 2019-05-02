@@ -46,17 +46,23 @@ class WorldGames2017 extends CompetitionParser
         $name = '';
         $yearOfBirth = '';
         $time = '';
-    
-        foreach($lines as $line) {
-            print_r($line);
-            if(preg_match("/[A-Z\x{00C0}-\x{00DF}]{2,}\s([A-Z][a-z]*[\s\-]?){1,2}/", $line, $matches)) {
-                $name = $matches[0];
-                print_r($name . PHP_EOL);
-                sleep(1);
-            } elseif (preg_match('/[0-9]?:?[0-9]{2}\.[0-9]{2}/', $line, $matches)) {
-                print_r($line . PHP_EOL);
-            }
+
+//        foreach($lines as $line) {
+//            print_r($line);
+//            if(preg_match("/[A-Z\x{00C0}-\x{00DF}]{2,}\s([A-Z][a-z]*[\s\-]?){1,2}/", $line, $matches)) {
+//                $name = $matches[0];
+//                print_r($name . PHP_EOL);
+//                sleep(1);
+//            } elseif (preg_match('/[0-9]?:?[0-9]{2}\.[0-9]{2}/', $line, $matches)) {
+//                print_r($line . PHP_EOL);
+//            }
+//        }
+
+        foreach ($lines as $line) {
+            $newLines[] = $line;
+//            $newLines[] = iconv(mb_detect_encoding($line, mb_detect_order(), true), "UTF-8", $line);
         }
+        return $newLines;
     }
 
     public function hasValidResult($line)

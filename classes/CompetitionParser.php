@@ -53,8 +53,6 @@ abstract class CompetitionParser
             return 'gender';
         }
 
-        print_r($this->lineContains($line, self::$_instance->config['event_signifiers']));
-
         return '';
     }
 
@@ -76,7 +74,7 @@ abstract class CompetitionParser
         }
 
         if (!$discipline) {
-            print_r($line . " " . $discipline . PHP_EOL);
+            print_r('could not find event in: ' . $line . PHP_EOL);
         }
 
         return $discipline;

@@ -33,6 +33,7 @@ class Event
             $event = new Event($eventId, $gender, $line);
             return $event;
         }
+        print_r('EVENT COULD NOT BE PARSED, VALUES(event, gender, includeevent): ' . $eventId . ' ' . $gender . ' ' . $includeEvent . PHP_EOL);
         return null;
     }
 

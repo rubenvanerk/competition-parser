@@ -59,7 +59,7 @@ class Spanish extends CompetitionParser
     function getNameFromLine($line)
     {
         $name = array();
-        preg_match('/([\x{0040}-\x{00ff}\s-\.]+,\s[\x{0040}-\x{00ff}\s-\.]+)/', utf8_decode($line), $name);
+        preg_match('/([\x{0040}-\x{00ff}\s-\.]+,\s[\x{0040}-\x{00ff}\s-\.]+)/', $line, $name);
         if($name) {
             $name = trim($name[0]);
 
@@ -73,7 +73,7 @@ class Spanish extends CompetitionParser
 
             return preg_replace('!\s+!', ' ', trim($name));
         } else {
-            preg_match('/[0-9]{4}\s+[\x{0040}-\x{00ff}\s-\.]+/', utf8_decode($line), $name);
+            preg_match('/[0-9]{4}\s+[\x{0040}-\x{00ff}\s-\.]+/', $line, $name);
             $name = trim($name[0]);
             $name = preg_replace('/[0-9]{4}/', '', $name);
             return preg_replace('!\s+!', ' ', trim($name));

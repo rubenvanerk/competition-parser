@@ -77,8 +77,16 @@ function printCompetition($competition, $type)
         print_r($GLOBALS['config']['parser'][$type]['disciplines'][$event->getId()][0] . " " . $event->getGenderName() . PHP_EOL);
         usleep(400000);
         foreach ($event->getResults() as $result) {
-            print_r($result->getYearOfBirth() . " " . $result->getName() . " " . json_encode($result->getTimes()) . PHP_EOL);
+            print_r($result->getYearOfBirth() . " " . $result->getName() . " " . json_encode($result->getTimes())  . PHP_EOL);
 //            usleep(200000);
         }
     }
+}
+
+function writeToFile($lines) {
+    $file = fopen("lines.txt","a");
+    foreach($lines as $line) {
+        fwrite($file, $line . PHP_EOL);
+    }
+    fclose($file);
 }
