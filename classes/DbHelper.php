@@ -59,6 +59,7 @@ class DbHelper
      */
     private function getOrInsertAthlete($result, $event) {
         $sql = "SELECT * FROM rankings_athlete WHERE LOWER(name) = LOWER('{$result->getName()}')";
+        $sql .= " AND gender = {$event->getGender()}";
         if($result->getYearOfBirth() !== 'unknown') $sql .= " AND year_of_birth = {$result->getYearOfBirth()}";
         $stmt = $this->connection->prepare($sql);
         $stmt->execute();
