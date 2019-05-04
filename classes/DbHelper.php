@@ -46,7 +46,7 @@ class DbHelper
         foreach($result->getTimes() as $time) {
             $time = toSqlInterval($time);
             $stmt = $this->connection->prepare("INSERT INTO rankings_individualresult 
-              VALUES (DEFAULT, '{$time}', '{$athleteId}', '{$competition->getId()}', '{$event->getId()}', NULL, 0, '{$result->getOriginalLine()}')");
+              VALUES (DEFAULT, '{$time}', '{$athleteId}', '{$competition->getId()}', '{$event->getId()}', NULL, 0, '{$result->getOriginalLine()}', {$event->getRoundNumber()})");
             $stmt->execute();
         }
     }

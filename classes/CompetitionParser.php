@@ -7,6 +7,9 @@ class CompetitionParser
     private $timeRegex;
     private $yobRegex;
     private $timeIndex;
+    private $nameIndex;
+    private $lineConversion;
+    private $rounds;
 
     public function __construct($config)
     {
@@ -16,7 +19,10 @@ class CompetitionParser
 
         $this->nameRegex = $this->config['regex']['name'][$this->config['parser_config']['formats']['name_format']];
         $this->timeIndex = $this->config['parser_config']['time_index'];
+        $this->nameIndex = isset($this->config['parser_config']['name_index']) ? $this->config['parser_config']['name_index'] : 0;
         $this->timeRegex = $this->config['regex']['time'][$this->config['parser_config']['formats']['time_format']];
+        $this->lineConversion = $this->config['parser_config']['line_conversion'];
+        $this->rounds = isset($this->config['parser_config']['rounds']) ? $this->config['parser_config']['rounds'] : null;
         if (PARSE_YOB) {
             $this->yobRegex = $this->config['regex']['yob'][$this->config['parser_config']['formats']['yob_format']];
         }
@@ -32,10 +38,12 @@ class CompetitionParser
         if ($this->lineContains($line, $this->config['event_signifiers'])
             && !$this->lineContains($line, $this->config['event_designifiers'])) {
             return 'event';
-        } elseif ($this->hasValidResult($line)) {
+        } elseif ($this->hasValidResult($line) && $this->hasName($line)) {
             return 'result';
-        } elseif ($this->getGenderFromLine($line)) {
+        } elseif ($this->getGenderFromLine($line) && $this->config['parser_config']['separate_gender']) {
             return 'gender';
+        } elseif (!is_null($this->rounds) && $this->lineContains($line, $this->config['round_signifiers'])) {
+            return 'round';
         }
 
         return '';
@@ -56,10 +64,6 @@ class CompetitionParser
                     $discipline = array_search($eventId, $disciplines);
                 }
             }
-        }
-
-        if (!$discipline) {
-            print_r('could not find event in: ' . $line . PHP_EOL);
         }
 
         return $discipline;
@@ -97,7 +101,29 @@ class CompetitionParser
      */
     function createUsableLines($lines)
     {
-        return $lines;
+        switch ($this->lineConversion) {
+            case 'name-yob-club-time':
+                $newLines = [];
+                $i = 0;
+                foreach ($lines as $line) {
+                    if (!$this->hasValidResult($line)) {
+                        $newLines[] = $line;
+                        $i++;
+                        continue;
+                    }
+                    $resultLine = '';
+                    $resultLine .= $lines[$i - 3] . "   ";
+                    $resultLine .= $lines[$i - 2] . "   ";
+                    $resultLine .= $lines[$i - 1] . "   ";
+                    $resultLine .= $lines[$i] . "   ";
+                    $newLines[] = $resultLine;
+                    $i++;
+                }
+                return $newLines;
+                break;
+            default:
+                return $lines;
+        }
     }
 
     /**
@@ -118,9 +144,9 @@ class CompetitionParser
     public function getNameFromLine($line)
     {
         $matches = array();
-        preg_match($this->nameRegex, $line, $matches);
+        preg_match_all($this->nameRegex, $line, $matches);
 
-        $name = $matches[0];
+        $name = $matches[0][$this->nameIndex];
 
         if (strpos($name, ',') !== false) {
             $nameParts = explode(',', $name);
@@ -136,6 +162,13 @@ class CompetitionParser
         return trim($name);
     }
 
+
+
+    private function hasName(string $line)
+    {
+        return boolval(preg_match($this->nameRegex, $line));
+    }
+
     /**
      * @param string line
      * @return string
@@ -148,7 +181,8 @@ class CompetitionParser
         if (!$matches) print_r($line . PHP_EOL);
 
         $yearOfBirth = intval(trim($matches[0]));
-        $yearOfBirth += ($yearOfBirth < 19 ? 2000 : 1900);
+
+        if($yearOfBirth < 100) $yearOfBirth += ($yearOfBirth < 19 ? 2000 : 1900);
         return $yearOfBirth;
     }
 
@@ -185,5 +219,16 @@ class CompetitionParser
     public function shouldIncludeEvent($line)
     {
         return !$this->lineContains($line, $this->config['event_rejectors']);
+    }
+
+    public function getRoundFromLine($line)
+    {
+        foreach ($this->rounds as $roundNumber => $roundSignifier) {
+            if ($this->lineContains($line, [$roundSignifier])) {
+                return $roundNumber;
+            }
+        }
+        print_r('Could not find round in: ' . $line . PHP_EOL);
+        return 0;
     }
 }

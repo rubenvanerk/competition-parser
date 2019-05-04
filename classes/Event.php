@@ -6,17 +6,21 @@ class Event
     private $gender;
     private $results;
     private $originalLine;
+    private $roundNumber = 0;
 
     /**
      * Event constructor.
      * @param int $eventId
      * @param int $gender 0 = unknown, 1 = male, 2 = female
+     * @param $line
+     * @param int $roundNumber
      */
-    public function __construct($eventId, $gender, $line)
+    public function __construct($eventId, $gender, $line, $roundNumber = 0)
     {
         $this->eventId = $eventId;
         $this->gender = $gender;
         $this->originalLine = $line;
+        $this->roundNumber = $roundNumber;
         $this->results = [];
     }
 
@@ -25,15 +29,17 @@ class Event
      * @param $gender
      * @param $includeEvent
      * @param $line
+     * @param int $roundNumber
      * @return Event|null
      */
-    public static function create($eventId, $gender, $includeEvent, $line)
+    public static function create($eventId, $gender, $includeEvent, $line, $roundNumber = 0)
     {
         if($eventId && $gender && $includeEvent) {
-            $event = new Event($eventId, $gender, $line);
+            $event = new Event($eventId, $gender, $line, $roundNumber);
             return $event;
         }
         print_r('EVENT COULD NOT BE PARSED, VALUES(event, gender, includeevent): ' . $eventId . ' ' . $gender . ' ' . $includeEvent . PHP_EOL);
+        print_r($line . PHP_EOL . PHP_EOL);
         return null;
     }
 
@@ -82,5 +88,15 @@ class Event
         if ($this->gender == 1) return "Men";
         elseif ($this->gender == 2) return "Women";
         else return "GENDER UNKNOWN";
+    }
+
+    public function setRoundNumber($roundNumber)
+    {
+        $this->roundNumber = $roundNumber;
+    }
+
+    public function getRoundNumber()
+    {
+        return $this->roundNumber;
     }
 }

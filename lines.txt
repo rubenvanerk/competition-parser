@@ -1,1233 +1,839 @@
-Place	Team	Points	
-1Crawley Town	Crawley Town	719.50	
-2Blyth	Blyth	625.0	
-3Portreath	Portreath	410.50	
-4W oolacombe	W oolacombe	374.50	
-5Gyllyngvase	Gyllyngvase	345.50	
-6Vale	Vale	221.50	
-7Saunton Sands	Saunton Sands	178.50	
-8Pen y Bont	Pen y Bont	153.50	
-9Nth W orcester	Nth W orcester	110.50	
-10	Beacon	Beacon	94.50	
-11	Rhoose	Rhoose	79.50	
-12	Unattached	Unattached	68.0	
-13	Mumbles	Mumbles	61.0	
-14	Sth W orcester	Sth W orcester	32.0	
-15	Bournemouth	Bournemouth	30.50	
-16	Langland Bay	Langland Bay	27.50	
-17	Rest Bay	Rest Bay	20.0	
-18	St Ives	St Ives	17.0	
-19	Jersey	Jersey	12.0	
-SLSGB National Open Pool 	
-Championships 2019	
-Overall Results
+100 m. socorrista / maniqkin tube with fins M
+ 
+Final: A
+ 
+Socorrista / Lifeguard
+ Año/Year
+ Club / Team
+ Tiempo/Time
+ 
+1
+ HUERGA SANCHEZ
+ , 
+ JAVIER
+ 2002
+ Club Salvamento y Socorrismo Benavente
+ 
+2
+ PARDO ESTEBAN
+ , 
+ DIEGO
+ 1999
+ Alcarreño de Salvamento y Socorrismo
+ 
+3
+ MATEO MERINO
+ , 
+ GONZALO
+ 1993
+ Alcarreño de Salvamento y Socorrismo
+ 
+4
+ PARDO ESTEBAN
+ , 
+ CARLOS
+ 1995
+ Alcarreño de Salvamento y Socorrismo
+ 
+5
+ CATALA LLINARES
+ , 
+ FCO. JAVIER
+ 1989
+ Club Salvamento y Natacion Silla
+ 
+6
+ CALDERON GONZALVEZ
+ , 
+ SERGIO
+ 1994
+ Real Club Náutico de Tenerife
+ 
+7
+ ESCALONA FERNANDEZ
+ , 
+ MIKEL
+ 1984
+ C.D.B. Vallecas S.O.S
+ 
+8
+ PEACH
+ , 
+ RICARDO
+ 1995
+ South Africa
+ 
+Final: B
+ 
+Socorrista / Lifeguard
+ Año/Year
+ Club / Team
+ Tiempo/Time
+ 
+1
+ MOUTON
+ , 
+ ANDRÉ
+ 2000
+ South Africa
+ 
+2
+ TURRADO ALVAREZ
+ , 
+ ALBERTO
+ 2004
+ C. D. SOS La Bañeza
+ 
+3
+ MATEU PLANELLS
+ , 
+ ALBERT
+ 2000
+ Club Salvamento y Natacion Silla
+ 
+4
+ SILVESTRE VERCHER
+ , 
+ GERMAN
+ 1998
+ Club Top Ten
+ 
+5
+ PLAZUELO JIMENEZ
+ , 
+ MARCO
+ 1998
+ Club Laguna SOS
+ 
+6
+ LOPEZ HERREROS
+ , 
+ PAU
+ 2001
+ Club Salvamento y Natacion Silla
+ 
+7
+ FRAGA REGUEIRO
+ , 
+ ANGEL
+ 2000
+ Club Natacion Cerceda
+ 
+8
+ BERMEJO SANTAMARIA
+ , 
+ OSCAR
+ 2003
+ Club Actividades Acuáticas Calatayud
+ Página 1 de 1
+ Finales
+ 
+ VII ABIERTO INTERNACIONAL 
+ 
+ Campeonato de España de Primavera 2019
+ 
+04 may. 2019 - 05 may. 2019
+ (
+ Piscina/Pool: 50 E
+ )
+ Torrevieja
 
-Event 2  W omen 200 LC Meter Obstacles Individual
-Record:	2:17.40	R	22/04/2017	Lily   (O) Nichols	woolacombe	
-Name	Age	Team	Seed Time	Finals Time	
-1	Nichols, Lily	 24	W oolacombe	2:16.35	2:24.50	 	
-2	Boulton, Rosie	 18	Gyllyngvase	2:27.78	2:25.10	 	
-3	Hand, Jade	 19	Crawley Town	2:37.97	2:33.34	 	
-4	Howgate, Isobel	 16	Saunton Sands	NT	2:33.50	 	
-5	Blake, Hannah	 20	Vale	2:28.30	2:34.84	 	
-6	W ardman, Keia	 20	Portreath	2:29.70	2:38.03	 	
-7	Norgrove, Ruby	 16	Nth W orcester	2:48.00	2:39.05	 	
-8	Elliott, Kezia	 17	Gyllyngvase	2:40.97	2:43.75	 	
-9	Bradley, Milly	 16	Blyth	2:51.04	2:51.91	 	
-10	Peterson, Ellie	 19	Vale	2:50.00	2:54.53	 	
-11	Chizlett, Kelly	 29	Bournemouth	3:45.00	3:40.12	 	
-12	Elliott, Zara	 18	St Ives	2:40.00	3:52.13	 	
+100 m. socorrista / manikin tube with fins F
  
-Event 3  Men 200 LC Meter Obstacles Individual
-Record:	2:01.86	R	15/04/2018	Ioan Evans	Pen y Bont	
-Name	Age	Team	Seed Time	Finals Time	
-1	Evans, Ioan	 17	Pen y Bont	2:00.00	2:01.51	R	 	
-2	Gammon, Joshua	 16	W oolacombe	2:07.00	2:05.69	 	
-3	Trebilcock, Thomas	 16	Gyllyngvase	2:09.04	2:07.27	 	
-4	Miller, David	 20	W oolacombe	2:06.92	2:09.37	 	
-5	W hittaker, bob	 18	W oolacombe	2:08.00	2:09.40	 	
-6	Seagrove-Castle, Dan	 26	Crawley Town	2:08.00	2:12.96	 	
-7	Murray, Sam	 19	Crawley Town	2:12.44	2:14.10	 	
-8	W oollard, Joseph	 19	Crawley Town	2:07.55	2:15.96	 	
-9	Norton, Sam	 17	Gyllyngvase	2:22.95	2:18.56	 	
-10	Dungavel, Finn	 17	Gyllyngvase	2:23.22	2:18.64	 	
-11	Bunney, James	 27	Saunton Sands	NT	2:20.89	 	
-12	Briggs, Calum	 23	Unattached	2:21.42	2:25.10	 	
-13	Schofield, Martin	 20	Crawley Town	2:13.00	2:27.95	 	
-14	Deasy, Sean	 27	W oolacombe	2:24.00	2:28.07	 	
-15	Dickinson, Mace	 17	Gyllyngvase	2:29.35	2:30.73	 	
-16	Battell, David	 23	Langland Bay	NT	2:30.86	 	
-17	Ewington, Declan	 18	Vale	2:28.34	2:31.66	 	
-18	Deasy, Niall	 23	W oolacombe	2:32.00	2:32.36	 	
-19	Nicholls, Dafydd	 20	Vale	2:30.00	2:32.50	 	
-20	Luke, Cooke	 16	W oolacombe	2:30.00	2:40.27	 	
-21	Stevens, Elliott	 25	Beacon	2:36.81	2:40.80	 	
-22	W ong, Oliver	 18	Rhoose	NT	2:49.22	 	
-23	Gilroy, Callum	 20	Blyth	2:36.77	2:50.54	 	
-24	Arkley, Daniel	 27	Blyth	4:15.38	4:34.68	 	
+Final: A
  
-Event 4  W omen 30-39 100 LC Meter Obstacles Individual
-Record:	1:12.82	R	22/04/2017	Jenn Penny	Bournemouth	
-Name	Age	Team	Seed Time	Finals Time	
-1	Anderson, Sarah	 37	Portreath	1:15.19	1:16.57	 	
-2	Hancock, Penny	 33	Newquay	1:15.15	1:17.47	 	
-3	Richards, Chantel	 34	Portreath	1:15.18	1:20.39	 	
-4	Lane, Natasha	 38	Nth W orcester	1:25.51	1:24.05	 	
-5	Folland, Louise	 34	Saunton Sands	1:30.00	1:25.82	 	
-6	Sedgwick, Cathy	 33	Blyth	1:35.00	1:41.70	 	
+Socorrista / Lifeguard
+ Año/Year
+ Club / Team
+ Tiempo/Time
  
-Event 5  Men 30-39 100 LC Meter Obstacles Individual
-Record:	1:00.25	R	22/04/2017	Richard W atkins	Pen y Bont	
-Name	Age	Team	Seed Time	Finals Time	
-1	Jagger, Richard	 30	Crawley Town	56.60	58.20	R	 	
-SLSGB National Open/Masters Pool Championships 	
-2019	
-Individual Results
+1
+ MARTINEZ MANZANO
+ , 
+ MIRIAM
+ 2002
+ Alcarreño de Salvamento y Socorrismo
+ 
+2
+ ACEBO MONCALIAN
+ , 
+ MARIA EUGENIA
+ 2000
+ Club Noja Playa Dorada
+ 
+3
+ AGRA NEIRA
+ , 
+ PAULA
+ 1999
+ Club Salvamento Sada - SASA
+ 
+4
+ COSTA PORTILLA
+ , 
+ ISABEL
+ 1995
+ Club Noja Playa Dorada
+ 
+5
+ EGUILUZ DE CELIS
+ , 
+ PAOLA
+ 2001
+ Club Noja Playa Dorada
+ 
+6
+ SANCHEZ PEIDRO
+ , 
+ MERCEDES
+ 1995
+ Club Top Ten
+ 
+7
+ VEIGA AGUEROS
+ , 
+ FATIMA
+ 1995
+ Alcarreño de Salvamento y Socorrismo
+ 
+8
+ EGUILUZ DE CELIS
+ , 
+ LUCIA
+ 1996
+ Club Noja Playa Dorada
+ 
+Final: B
+ 
+Socorrista / Lifeguard
+ Año/Year
+ Club / Team
+ Tiempo/Time
+ 
+1
+ LOUREIRO SERRANO
+ , 
+ NOELIA
+ 2001
+ Club Salvamento Acuatico Laracha - SAL
+ 
+2
+ RODRIGUEZ FERNANDEZ
+ , 
+ YANIRA
+ 2002
+ Club Natacion y Salvamento Oriol Imperial
+ 
+3
+ SANCHEZ IBERTI
+ , 
+ EMMA
+ 2002
+ Club Top Ten
+ 
+4
+ OPPERMAN
+ , 
+ BIANCA
+ 2002
+ South Africa
+ 
+5
+ CABALLERO FUSET
+ , 
+ LOLA
+ 2004
+ Club Natacion SOS Betera
+ 
+6
+ GOMEZ RODRIGUEZ
+ , 
+ LOLA
+ 2000
+ Club Noja Playa Dorada
+ 
+7
+ LÓPEZ FERNÁNDEZ
+ , 
+ LARA
+ 2002
+ Club Salvamento Sada - SASA
+ 
+8
+ BARREÑA PONCE
+ , 
+ SHEILA
+ 2003
+ Club Salvamento y Natacion Silla
+ Página 1 de 1
+ Finales
+ 
+ VII ABIERTO INTERNACIONAL 
+ 
+ Campeonato de España de Primavera 2019
+ 
+04 may. 2019 - 05 may. 2019
+ (
+ Piscina/Pool: 50 E
+ )
+ Torrevieja
 
-(Event 5  Men 30-39 100 LC Meter Obstacles Individual)
-Name	Age	Team	Seed Time	Finals Time	
-2	Rosewell, Lloyd	 34	Pen y Bont	1:04.00	1:05.23	 	
-3	Jenkinson, Chris	 36	Nth W orcester	1:10.67	1:10.48	 	
-4	Daly, Scott	 36	Rest Bay	3:00.00	1:26.36	 	
+100 m. combinada de salvamento / medley M
  
-Event 6  W omen 40-44 100 LC Meter Obstacles Individual
-Record:	1:21.70	R	22/04/2017	Tracy Marsh	Eastbourne	
-Name	Age	Team	Seed Time	Finals Time	
-1	Leonard, Lois	 42	Gyllyngvase	1:30.00	1:24.53	 	
-2	Ashton, Zoë	 41	Saunton Sands	1:35.00	1:31.52	 	
-3	Ewington, Gemma	 43	Vale	1:43.00	1:39.99	 	
-4	Ramsden-Hare, Louise	 44	Mumbles	1:45.00	1:46.47	 	
----	Anderson, Sarah	 37	Portreath	NT	X1:16.57	R	 	
----	Hancock, Penny	 33	Newquay	NT	X1:17.47	R	 	
----	Richards, Chantel	 34	Portreath	NT	X1:20.39	R	 	
----	Lane, Natasha	 38	Nth W orcester	NT	X1:24.05	 	
----	Folland, Louise	 34	Saunton Sands	NT	X1:25.82	 	
----	Sedgwick, Cathy	 33	Blyth	NT	X1:41.70	 	
+Final: A
  
-Event 7  Men 40-44 100 LC Meter Obstacles Individual
-Record:	1:01.81	R	15/04/2018	Richard W atkins	Pen y Bont	
-Name	Age	Team	Seed Time	Finals Time	
-1	Taylor, Stephen	 41	Rest Bay	NT	1:22.15	 	
----	Jagger, Richard	 30	Crawley Town	NT	X58.20	R	 	
----	Rosewell, Lloyd	 34	Pen y Bont	NT	X1:05.23	 	
----	Jenkinson, Chris	 36	Nth W orcester	NT	X1:10.48	 	
----	Daly, Scott	 36	Rest Bay	NT	X1:26.36	 	
+Socorrista / Lifeguard
+ Año/Year
+ Club / Team
+ Tiempo/Time
  
-Event 8  W omen 45-49 100 LC Meter Obstacles Individual
-Record:	1:24.25	R	15/04/2018	Sian Laycock	Rhoose	
-Name	Age	Team	Seed Time	Finals Time	
-1	Butterly, Lisa	 47	Crantock	NT	1:27.41	 	
-2	Phinnemore, Andrea	 49	Pen y Bont	1:30.00	1:27.93	 	
-3	Frank, Clare	 49	Dawlish W arren	1:28.50	1:30.39	 	
-4	Attwell, Annette	 45	Jersey	2:00.00	1:53.04	 	
-5	Nyom, Sarah	 49	Pen y Bont	2:20.00	2:20.35	 	
+1
+ MATEU PLANELLS
+ , 
+ ALBERT
+ 2000
+ Club Salvamento y Natacion Silla
  
-Event 9  Men 45-49 100 LC Meter Obstacles Individual
-Record:	1:10.59	R	22/04/2017	Steve Croall	Langland	
-Name	Age	Team	Seed Time	Finals Time	
-1	Attwell, Adrian	 49	Jersey	1:17.00	1:14.91	 	
-2	Skinner, Paul	 45	Portreath	1:21.80	1:21.27	 	
-3	Baxter, David	 49	Bideford Bay	1:28.00	1:28.08	 	
-4	Phil, Bateman	 48	Portreath	1:38.24	1:28.67	 	
-5	W isden, Mark	 48	Pen y Bont	1:35.00	1:30.75	 	
+2
+ MERINO MONTES DE OCA
+ , 
+ ALVARO
+ 2001
+ Real Club Náutico de Tenerife
  
-Event 10  W omen 50-54 100 LC Meter Obstacles Individual
-Record:	1:20.93	R	15/04/2018	Donna W ickens	Crawley Town	
-Name	Age	Team	Seed Time	Finals Time	
-1	W ickens, Donna	 53	Crawley Town	1:18.50	1:19.76	R	 	
-2	Rowden, Helen	 50	Saunton Sands	1:24.00	1:21.46	 	
-3	Vale, Bev	 53	Saunton Sands	1:42.00	1:41.96	 	
-4	Yates, Mel	 53	Bournemouth	2:00.50	2:15.24	 	
----	Butterly, Lisa	 47	Crantock	NT	X1:27.41	 	
----	Phinnemore, Andrea	 49	Pen y Bont	NT	X1:27.93	 	
----	Frank, Clare	 49	Dawlish W arren	NT	X1:30.39	 	
----	Attwell, Annette	 45	Jersey	NT	X1:53.04	 	
----	Nyom, Sarah	 49	Pen y Bont	NT	X2:20.35	 	
+3
+ MAESE AZARENOK
+ , 
+ ANDREY
+ 1998
+ Alcarreño de Salvamento y Socorrismo
  
-Event 11  Men 50-54 100 LC Meter Obstacles Individual
-Record:	1:21.45	R	15/04/2018	John Arnold	Nth W orcester	
-Name	Age	Team	Seed Time	Finals Time	
-1	Arnold, John	 52	Nth W orcester	1:25.23	1:24.11	 	
-2	Parker, Simon	 52	Vale	1:28.00	1:28.33	 	
-3	Priddis, Jeff	 54	Saunton Sands	1:31.00	1:30.38
+4
+ IPPOLITO
+ , 
+ FRANCESCO
+ 1996
+ ASD Gorizia Nuoto
+ 
+5
+ FERRO
+ , 
+ MAURO
+ 1993
+ Sporting Club Noale
+ 
+6
+ TOMINEC
+ , 
+ DAVIDE
+ 1995
+ ASD Gorizia Nuoto
+ 
+7
+ BLASCO ALVAREZ
+ , 
+ EDUARDO
+ 1994
+ Club Noja Playa Dorada
+ 
+8
+ SZPUNAR ROSA
+ , 
+ RAUL MAREK
+ 2000
+ Club Salvamento y Natacion Silla
+ 
+Final: B
+ 
+Socorrista / Lifeguard
+ Año/Year
+ Club / Team
+ Tiempo/Time
+ 
+1
+ HUERGA SANCHEZ
+ , 
+ JAVIER
+ 2002
+ Club Salvamento y Socorrismo Benavente
+ 
+2
+ SAEZ PERALES
+ , 
+ HUGO ANGEL
+ 1987
+ Club Salvamento y Natacion Silla
+ 
+3
+ ISART REDONDO
+ , 
+ IGNACIO
+ 1995
+ C.D.B. Vallecas S.O.S
+ 
+4
+ LÓPEZ TORIBIO
+ , 
+ MIGUEL ANGEL
+ 1997
+ Club Laguna SOS
+ 
+5
+ HOLZENDORF DIONIS
+ , 
+ THOMAS
+ 1997
+ Club Natación Martianez
+ 
+6
+ MORENO DIAZ
+ , 
+ ROBERTO
+ 1992
+ C.D.B. Vallecas S.O.S
+ 
+7
+ VARGAS GARMENDIA
+ , 
+ SERGIO
+ 1998
+ C.D.B. Vallecas S.O.S
+ 
+8
+ VAN SCHALKWYK
+ , 
+ OCKERT
+ 2000
+ South Africa
+ Página 1 de 1
+ Finales
+ 
+ VII ABIERTO INTERNACIONAL 
+ 
+ Campeonato de España de Primavera 2019
+ 
+04 may. 2019 - 05 may. 2019
+ (
+ Piscina/Pool: 50 E
+ )
+ Torrevieja
 
-4	Lewis, Adrian	 50	Mumbles	1:45.00	1:57.39	 	
----	Attwell, Adrian	 49	Jersey	NT	X1:14.91	R	 	
----	Skinner, Paul	 45	Portreath	NT	X1:21.27	R	 	
----	Baxter, David	 49	Bideford Bay	NT	X1:28.08	 	
----	Phil, Bateman	 48	Portreath	NT	X1:28.67	 	
----	W isden, Mark	 48	Pen y Bont	NT	X1:30.75	 	
+100 m. combinada de salvamento / medley F
  
-Event 12  W omen 55-59 100 LC Meter Obstacles Individual
-Record:	2:00.65	R	22/04/2017	Romaine W ebb	North W orcester	
-Name	Age	Team	Seed Time	Finals Time	
-1	Shaw, Pamela	 59	Crawley Town	2:20.00	2:04.55	 	
+Final: A
  
-Event 13  Men 55-59 100 LC Meter Obstacles Individual
-Record:	1:11.51	R	22/04/2017	Adrian Morris	Pen y Bont	
-Name	Age	Team	Seed Time	Finals Time	
-1	Morris, Adrian	 57	Pen y Bont	1:15.00	1:13.54	 	
-2	Norton, Mark	 55	Gyllyngvase	1:25.00	1:14.28	 	
-3	Yates, Ian	 57	Pen y Bont	1:20.00	1:18.45	 	
-4	Purchase, Martin	 59	Saunton Sands	1:22.00	1:22.10	 	
-5	McMaster, Tony	 55	Blyth	1:27.06	1:22.92	 	
-6	John, Chris	 59	Langland Bay	NT	1:33.14	 	
-7	Tobin, Paul	 55	Bideford Bay	1:40.00	1:40.01	 	
-8	Bailey, Ian	 57	Mumbles	1:31.83	1:46.22	 	
-9	W illiams, Paul	 59	Langland Bay	NT	1:46.25	 	
-10	Graham, Dave	 57	Blyth	1:53.86	1:47.66	 	
-11	Spencer, Geoffrey	 56	Bideford Bay	1:45.00	1:52.20	 	
+Socorrista / Lifeguard
+ Año/Year
+ Club / Team
+ Tiempo/Time
  
-Event 14  W omen 60-64 100 LC Meter Obstacles Individual
-Name	Age	Team	Seed Time	Finals Time	
-1	Fox, Dorothy	 62	Bournemouth	1:44.66	1:48.27	 	
-2	W ebb, Romaine	 60	Nth W orcester	1:58.50	1:59.61	 	
+1
+ NORIEGA MARTIN
+ , 
+ CLAUDIA
+ 2003
+ C.D.B. Vallecas S.O.S
  
-Event 15  Men 60-64 100 LC Meter Obstacles Individual
-Name	Age	Team	Seed Time	Finals Time	
-1	Bunney, Bob	 62	Saunton Sands	1:26.00	1:25.18	 	
-2	Gwynn, Jon	 60	Mumbles	1:30.38	1:39.17	 	
-3	Lee, Gary	 60	Crawley Town	1:55.00	1:54.14	 	
+2
+ HENDERSON
+ , 
+ EMMA
+ 1998
+ Great Britain
  
-Event 16  W omen 65 & Over 100 LC Meter Obstacles Individual
-Name	Age	Team	Seed Time	Finals Time	
-1	Lewis, Elaine	 65	Bournemouth	1:42.54	1:45.95	 	
----	Fox, Dorothy	 62	Bournemouth	NT	X1:48.27	 	
----	W ebb, Romaine	 60	Nth W orcester	NT	X1:59.61	 	
----	Shaw, Pamela	 59	Crawley Town	NT	X2:04.55	 	
+3
+ DE DIOS LASA
+ , 
+ MIRIAM
+ 2002
+ Club Natacion y Salvamento Oriol Imperial
  
-Event 17  Men 65 & Over 100 LC Meter Obstacles Individual
-Name	Age	Team	Seed Time	Finals Time	
-1	Carr, Paul	 67	Langland Bay	NT	1:33.30	 	
-2	Johnson, Neil	 66	Dawlish W arren	1:37.12	1:39.06	 	
----	Bunney, Bob	 62	Saunton Sands	NT	X1:25.18	 	
----	Gwynn, Jon	 60	Mumbles	NT	X1:39.17	 	
----	Lee, Gary	 60	Crawley Town	NT	X1:54.14	 	
+4
+ PAYOLA ANGLADA
+ , 
+ NURIA
+ 1999
+ SOS Santjoan
  
-Event 18  W omen 4x50 LC Meter Obstacles Relay Relay
-Record:	2:04.25	R	22/04/2017	Crawley Town LSC	Crawley Town LSC	
-Team	 	Relay	Seed Time	Finals Time	
-1	Gyllyngvase	    A	2:14.33	2:11.02	 	
-2	Blyth	    A	2:18.53	2:13.77	 	
-3	Blyth	    B	2:18.74	2:15.28	 	
-4	Portreath	    A	2:12.74	2:15.88	 	
-5	Vale	    A	2:30.00	2:16.07	 	
-6	W oolacombe	    A	2:10.00	2:17.76	 	
-7	Saunton Sands	    A	NT	2:18.78	 	
-8	Portreath	    B	2:17.17	2:28.73	 	
-9	Nth W orcester	    A	2:38.75	2:33.40	 	
-10	Blyth	    C	2:35.00	2:38.86
+5
+ OPPERMAN
+ , 
+ BIANCA
+ 2002
+ South Africa
+ 
+6
+ LOPEZ RUIZ
+ , 
+ ELSA
+ 2002
+ Alcarreño de Salvamento y Socorrismo
+ 
+7
+ SANCHEZ GONZALEZ
+ , 
+ VERONICA
+ 1992
+ Club Noja Playa Dorada
+ 
+8
+ RODRIGUEZ RODRIGUEZ DE LA SIERRA
+ , 
+ MARIA
+ 2004
+ Club Natación Martianez
+ 
+Final: B
+ 
+Socorrista / Lifeguard
+ Año/Year
+ Club / Team
+ Tiempo/Time
+ 
+1
+ LOUREIRO SERRANO
+ , 
+ NOELIA
+ 2001
+ Club Salvamento Acuatico Laracha - SAL
+ 
+2
+ VILA GARRO
+ , 
+ AMAIA
+ 2000
+ Club A.C.N. Marisma
+ 
+3
+ MASCAROS NUÑEZ
+ , 
+ BEATRIZ
+ 2002
+ Club Salvamento y Natacion Silla
+ 
+4
+ VILA GARRO
+ , 
+ NEREA
+ 1998
+ Club A.C.N. Marisma
+ 
+5
+ GANADO AMADOR
+ , 
+ CAROLINA
+ 1999
+ Club Salvamento y Socorrismo Benavente
+ 
+6
+ MALAVE CASCALES
+ , 
+ LAURA
+ 1998
+ Club Natación Mirasierra 
+ 
+7
+ ACEBO MONCALIAN
+ , 
+ MARIA EUGENIA
+ 2000
+ Club Noja Playa Dorada
+ 
+8
+ CABALLERO FUSET
+ , 
+ LOLA
+ 2004
+ Club Natacion SOS Betera
+ Página 1 de 1
+ Finales
+ 
+ VII ABIERTO INTERNACIONAL 
+ 
+ Campeonato de España de Primavera 2019
+ 
+04 may. 2019 - 05 may. 2019
+ (
+ Piscina/Pool: 50 E
+ )
+ Torrevieja
 
-11	Rhoose	    A	NT	2:41.30	 	
-12	Bournemouth	    A	3:00.00	3:23.04	 	
+200 m. natación con obstáculos / obstacles M
  
-Event 19  Men 4x50 LC Meter Obstacles Relay Relay
-Record:	1:46.76	R	22/04/2017	Crawley Town LSC	Crawley Town LSC	
-Team	 	Relay	Seed Time	Finals Time	
-1	Crawley Town	    A	1:48.00	1:47.44	 	
-2	Portreath	    A	1:50.22	1:49.11	 	
-3	W oolacombe	    A	1:50.00	1:51.28	 	
-4	Pen y Bont	    A	1:50.00	1:51.85	 	
-5	Crawley Town	    B	1:50.00	1:52.78	 	
-6	Gyllyngvase	    A	1:59.03	1:54.19	 	
-7	Vale	    A	2:15.00	2:01.51	 	
-8	Saunton Sands	    A	NT	2:02.49	 	
-9	Rhoose	    A	NT	2:03.01	 	
-10	Gyllyngvase	    B	2:05.00	2:03.14	 	
-11	Beacon	    A	2:04.82	2:03.26	 	
-12	Blyth	    A	2:08.01	2:05.02	 	
-13	W oolacombe	    B	1:55.00	2:06.22	 	
-14	Nth W orcester	    A	2:00.00	2:13.61	 	
-15	Portreath	    B	1:55.19	2:14.01	 	
+Final: A
  
-Event 20  Mixed 30 & Over 4x50 LC Meter Obstacles Relay Relay
-Record:	1:54.31	R	22/04/2017	Pen y Bont	Pen y Bont	
-Team	 	Relay	Seed Time	Finals Time	
-1	Pen y Bont	    A	1:55.00	2:08.94	 	
-2	Nth W orcester	    A	2:05.00	2:14.88	 	
-3	Saunton Sands	    A	NT	2:24.29	 	
-4	Portreath	    A	NT	2:27.45	 	
-5	Langland Bay	    A	NT	2:44.68	 	
-6	Crawley Town	    A	3:45.00	2:51.70	 	
-7	Saunton Sands	    B	NT	2:57.36	 	
-8	Blyth	    A	3:00.00	3:01.66	 	
-9	Pen y Bont	    B	2:10.00	3:04.90	 	
-10	Vale	    A	2:00.00	3:05.81	 	
-11	Mumbles	    A	NT	3:10.27	 	
-12	Bournemouth	    A	3:30.00	3:27.31	 	
+Socorrista / Lifeguard
+ Año/Year
+ Club / Team
+ Tiempo/Time
  
-Event 21  W omen LC Meter Line Throw Relay Pair
-Record:	12.94	R	22/04/2017	Crawley Town LSC	Crawley Town LSC	
-Team	 	Relay	Seed Time	Finals Time	
-1	Blyth	    F	20.00	14.42	 	
-2	Blyth	    D	15.70	15.36	 	
-3	Unattached	    A	15.22	15.59	 	
-1) Briggs, Isobel 19
-(Event 21  W omen LC Meter Line Throw Relay Pair)
-Team	 	Relay	Seed Time	Finals Time	
-4	Blyth	    B	25.00	16.18	 	
-5	Pen y Bont	    A	15.00	17.33	 	
-6	Nth W orcester	    A	16.58	17.54	 	
-7	Vale	    A	20.00	17.63	 	
-8	Crawley Town	    B	14.00	17.79	 	
-9	Bournemouth	    A	20.64	20.15	 	
-10	Gyllyngvase	    A	25.00	21.37	 	
-11	Crawley Town	    A	15.67	23.68	 	
-12	Vale	    B	15.00	26.46	 	
-13	Blyth	    C	24.47	32.41	 	
-14	Blyth	    G	38.00	37.63	 	
-15	Blyth	    A	45.00	39.55	 	
-16	Gyllyngvase	    B	28.00	42.30	 	
----	Mumbles	    A	1.50	DNF	 	
----	Beacon	    A	15.47	DNF	 	
----	W oolacombe	    A	NT	DNF	 	
----	Portreath	    B	0.15	DNF	 	
----	Nth W orcester	    B	18.12	DNF	 	
----	Saunton Sands	    A	NT	DNF
+1
+ CORONADO TEJEDA
+ , 
+ CARLOS
+ 2003
+ Club Top Ten
+ 
+2
+ VARGAS GARMENDIA
+ , 
+ SERGIO
+ 1998
+ C.D.B. Vallecas S.O.S
+ 
+3
+ MORENO DIAZ
+ , 
+ ROBERTO
+ 1992
+ C.D.B. Vallecas S.O.S
+ 
+4
+ AMILLO ESCOBEDO
+ , 
+ IVAN
+ 2000
+ Club Salvamento y Natacion Silla
+ 
+5
+ IPPOLITO
+ , 
+ FRANCESCO
+ 1996
+ ASD Gorizia Nuoto
+ 
+6
+ PEREZ SANCHEZ
+ , 
+ JAVIER
+ 2002
+ Alcarreño de Salvamento y Socorrismo
+ 
+7
+ MERINO MONTES DE OCA
+ , 
+ ALVARO
+ 2001
+ Real Club Náutico de Tenerife
+ 
+8
+ MIRANDA GARCIA
+ , 
+ JOSE
+ 2001
+ Asociación Dep Natación Cáceres
+ 
+Final: B
+ 
+Socorrista / Lifeguard
+ Año/Year
+ Club / Team
+ Tiempo/Time
+ 
+1
+ RUIZ RAMIS
+ , 
+ DANIEL
+ 2001
+ C.D.E Pacifico Salvamento
+ 
+2
+ ISART REDONDO
+ , 
+ IGNACIO
+ 1995
+ C.D.B. Vallecas S.O.S
+ 
+3
+ PUERRO CORRAL
+ , 
+ JOAQUIN
+ 1993
+ Club Natación Mirasierra 
+ 
+4
+ PARDO ESTEBAN
+ , 
+ DIEGO
+ 1999
+ Alcarreño de Salvamento y Socorrismo
+ 
+5
+ PLAZA POLO
+ , 
+ JORGE
+ 1998
+ Club Natación Guadalajara
+ 
+6
+ LOPEZ SAIZ
+ , 
+ CARLOS
+ 2001
+ Club Noja Playa Dorada
+ 
+7
+ HOLZENDORF DIONIS
+ , 
+ THOMAS
+ 1997
+ Club Natación Martianez
+ 
+8
+ MARCET PEREZ
+ , 
+ FRANCISCO
+ 2003
+ Club Top Ten
+ Página 1 de 1
+ Finales
+ 
+ VII ABIERTO INTERNACIONAL 
+ 
+ Campeonato de España de primavera 2019
+ 
+04 may. 2019 - 05 may. 2019
+ (
+ Piscina/Pool: 50 E
+ )
+ Torrevieja
 
----	Portreath	    C	0.15	DNF	 	
- 
-Event 22  Men LC Meter Line Throw Relay Pair
-Record:	10.78	R	22/04/2017	Crawley Town LSC	Crawley Town LSC	
-Team	 	Relay	Seed Time	Finals Time	
-1	Blyth	    A	25.00	13.14	 	
-2	Pen y Bont	    A	12.00	13.89	 	
-3	Crawley Town	    C	10.96	15.23	 	
-4	Gyllyngvase	    C	23.00	15.32	 	
-5	Portreath	    C	0.15	18.69	 	
-6	Nth W orcester	    A	18.12	20.03	 	
-7	Langland Bay	    A	NT	20.08	 	
-8	W oolacombe	    A	NT	20.09	 	
-9	Crawley Town	    D	9.90	20.82	 	
-10	Saunton Sands	    A	NT	21.00	 	
-11	Crawley Town	    E	1:10.00	21.71	 	
-12	Gyllyngvase	    D	25.00	21.78	 	
-13	Pen y Bont	    B	12.00	23.04	 	
-14	Beacon	    A	13.79	25.86	 	
-15	Crawley Town	    B	10.50	27.58	 	
-16	Langland Bay	    B	NT	29.25	 	
-17	Blyth	    B	15.11	32.20	 	
-18	W oolacombe	    C	NT	37.61	 	
-19	Rhoose	    A	0.16	38.67	 	
-20	Crawley Town	    A	9.65	39.83	 	
-21	Gyllyngvase	    B	20.00	40.07	 	
-22	Vale	    A	15.00	41.16	 	
-23	Blyth	    C	35.00	46.13	 	
----	Blyth	    D	40.00	DNF	 	
----	W oolacombe	    B	NT	DNF	 	
----	W oolacombe	    E	NT	DNF	 	
----	W oolacombe	    D	NT	DNF	 	
----	Portreath	    B	0.15	DNF	 	
----	Gyllyngvase	    A	17.00	DNF	 	
----	Portreath	    A	0.15	DNF	 	
- 
-Event 23  Mixed 30 & Over LC Meter Line Throw Relay Pair
-Record:	11.41	R	15/04/2018	Crawley Town	Crawley Town	
-Team	 	Relay	Seed Time	Finals Time	
-1	Pen y Bont	    B	15.00	12.78	 	
-2	Crawley Town	    B	13.00	13.34	 	
-3	Nth W orcester	    A	12.12	13.46	 	
-4	Mumbles	    B	12.00	14.47	 	
-5	Jersey	    A	17.00	16.12	 	
-6	Langland Bay	    A	NT	16.24	 	
-7	Crawley Town	    A	15.67	16.45	 	
-8	Blyth	    C	40.00	17.23	 	
-9	Saunton Sands	    B	NT	19.25	 	
-10	Pen y Bont	    A	15.00	20.91	 	
-11	Blyth	    D	30.00	21.25	 	
-12	Blyth	    A	15.70	22.66	 	
-13	Rest Bay	    A	28.00	24.39	 	
-14	Vale	    A	20.00	24.52	 	
-15	Blyth	    B	20.56	28.12	 	
-16	Portreath	    B	NT	31.72	 	
-17	Bournemouth	    B	30.00	41.10	 	
----	Portreath	    C	NT	DQ	 	
----	Saunton Sands	    A	NT	DNF	 	
----	Dawlish W arren	    A	20.00	DNF	 	
----	Bournemouth	    C	35.00	DNF	 	
----	Mumbles	    A	12.00	DNF	 	
----	Langland Bay	    B	NT	DNF	 	
- 
-Event 24  W omen 50 LC Meter Manikin Carry Individual
-Record:	36.41	R	22/04/2017	Emma (O) Henderson	Unattached	
-Name	Age	Team	Seed Time	Finals Time
-
-1	Macartney, Marina	 29	Crawley Town	37.04	37.81	 	
-2	Nichols, Lily	 24	W oolacombe	37.70	40.63	 	
-3	Rees, Millie	 17	Mumbles	40.40	40.92	 	
-4	W eston, Amy	 18	Sth W orcester	41.27	42.09	 	
-5	Kendall, Emma	 18	Portreath	40.93	42.28	 	
-6	Saunders, Emelye	 20	Blyth	41.15	42.92	 	
-7	Gordon, Lauren	 18	Blyth	41.53	43.04	 	
-8	McCourt, Rhiannah	 18	Blyth	42.92	43.84	 	
-9	W iggins, Millie	 18	Pen y Bont	42.00	44.04	 	
-10	Rodda, Caja	 16	Portreath	42.80	44.29	 	
-11	Carpenter, Sam	 23	Blyth	44.71	44.33	 	
-12	Stevens, Rachael	 25	Beacon	43.80	44.35	 	
-13	Boulton, Rosie	 18	Gyllyngvase	44.22	45.99	 	
-14	Peterson, Kelsea	 21	Vale	48.48	46.08	 	
-15	Chandler, Cadie	 20	Blyth	43.05	46.33	 	
-16	Dickerson-W eedy, Ellie	 17	Blyth	44.39	46.42	 	
-17	Briggs, Isobel	 19	Unattached	48.25	46.74	 	
-18	Jenkins, Helen	 18	Rhoose	NT	46.86	 	
-19	W ardman, Keia	 20	Portreath	42.56	47.83	 	
-20	Hawkins, Georgia	 17	Gyllyngvase	47.76	47.87	 	
-21	Gardiner, Tesni	 17	Vale	50.00	49.47	 	
-22	Parker, Emily	 16	Vale	46.00	49.74	 	
-23	Bradley, Milly	 16	Blyth	49.99	49.93	 	
-24	Hood, Millie	 20	W oolacombe	45.00	49.97	 	
-25	Hocking, Freya	 17	Gyllyngvase	49.52	50.45	 	
-26	Mann, Jasmine	 20	Pen y Bont	47.00	50.76	 	
-27	Bell, Charlotte	 17	St Ives	41.00	50.89	 	
-(Event 24  W omen 50 LC Meter Manikin Carry Individual)
-Name	Age	Team	Seed Time	Finals Time	
-28	Little-Seccombe, Jessica	 17	Blyth	48.16	51.37	 	
-29	Elliott, Zara	 18	St Ives	43.00	52.80	 	
-30	Duncan, Rececca	 25	Jersey	1:05.00	53.97	 	
-31	Owen, Samantha	 17	Portreath	52.19	54.23	 	
-32	Malorey-Vibert, Cara	 25	Jersey	1:05.00	54.69	 	
-33	Yeomans, Lauren	 25	Nth W orcester	54.71	54.74	 	
-34	Buttle, Chantelle	 17	Portreath	51.81	55.29	 	
-35	Piotrowicz, Kerenza	 16	Portreath	55.32	56.64	 	
-36	James, Mali	 25	Mumbles	54.08	58.34	 	
-37	Chizlett, Kelly	 29	Bournemouth	1:01.00	1:07.59	 	
- 
-Event 25  Men 50 LC Meter Manikin Carry Individual
-Record:	29.46	R	22/04/2017	Charlie (O) Haynes	Portreath	
-Name	Age	Team	Seed Time	Finals Time	
-1	Lawman, Samuel	 24	Crawley Town	30.50	30.54	 	
-2	Haynes, Charlie	 22	Portreath	30.00	30.70	 	
-3	Morley, Andrew	 23	Crawley Town	30.93	31.22	 	
-4	Haynes, George	 29	Portreath	31.77	31.89	 	
-5	Gammon, Joshua	 16	W oolacombe	32.00	32.27	 	
-6	Jagger, Richard	 30	Crawley Town	32.20	33.30	 	
-7	W eightman, Daniel	 22	Blyth	34.49	33.84	 	
-8	W ydenbach, Rhys	 19	Pen y Bont	33.55	34.01	 	
-9	Murray, Sam	 19	Crawley Town	34.76	34.11	 	
-10	Seagrove-Castle, Dan	 26	Crawley Town	34.00	34.19	 	
-11	Ryan, W heeler	 24	Beacon	35.67	35.10	 	
-12	W heeler, Thomas	 24	Beacon	33.73	35.55	 	
-13	Jackson, Alex	 18	Crawley Town	36.12	35.80	 	
-14	W hittaker, bob	 18	W oolacombe	35.00	35.84	 	
-15	W oollard, Joseph	 19	Crawley Town	35.25	35.92	 	
-16	Lewis, Steven	 19	Portreath	38.16	36.59	 	
-17	Nicholls, Dafydd	 20	Vale	38.00	36.72	 	
-18	Briggs, Calum	 23	Unattached	36.42	37.01	 	
-19	Norton, Sam	 17	Gyllyngvase	39.54	37.53	 	
-20	Dungavel, Finn	 17	Gyllyngvase	39.86	37.81	 	
-21	Carpenter, James	 21	Portreath	35.78	38.25	 	
-22	Ewington, Declan	 18	Vale	39.14	39.16	 	
-23	Redrup, Calum	 18	W oolacombe	37.00	39.21
-
-24	Hopkin, Reuben	 16	Vale	38.52	39.26	 	
-*25	Schofield, Martin	 20	Crawley Town	33.02	39.40	 	
-*25	Garner, Louis	 18	Portreath	35.79	39.40	 	
-27	Battell, David	 23	Langland Bay	NT	39.53	 	
-28	W all, Oliver	 17	Nth W orcester	43.42	39.69	 	
-29	Dickinson, Mace	 17	Gyllyngvase	43.90	39.73	 	
-30	Evans, Ioan	 17	Pen y Bont	35.00	39.78	 	
-31	Gilroy, Callum	 20	Blyth	41.37	40.54	 	
-32	Hamer, James	 19	Vale	40.00	40.86	 	
-33	Folland, Richard	 36	Saunton Sands	NT	41.01	 	
-34	Ingham, Conor	 24	Beacon	43.60	43.40	 	
-35	Stevens, Elliott	 25	Beacon	39.85	43.57	 	
-36	Arkley, Daniel	 27	Blyth	1:17.40	1:12.05	 	
- 
-Event 26  W omen 30-39 50 LC Meter Manikin Carry Individual
-Record:	43.54	R	22/04/2017	Jenn Penny	Bournemouth	
-Name	Age	Team	Seed Time	Finals Time	
-1	Hancock, Penny	 33	Newquay	50.00	47.57	 	
-2	Richards, Chantel	 34	Portreath	48.40	47.90	 	
-(Event 26  W omen 30-39 50 LC Meter Manikin Carry Individual)
-Name	Age	Team	Seed Time	Finals Time	
-3	Anderson, Sarah	 37	Portreath	48.40	50.49	 	
-4	Lane, Natasha	 38	Nth W orcester	50.91	50.72	 	
-5	Sedgwick, Cathy	 33	Blyth	54.45	55.95	 	
- 
-Event 27  Men 30-39 50 LC Meter Manikin Carry Individual
-Record:	31.69	R	22/04/2017	Richard W atkins	Pen y Bont	
-Name	Age	Team	Seed Time	Finals Time	
-1	Rosewell, Lloyd	 34	Pen y Bont	38.00	37.41	 	
-2	Daly, Scott	 36	Rest Bay	53.40	52.61	 	
- 
-Event 28  W omen 40-44 50 LC Meter Manikin Carry Individual
-Record:	47.68	R	22/04/2017	Tracy Marsh	Eastbourne	
-Name	Age	Team	Seed Time	Finals Time	
-1	Ashton, Zoë	 41	Saunton Sands	1:00.00	53.58	 	
-2	Ramsden-Hare, Louise	 44	Mumbles	1:02.75	1:00.34	 	
-3	Hopkin, Nia	 42	Vale	1:00.00	1:02.55	 	
-4	Ewington, Gemma	 43	Vale	1:00.00	1:04.04	 	
-5	Helmore, Rebecca	 44	Vale	1:00.00	1:12.15	 	
- 
-Event 29  Men 40-44 50 LC Meter Manikin Carry Individual
-Record:	33.37	R	15/04/2018	Richard W atkins	Pen y Bont	
-Name	Age	Team	Seed Time	Finals Time	
-1	Taylor, Stephen	 41	Rest Bay	42.25	44.27	 	
-2	Gardener, Gareth	 42	Pen y Bont	1:16.00	1:09.63	 	
----	W heeler, Thomas	 24	Beacon	NT	X35.55	 	
----	Rosewell, Lloyd	 34	Pen y Bont	NT	X37.41	 	
----	Daly, Scott	 36	Rest Bay	NT	X52.61	 	
- 
-Event 30  W omen 45-49 50 LC Meter Manikin Carry Individual
-Record:	52.88	R	22/04/2017	Clare Frank	Dawlish W arrren	
-Name	Age	Team	Seed Time	Finals Time	
-1	Butterly, Lisa	 47	Crantock	NT	54.32	 	
-2	Phinnemore, Andrea	 49	Pen y Bont	57.33	57.29	 	
-3	Frank, Clare	 49	Dawlish W arren	53.60	58.19	 	
-4	Gale, Sonia	 49	Bournemouth	1:03.45	1:01.70	 	
-5	Attwell, Annette	 45	Jersey	1:15.00	1:12.65	 	
-6	Nyom, Sarah	 49	Pen y Bont	1:30.00	1:29.40	 	
- 
-Event 31  Men 45-49 50 LC Meter Manikin Carry Individual
-Record:	45.87	R	22/04/2017	Adrian Mayhew	South W orcester	
-Name	Age	Team	Seed Time	Finals Time	
-1	Attwell, Adrian	 49	Jersey	43.00	42.60	R	 	
-2	Skinner, Paul	 45	Portreath	47.56	49.26	 	
-3	Parkinson, Andy	 46	Langland Bay	NT	50.14	 	
-4	Phil, Bateman	 48	Portreath	1:25.00	57.05
-
-5	Baxter, David	 49	Bideford Bay	NT	1:00.97	 	
-6	Chandler, Mark	 49	Blyth	1:09.75	1:10.05	 	
- 
-Event 32  W omen 50-54 50 LC Meter Manikin Carry Individual
-Record:	47.20	R	15/04/2018	Donna W ickens	Crawley Town	
-Name	Age	Team	Seed Time	Finals Time	
-1	W ickens, Donna	 53	Crawley Town	47.00	47.13	R	 	
-2	Vale, Bev	 53	Saunton Sands	1:03.00	1:05.78	 	
-3	Priddis, Allie	 53	Saunton Sands	1:07.00	1:07.45	 	
-4	Yates, Mel	 53	Bournemouth	1:16.94	1:12.50	 	
- 
-Event 33  Men 50-54 50 LC Meter Manikin Carry Individual
-Record:	43.77	R	15/04/2018	John Arnold	Nth W orcester	
-Name	Age	Team	Seed Time	Finals Time	
-1	Arnold, John	 52	Nth W orcester	45.12	44.70	 	
-2	Parker, Simon	 52	Vale	48.00	49.27	 	
-3	Lewis, Adrian	 50	Mumbles	1:05.32	1:11.41	 	
- 
-Event 34  W omen 55-59 50 LC Meter Manikin Carry Individual
-Record:	1:09.76	R	22/04/2017	Romaine W ebb	North W orcester	
-Name	Age	Team	Seed Time	Finals Time	
-1	Shaw, Pamela	 59	Crawley Town	1:03.14	1:03.86	R	 	
- 
-Event 35  Men 55-59 50 LC Meter Manikin Carry Individual
-Record:	45.75	R	15/04/2018	Ian Yates	Pen y Bont	
-Name	Age	Team	Seed Time	Finals Time	
-1	Norton, Mark	 55	Gyllyngvase	48.00	46.45	 	
-2	Yates, Ian	 57	Pen y Bont	50.00	46.62	 	
-3	John, Chris	 59	Langland Bay	NT	49.98	 	
-4	McMaster, Tony	 55	Blyth	50.81	54.49	 	
-5	W illiams, Paul	 59	Langland Bay	NT	56.60	 	
-6	Tobin, Paul	 55	Bideford Bay	NT	58.13	 	
-7	Graham, Dave	 57	Blyth	54.45	58.93	 	
-8	Bailey, Ian	 57	Mumbles	56.90	1:03.15	 	
-9	Spencer, Geoffrey	 56	Bideford Bay	NT	1:07.31	 	
----	Arnold, John	 52	Nth W orcester	NT	X44.70	R	 	
----	Parker, Simon	 52	Vale	NT	X49.27	 	
----	Lewis, Adrian	 50	Mumbles	NT	X1:11.41	 	
- 
-Event 36  W omen 60-64 50 LC Meter Manikin Carry Individual
-Name	Age	Team	Seed Time	Finals Time	
-1	Fox, Dorothy	 62	Bournemouth	1:05.98	1:07.34	 	
-2	W ebb, Romaine	 60	Nth W orcester	1:10.12	1:11.30	 	
- 
-Event 37  Men 60-64 50 LC Meter Manikin Carry Individual
-Name	Age	Team	Seed Time	Finals Time	
-1	Bunney, Bob	 62	Saunton Sands	49.00	49.00	 	
-2	Gwynn, Jon	 60	Mumbles	50.00	53.06	 	
-3	Lee, Gary	 60	Crawley Town	57.14	59.35	 	
- 
-Event 38  W omen 65 & Over 50 LC Meter Manikin Carry Individual
-Name	Age	Team	Seed Time	Finals Time	
-1	Lewis, Elaine	 65	Bournemouth	58.33	57.70	 	
----	Shaw, Pamela	 59	Crawley Town	NT	X1:03.86	 	
----	Fox, Dorothy	 62	Bournemouth	NT	X1:07.34	 	
----	W ebb, Romaine	 60	Nth W orcester	NT	X1:11.30	 	
- 
-Event 39  Men 65 & Over 50 LC Meter Manikin Carry Individual
-Name	Age	Team	Seed Time	Finals Time	
-1	Carr, Paul	 67	Langland Bay	NT	1:00.87	 	
-2	Johnson, Neil	 66	Dawlish W arren	1:08.26	1:02.55	 	
----	Bunney, Bob	 62	Saunton Sands	NT	X49.00	 	
----	Gwynn, Jon	 60	Mumbles	NT	X53.06	 	
----	Lee, Gary	 60	Crawley Town	NT	X59.35	 	
- 
-Event 40  W omen 4x25 LC Meter Manikin Relay Relay
-
-Record:	1:30.50	R	15/04/2018	Crawley Town	Crawley Town	
-Team	 	Relay	Seed Time	Finals Time	
-1	Blyth	    A	1:46.28	1:43.23	 	
-2	Portreath	    A	1:38.10	1:45.39	 	
-(Event 40  W omen 4x25 LC Meter Manikin Relay Relay)
-Team	 	Relay	Seed Time	Finals Time	
-3	Blyth	    B	1:41.86	1:49.70	 	
-4	W oolacombe	    A	1:35.00	1:55.46	 	
-5	Vale	    A	2:15.00	1:57.34	 	
-6	Gyllyngvase	    A	2:08.33	1:57.69	 	
-7	Saunton Sands	    A	NT	2:10.06	 	
-8	Rhoose	    A	NT	2:12.80	 	
-9	Nth W orcester	    A	2:19.84	2:19.89	 	
-10	Blyth	    C	2:02.66	2:28.28	 	
-11	Bournemouth	    A	2:25.00	2:45.44	 	
- 
-Event 41  Men 4x25 LC Meter Manikin Relay Relay
-Record:	1:16.88	R	22/04/2017	Crawley Town LSC	Crawley Town LSC	
-Team	 	Relay	Seed Time	Finals Time	
-1	Portreath	    A	1:18.57	1:15.98	R	 	
-2	Crawley Town	    A	1:20.00	1:16.33	R	 	
-3	Crawley Town	    B	1:22.00	1:20.54	 	
-4	W oolacombe	    A	1:25.00	1:27.69	 	
-5	Gyllyngvase	    A	1:30.76	1:29.37	 	
-6	Vale	    A	2:00.00	1:34.93	 	
-7	Blyth	    A	1:37.03	1:36.15	 	
-8	Beacon	    A	1:30.23	1:36.72	 	
-9	Saunton Sands	    A	NT	1:39.91	 	
-10	Nth W orcester	    A	1:37.58	1:40.58	 	
-11	Pen y Bont	    A	1:15.00	1:42.53	 	
-12	Rhoose	    A	1:48.21	1:43.98	 	
-13	W oolacombe	    B	1:30.00	1:46.08	 	
-14	Langland Bay	    A	NT	1:56.21	 	
- 
-Event 42  Mixed 30 & Over 4x25 LC Meter Manikin Relay Relay
-Record:	1:24.34	R	22/04/2017	Pen y Bont	Pen y Bont	
-Team	 	Relay	Seed Time	Finals Time	
-1	Pen y Bont	    A	1:20.00	1:36.50	 	
-2	Nth W orcester	    A	1:42.57	1:43.06	 	
-3	Portreath	    A	NT	2:00.67	 	
-4	Rest Bay	    A	1:59.81	2:02.46	 	
-5	Crawley Town	    A	2:05.00	2:02.56	 	
-6	Saunton Sands	    A	NT	2:04.09	 	
-7	Blyth	    A	2:13.00	2:21.51	 	
-8	Langland Bay	    A	NT	2:22.87	 	
-9	Mumbles	    A	1:12.00	2:31.24	 	
-10	Bournemouth	    A	2:33.18	2:34.67	 	
-11	Saunton Sands	    B	NT	2:36.92	 	
-12	Vale	    A	2:30.00	2:37.23	 	
-13	Pen y Bont	    B	1:30.00	3:02.97	 	
- 
-Event 43  W omen 100 LC Meter Manikin Carry (Fins) Individual
-Record:	57.53	R	22/04/2017	Emma (O) Henderson	Unattached	
-Name	Age	Team	Seed Time	Finals Time	
-1	Macartney, Marina	 29	Crawley Town	55.74	59.04	 	
-2	Rees, Millie	 17	Mumbles	1:02.54	1:04.56	 	
-3	Nichols, Lily	 24	W oolacombe	1:00.30	1:04.78	 	
-4	Gordon, Lauren	 18	Blyth	1:04.15	1:06.37	 	
-5	Dickerson-W eedy, Ellie	 17	Blyth	1:08.47	1:07.41	 	
-6	Saunders, Emelye	 20	Blyth	1:03.24	1:08.86	 	
-7	Chandler, Cadie	 20	Blyth	1:06.86	1:09.23	 	
-8	Kendall, Emma	 18	Portreath	1:04.44	1:10.11	 	
-(Event 43  W omen 100 LC Meter Manikin Carry (Fins) Individual)
-Name	Age	Team	Seed Time	Finals Time	
-9	Briggs, Isobel	 19	Unattached	1:09.16	1:10.20	 	
-10	Parker, Emily	 16	Vale	1:11.00	1:11.01
-
-11	Carpenter, Sam	 23	Blyth	1:10.36	1:11.36	 	
-12	McCourt, Rhiannah	 18	Blyth	1:06.58	1:11.84	 	
-13	Rule, Mia	 16	Gyllyngvase	1:11.34	1:12.77	 	
-14	Peterson, Kelsea	 21	Vale	1:11.00	1:13.01	 	
-15	Bell, Charlotte	 17	St Ives	1:08.00	1:13.23	 	
-16	Blake, Hannah	 20	Vale	1:09.50	1:13.29	 	
-17	Gardiner, Tesni	 17	Vale	1:19.05	1:15.06	 	
-*18	Bradley, Milly	 16	Blyth	1:15.73	1:18.98	 	
-*18	Elliott, Zara	 18	St Ives	1:11.00	1:18.98	 	
-20	Hawkins, Georgia	 17	Gyllyngvase	1:19.48	1:19.45	 	
-21	Peterson, Ellie	 19	Vale	1:14.00	1:21.08	 	
-22	Mann, Jasmine	 20	Pen y Bont	1:15.00	1:21.91	 	
-23	James, Mali	 25	Mumbles	1:26.96	1:22.41	 	
-24	Yeomans, Lauren	 25	Nth W orcester	1:23.19	1:22.74	 	
-25	Malorey-Vibert, Cara	 25	Jersey	1:37.00	1:23.81	 	
-26	Buttle, Chantelle	 17	Portreath	1:18.87	1:24.30	 	
-27	Piotrowicz, Kerenza	 16	Portreath	1:20.02	1:24.96	 	
-28	Elliott, Kezia	 17	Gyllyngvase	1:19.55	1:29.07	 	
-29	W all, Georgia	 20	Rhoose	NT	1:31.98	 	
- 
-Event 44  Men 100 LC Meter Manikin Carry (Fins) Individual
-Record:	49.28	R	15/04/2018	Simon W orne	Crawley Town	
-Name	Age	Team	Seed Time	Finals Time	
-1	Lawman, Samuel	 24	Crawley Town	49.50	51.83	 	
-2	Trebilcock, Thomas	 16	Gyllyngvase	54.55	53.32	 	
-3	Schofield, Martin	 20	Crawley Town	50.21	53.75	 	
-4	W arren, James	 29	Crawley Town	52.85	55.99	 	
-5	Miller, David	 20	W oolacombe	56.64	56.38	 	
-6	W eightman, Daniel	 22	Blyth	56.53	59.08	 	
-7	Seagrove-Castle, Dan	 26	Crawley Town	55.00	59.45	 	
-8	Ingham, Conor	 24	Beacon	1:04.30	1:01.02	 	
-9	Grice, Jason	 19	Pen y Bont	58.40	1:01.59	 	
-10	Briggs, Calum	 23	Unattached	59.60	1:01.78	 	
-11	Dungavel, Finn	 17	Gyllyngvase	1:00.32	1:02.58	 	
-12	Northcott, Ben	 19	Saunton Sands	NT	1:02.59	 	
-13	Vuliyerys, Gerasimas	 16	Crawley Town	1:12.10	1:03.10	 	
-14	Gilroy, Callum	 20	Blyth	1:02.47	1:04.44	 	
-15	Norton, Sam	 17	Gyllyngvase	1:04.93	1:04.77	 	
-16	Malek, Marcus	 20	Saunton Sands	NT	1:05.10	 	
-17	W ard, Alex	 18	W oolacombe	1:10.00	1:05.47	 	
-18	Hopkin, Reuben	 16	Vale	1:09.00	1:07.81	 	
-19	Luke, Cooke	 16	W oolacombe	1:10.00	1:10.72	 	
-20	Deasy, Sean	 27	W oolacombe	1:10.00	1:11.41	 	
-21	Stevens, Elliott	 25	Beacon	1:10.12	1:13.13	 	
-22	Dickinson, Mace	 17	Gyllyngvase	1:13.49	1:15.17	 	
-23	Arkley, Daniel	 27	Blyth	2:03.17	2:14.68	 	
- 
-Event 45  W omen 30-39 100 LC Meter Manikin Carry (Fins) Individual
-Record:	1:12.29	R	15/02/2014	Lindsay Lewis	Penybont	
-Name	Age	Team	Seed Time	Finals Time	
-1	Hancock, Penny	 33	Newquay	1:09.13	1:15.52	 	
-2	Lane, Natasha	 38	Nth W orcester	1:19.54	1:21.03	 	
-3	Sedgwick, Cathy	 33	Blyth	1:27.28	1:24.90	 	
- 
-Event 46  Men 30-39 100 LC Meter Manikin Carry (Fins) Individual
-Record:	57.33	R	22/04/2017	Richard W atkins	Pen y Bont	
-Name	Age	Team	Seed Time	Finals Time	
-1	Rosewell, Lloyd	 34	Pen y Bont	1:05.00	1:01.79	 	
-2	Jenkinson, Chris	 36	Nth W orcester	1:07.12	1:04.98	 	
-3	Daly, Scott	 36	Rest Bay	1:23.37	1:20.93	 	
- 
-Event 47  W omen 40-44 100 LC Meter Manikin Carry (Fins) Individual
-Record:	1:15.74	R	22/04/2017	Caroline Guy	Blyth	
-Name	Age	Team	Seed Time	Finals Time	
-1	Ewington, Gemma	 43	Vale	1:32.88	1:30.11	 	
-2	Ashton, Zoë	 41	Saunton Sands	1:35.00	1:33.83
-
-3	Leonard, Lois	 42	Gyllyngvase	1:30.00	1:33.86	 	
-4	Ramsden-Hare, Louise	 44	Mumbles	1:32.22	1:38.61	 	
-5	Hopkin, Nia	 42	Vale	1:35.00	1:40.34	 	
----	Hancock, Penny	 33	Newquay	NT	X1:15.52	R	 	
----	Lane, Natasha	 38	Nth W orcester	NT	X1:21.03	 	
----	Sedgwick, Cathy	 33	Blyth	NT	X1:24.90	 	
- 
-Event 48  Men 40-44 100 LC Meter Manikin Carry (Fins) Individual
-Record:	58.87	R	22/04/2017	Craig Robinson	Pen y Bont	
-Name	Age	Team	Seed Time	Finals Time	
-1	Taylor, Stephen	 41	Rest Bay	1:10.68	1:18.00	 	
----	Rosewell, Lloyd	 34	Pen y Bont	NT	X1:01.79	 	
----	Jenkinson, Chris	 36	Nth W orcester	NT	X1:04.98	 	
----	Daly, Scott	 36	Rest Bay	NT	X1:20.93	 	
- 
-Event 49  W omen 45-49 100 LC Meter Manikin Carry (Fins) Individual
-Record:	1:20.98	R	22/04/2017	Andrea Phinnemore	Pen y Bont	
-Name	Age	Team	Seed Time	Finals Time	
-1	Phinnemore, Andrea	 49	Pen y Bont	1:27.00	1:23.65	 	
-2	Butterly, Lisa	 47	Crantock	NT	1:28.97	 	
-3	Frank, Clare	 49	Dawlish W arren	1:28.70	1:32.44	 	
-4	Attwell, Annette	 45	Jersey	1:45.00	1:45.06	 	
-5	Gale, Sonia	 49	Bournemouth	1:42.37	1:46.99	 	
- 
-Event 50  Men 45-49 100 LC Meter Manikin Carry (Fins) Individual
-Record:	1:11.56	R	22/04/2017	Neil Richardson	Saunton	
-Name	Age	Team	Seed Time	Finals Time	
-1	Attwell, Adrian	 49	Jersey	1:12.00	1:17.14	 	
-2	Baxter, David	 49	Bideford Bay	NT	1:20.46	 	
-3	W isden, Mark	 48	Pen y Bont	1:22.00	1:22.14	 	
-4	Parkinson, Andy	 46	Langland Bay	NT	1:23.37	 	
-5	Skinner, Paul	 45	Portreath	1:17.82	1:26.65	 	
-6	Bateman, Phil	 48	Portreath	1:36.71	1:27.11	 	
-7	Chandler, Mark	 49	Blyth	1:34.37	2:00.21	 	
- 
-Event 51  W omen 50-54 100 LC Meter Manikin Carry (Fins) Individual
-Record:	1:25.58	R	15/04/2018	Karen O'Donoghue-Harris	Rhoose	
-Name	Age	Team	Seed Time	Finals Time	
-1	W ickens, Donna	 53	Crawley Town	1:30.00	1:28.80	 	
-2	Priddis, Allie	 53	Saunton Sands	1:29.00	1:43.87	 	
-3	Yates, Mel	 53	Bournemouth	2:03.34	1:59.41	 	
- 
-Event 52  Men 50-54 100 LC Meter Manikin Carry (Fins) Individual
-Record:	1:20.55	R	22/04/2017	Geoff Spencer	Bideford	
-Name	Age	Team	Seed Time	Finals Time	
-1	Parker, Simon	 52	Vale	1:20.00	1:17.51	R	 	
-2	Priddis, Jeff	 54	Saunton Sands	1:29.00	1:31.56	 	
-(Event 52  Men 50-54 100 LC Meter Manikin Carry (Fins) Individual)
-Name	Age	Team	Seed Time	Finals Time	
-3	Lewis, Adrian	 50	Mumbles	1:53.92	1:37.13	 	
- 
-Event 53  W omen 55-59 100 LC Meter Manikin Carry (Fins) Individual
-Record:	2:01.43	R	22/04/2017	Romaine W ebb	North W orcester	
-Name	Age	Team	Seed Time	Finals Time	
-1	Shaw, Pamela	 59	Crawley Town	1:46.64	1:47.06	R	 	
- 
-Event 54  Men 55-59 100 LC Meter Manikin Carry (Fins) Individual
-Record:	1:17.71	R	15/04/2018	Ian Yates	Pen y Bont	
-Name	Age	Team	Seed Time	Finals Time	
-1	Morris, Adrian	 57	Pen y Bont	1:12.00	1:14.41	R	 	
-2	Norton, Mark	 55	Gyllyngvase	1:25.00	1:16.38	R	 	
-3	Tobin, Paul	 55	Bideford Bay	NT	1:21.08	 	
-4	McMaster, Tony	 55	Blyth	1:22.25	1:24.75	 	
-5	Spencer, Geoffrey	 56	Bideford Bay	NT	1:25.67	 	
-6	Purchase, Martin	 59	Saunton Sands	1:26.00	1:26.10	 	
-7	Bailey, Ian	 57	Mumbles	1:30.69	1:35.73
-
-8	Graham, Dave	 57	Blyth	1:27.28	1:42.70	 	
-9	W illiams, Paul	 59	Langland Bay	NT	1:45.54	 	
-10	John, Chris	 59	Langland Bay	NT	1:57.62	 	
----	Parker, Simon	 52	Vale	NT	X1:17.51	R	 	
----	Priddis, Jeff	 54	Saunton Sands	NT	X1:31.56	 	
----	Lewis, Adrian	 50	Mumbles	NT	X1:37.13	 	
- 
-Event 55  W omen 60-64 100 LC Meter Manikin Carry (Fins) Individual
-Name	Age	Team	Seed Time	Finals Time	
-1	W ebb, Romaine	 60	Nth W orcester	2:00.00	1:58.81	 	
- 
-Event 56  Men 60-64 100 LC Meter Manikin Carry (Fins) Individual
-Name	Age	Team	Seed Time	Finals Time	
-1	Gwynn, Jon	 60	Mumbles	1:20.00	1:20.65	 	
-2	Bunney, Bob	 62	Saunton Sands	1:33.00	1:31.12	 	
-3	Lee, Gary	 60	Crawley Town	1:45.00	1:49.73	 	
- 
-Event 57  W omen 65 & Over 100 LC Meter Manikin Carry (Fins) Individual
-Name	Age	Team	Seed Time	Finals Time	
-1	Lewis, Elaine	 65	Bournemouth	1:36.49	1:31.58	 	
----	Shaw, Pamela	 59	Crawley Town	NT	X1:47.06	 	
----	W ebb, Romaine	 60	Nth W orcester	NT	X1:58.81	 	
- 
-Event 58  Men 65 & Over 100 LC Meter Manikin Carry (Fins) Individual
-Name	Age	Team	Seed Time	Finals Time	
-1	Johnson, Neil	 66	Dawlish W arren	1:37.60	1:34.74	 	
-2	Carr, Paul	 67	Langland Bay	NT	1:52.88	 	
----	Gwynn, Jon	 60	Mumbles	NT	X1:20.65	 	
----	Bunney, Bob	 62	Saunton Sands	NT	X1:31.12	 	
----	Lee, Gary	 60	Crawley Town	NT	X1:49.73	 	
- 
-Event 59  W omen LC Meter Super Life Saver Individual
-Record:	2:38.70	R	15/04/2018	Emma Henderson	Unattached	
-Name	Age	Team	Seed Time	Finals Time	
-1	McCloy, Ellie	 18	Rest Bay	2:42.45	2:46.44	 	
-2	Gordon, Lauren	 18	Blyth	2:48.70	2:51.78	 	
-3	Rees, Millie	 17	Mumbles	2:50.02	2:53.49	 	
-4	Blake, Hannah	 20	Vale	2:53.13	2:57.89	 	
-5	McCourt, Rhiannah	 18	Blyth	2:58.71	3:00.05	 	
-6	Briggs, Isobel	 19	Unattached	3:01.65	3:02.04	 	
-7	Rodda, Caja	 16	Portreath	2:57.25	3:02.81	 	
-(Event 59  W omen LC Meter Super Life Saver Individual)
-Name	Age	Team	Seed Time	Finals Time	
-8	Carpenter, Sam	 23	Blyth	2:55.69	3:05.19	 	
-9	Hand, Jade	 19	Crawley Town	3:04.79	3:07.69	 	
-10	Parker, Emily	 16	Vale	3:20.00	3:11.36	 	
-11	Peterson, Kelsea	 21	Vale	3:08.00	3:12.22	 	
-12	Elliott, Kezia	 17	Gyllyngvase	3:23.36	3:12.39	 	
-13	Dickerson-W eedy, Ellie	 17	Blyth	3:01.20	3:15.30	 	
-14	Chandler, Cadie	 20	Blyth	3:00.79	3:15.96	 	
-15	Peterson, Ellie	 19	Vale	3:10.00	3:17.90	 	
-16	Piotrowicz, Kerenza	 16	Portreath	3:02.67	3:18.38	 	
-17	Bell, Charlotte	 17	St Ives	3:15.00	3:26.73	 	
-18	Bradley, Milly	 16	Blyth	3:21.47	3:29.79	 	
----	Rule, Mia	 16	Gyllyngvase	3:08.23	DQ	 	
- 
-Event 60  Men LC Meter Super Life Saver Individual
-Record:	2:16.02	R	15/04/2018	Bernard Cahill	Ireland	
-Name	Age	Team	Seed Time	Finals Time	
-1	Jagger, Richard	 30	Crawley Town	2:18.29	2:23.90	 	
-2	Morley, Andrew	 23	Crawley Town	2:28.50	2:25.00	 	
-3	W arren, James	 29	Crawley Town	2:26.45	2:32.45	 	
-4	Murray, Sam	 19	Crawley Town	NT	2:32.80	 	
-5	Bunney, James	 27	Saunton Sands	NT	2:40.51	 	
-6	Bunney, Alex	 29	Saunton Sands	NT	2:40.63	 	
-7	Dungavel, Finn	 17	Gyllyngvase	2:49.70	2:41.13
-
-8	Lewis, Steven	 19	Portreath	2:42.12	2:41.63	 	
-9	Ryan, W heeler	 24	Beacon	2:29.58	2:42.16	 	
-10	Grice, Jason	 19	Pen y Bont	2:28.00	2:42.85	 	
-11	Briggs, Calum	 23	Unattached	2:42.33	2:46.84	 	
-12	Hopkin, Reuben	 16	Vale	2:50.00	2:50.30	 	
-13	Garner, Louis	 18	Portreath	2:53.38	2:52.18	 	
-14	Gilroy, Callum	 20	Blyth	2:55.87	3:07.09	 	
- 
-Event 61  W omen 30-39 100 LC Meter Rescue Medley Individual
-Record:	1:43.35	R	22/02/2015	Sian Clement	Aberavon	
-Name	Age	Team	Seed Time	Finals Time	
-1	Richards, Chantel	 34	Portreath	1:43.40	1:43.66	 	
-2	Hancock, Penny	 33	Newquay	1:50.00	1:44.64	 	
-3	Anderson, Sarah	 37	Portreath	1:44.00	1:44.84	 	
-4	Lane, Natasha	 38	Nth W orcester	1:47.18	1:47.97	 	
- 
-Event 62  Men 30-39 100 LC Meter Rescue Medley Individual
-Record:	1:08.77	R	16/02/2014	Richard W atkins	Penybont	
-Name	Age	Team	Seed Time	Finals Time	
-1	Rosewell, Lloyd	 34	Pen y Bont	1:16.00	1:18.04	 	
-2	Jenkinson, Chris	 36	Nth W orcester	1:23.14	1:21.95	 	
- 
-Event 63  W omen 40-44 100 LC Meter Rescue Medley Individual
-Name	Age	Team	Seed Time	Finals Time	
-1	Ashton, Zoë	 41	Saunton Sands	1:55.00	1:57.14	 	
-2	Ramsden-Hare, Louise	 44	Mumbles	2:31.85	2:08.13	 	
-3	Hopkin, Nia	 42	Vale	1:55.00	2:35.87	 	
----	Richards, Chantel	 34	Portreath	NT	X1:43.66	 	
----	Hancock, Penny	 33	Newquay	NT	X1:44.64	 	
----	Anderson, Sarah	 37	Portreath	NT	X1:44.84	 	
----	Lane, Natasha	 38	Nth W orcester	NT	X1:47.97	 	
- 
-Event 64  Men 40-44 100 LC Meter Rescue Medley Individual
-Record:	1:16.06	R	15/04/2018	Richard W atkins	Pen y Bont	
-Name	Age	Team	Seed Time	Finals Time	
-1	Gardener, Gareth	 42	Pen y Bont	NT	2:36.74	 	
----	Rosewell, Lloyd	 34	Pen y Bont	NT	X1:18.04	 	
----	Jenkinson, Chris	 36	Nth W orcester	NT	X1:21.95	 	
- 
-Event 65  W omen 45-49 100 LC Meter Rescue Medley Individual
-Record:	1:48.25	R	15/04/2018	Helen Rowden	Saunton Sands	
-Name	Age	Team	Seed Time	Finals Time	
-1	Frank, Clare	 49	Dawlish W arren	1:54.36	2:02.67	 	
-2	Gale, Sonia	 49	Bournemouth	2:22.21	2:23.25	 	
- 
-Event 66  Men 45-49 100 LC Meter Rescue Medley Individual
-Record:	1:36.93	R	15/04/2018	Mark Dixon	Branksome Chine	
-Name	Age	Team	Seed Time	Finals Time	
-1	Parkinson, Andy	 46	Langland Bay	NT	1:46.86	 	
-2	Skinner, Paul	 45	Portreath	1:44.49	1:47.93	 	
-3	Baxter, David	 49	Bideford Bay	NT	1:52.19	 	
-4	Phil, Bateman	 48	Portreath	1:55.00	2:19.79	 	
- 
-Event 67  W omen 50-54 100 LC Meter Rescue Medley Individual
-Record:	1:36.59	R	22/04/2017	Donna W ickens	Crawley Town LSC	
-Name	Age	Team	Seed Time	Finals Time	
-1	W ickens, Donna	 53	Crawley Town	1:38.50	1:38.99	 	
-2	Rowden, Helen	 50	Saunton Sands	1:48.00	1:48.99	 	
-3	Vale, Bev	 53	Saunton Sands	2:24.00	2:16.47	 	
-4	Priddis, Allie	 53	Saunton Sands	2:28.00	2:34.49	 	
----	Frank, Clare	 49	Dawlish W arren	NT	X2:02.67	 	
----	Gale, Sonia	 49	Bournemouth	NT	X2:23.25	 	
- 
-Event 68  Men 50-54 100 LC Meter Rescue Medley Individual
-Name	Age	Team	Seed Time	Finals Time	
-1	Arnold, John	 52	Nth W orcester	1:32.23	1:37.41
-
-2	Parker, Simon	 52	Vale	1:39.00	1:42.84	 	
-3	Priddis, Jeff	 54	Saunton Sands	1:52.00	1:55.20	 	
-4	Lewis, Adrian	 50	Mumbles	2:31.85	2:22.20	 	
- 
-Event 70  Men 55-59 100 LC Meter Rescue Medley Individual
-Record:	1:36.55	R	15/04/2018	Ian Yates	Pen y Bont	
-Name	Age	Team	Seed Time	Finals Time	
-1	Yates, Ian	 57	Pen y Bont	1:35.00	1:35.87	R	 	
-2	John, Chris	 59	Langland Bay	NT	1:45.91	 	
-3	W illiams, Paul	 59	Langland Bay	NT	2:04.33	 	
-4	Bailey, Ian	 57	Mumbles	2:02.23	2:08.09	 	
-5	Tobin, Paul	 55	Bideford Bay	NT	2:21.99	 	
-6	Spencer, Geoffrey	 56	Bideford Bay	NT	2:27.66	 	
- 
-Event 72  Men 60-64 100 LC Meter Rescue Medley Individual
-Name	Age	Team	Seed Time	Finals Time	
-1	Bunney, Bob	 62	Saunton Sands	1:46.00	1:46.88	 	
-2	Gwynn, Jon	 60	Mumbles	1:55.00	2:03.95	 	
-3	Lee, Gary	 60	Crawley Town	2:19.54	2:25.07	 	
- 
-Event 74  Men 65 & Over 100 LC Meter Rescue Medley Individual
-Name	Age	Team	Seed Time	Finals Time	
-1	Carr, Paul	 67	Langland Bay	NT	2:14.77	 	
-2	Johnson, Neil	 66	Dawlish W arren	2:17.90	2:21.33	 	
----	Bunney, Bob	 62	Saunton Sands	NT	X1:46.88	 	
-(Event 74  Men 65 & Over 100 LC Meter Rescue Medley Individual)
-Name	Age	Team	Seed Time	Finals Time	
----	Gwynn, Jon	 60	Mumbles	NT	X2:03.95	 	
----	Lee, Gary	 60	Crawley Town	NT	X2:25.07	 	
- 
-Event 75  W omen 100 LC Meter Rescue Medley Individual
-Record:	1:11.95	R	15/04/2018	Zara W illiams	Crawley Town	
-Name	Age	Team	Seed Time	Finals Time	
-1	Macartney, Marina	 29	Crawley Town	1:21.44	1:23.56	 	
-2	W eston, Amy	 18	Sth W orcester	1:22.36	1:24.05	 	
-3	Rodda, Caja	 16	Portreath	1:29.80	1:33.63	 	
-4	Hand, Jade	 19	Crawley Town	1:30.33	1:35.92	 	
-5	W ardman, Keia	 20	Portreath	1:34.98	1:40.87	 	
-6	Peterson, Ellie	 19	Vale	1:37.00	1:41.99	 	
-7	Ford, Billie-jo	 18	Saunton Sands	NT	1:45.58	 	
-8	Elliott, Zara	 18	St Ives	1:43.00	1:46.19	 	
-9	Duncan, Rececca	 25	Jersey	1:35.00	1:48.57	 	
-10	Ansdell, Bethany	 17	Saunton Sands	NT	1:52.08	 	
-11	Norgrove, Harriet	 18	Nth W orcester	1:57.91	1:53.79	 	
-12	Piotrowicz, Kerenza	 16	Portreath	1:45.08	1:56.01	 	
-13	Bradley, Milly	 16	Blyth	2:00.11	2:03.41	 	
----	Malorey-Vibert, Cara	 25	Jersey	1:39.00	DNF	 	
- 
-Event 76  Men 100 LC Meter Rescue Medley Individual
-Record:	1:03.61	R	22/04/2017	Charlie (O) Haynes	Portreath	
-Name	Age	Team	Seed Time	Finals Time	
-1	Lawman, Samuel	 24	Crawley Town	1:04.79	1:04.30	 	
-2	Haynes, George	 29	Portreath	1:07.18	1:08.20	 	
-3	Gammon, Joshua	 16	W oolacombe	1:12.50	1:08.71	 	
-4	W hittaker, bob	 18	W oolacombe	1:13.00	1:12.47	 	
-5	Seagrove-Castle, Dan	 26	Crawley Town	1:13.00	1:12.75	 	
-6	Murray, Sam	 19	Crawley Town	1:11.92	1:15.40	 	
-7	W oollard, Joseph	 19	Crawley Town	1:12.80	1:15.44	 	
-8	W ydenbach, Rhys	 19	Pen y Bont	1:13.34	1:16.24	 	
-9	Ewington, Declan	 18	Vale	1:21.38	1:22.16	 	
-10	Battell, David	 23	Langland Bay	NT	1:23.89	 	
-11	Schofield, Martin	 20	Crawley Town	1:10.80	1:25.97	 	
-12	Deasy, Sean	 27	W oolacombe	1:15.00	1:27.74	 	
-13	Attwell, Adrian	 49	Jersey	NT	1:32.78	 	
-14	Pitt, Harry	 17	Nth W orcester	1:31.49	1:33.86	 	
-15	Deasy, Niall	 23	W oolacombe	1:20.00	1:38.11
-
-Event 77  W omen 30-39 100 LC Meter Manikin Tow (Fins) Individual
-Record:	1:10.18	R	22/04/2017	Nicola Beirne	Portreath	
-Name	Age	Team	Seed Time	Finals Time	
-1	Hancock, Penny	 33	Newquay	1:14.07	1:17.14	 	
-2	Anderson, Sarah	 37	Portreath	1:20.18	1:19.39	 	
-3	Richards, Chantel	 34	Portreath	1:20.19	1:20.60	 	
-4	Lane, Natasha	 38	Nth W orcester	1:19.75	1:20.81	 	
-5	Sedgwick, Cathy	 33	Blyth	1:21.16	1:22.00	 	
-6	Folland, Louise	 34	Saunton Sands	1:30.00	1:23.05	 	
- 
-Event 78  Men 30-39 100 LC Meter Manikin Tow (Fins) Individual
-Record:	1:04.25	R	22/04/2017	Matt Penny	Bournemouth	
-Name	Age	Team	Seed Time	Finals Time	
-1	Rosewell, Lloyd	 34	Pen y Bont	1:08.00	1:09.77	 	
-2	Daly, Scott	 36	Rest Bay	1:19.11	1:21.19	 	
- 
-Event 79  W omen 40-44 100 LC Meter Manikin Tow (Fins) Individual
-Name	Age	Team	Seed Time	Finals Time	
-1	Ewington, Gemma	 43	Vale	1:32.56	1:28.24	 	
-2	Leonard, Lois	 42	Gyllyngvase	1:30.00	1:28.91	 	
-3	Ramsden-Hare, Louise	 44	Mumbles	1:30.00	1:33.58	 	
-4	Hopkin, Nia	 42	Vale	1:35.00	1:34.60	 	
-5	Helmore, Rebecca	 44	Vale	1:40.00	1:44.55	 	
- 
-Event 80  Men 40-44 100 LC Meter Manikin Tow (Fins) Individual
-Record:	1:05.03	R	22/04/2017	Terry Fox	Ripley	
-Name	Age	Team	Seed Time	Finals Time	
-1	Taylor, Stephen	 41	Rest Bay	1:13.03	1:14.84	 	
-2	Gardener, Gareth	 42	Pen y Bont	1:29.00	1:27.85	 	
----	Rosewell, Lloyd	 34	Pen y Bont	NT	X1:09.77	 	
----	Daly, Scott	 36	Rest Bay	NT	X1:21.19	 	
- 
-Event 81  W omen 45-49 100 LC Meter Manikin Tow (Fins) Individual
-Record:	1:20.47	R	22/04/2017	Andrea Phinnemore	Pen y Bont	
-Name	Age	Team	Seed Time	Finals Time	
-1	Phinnemore, Andrea	 49	Pen y Bont	1:20.00	1:20.22	R	 	
-2	Butterly, Lisa	 47	Crantock	NT	1:24.08	 	
-3	Frank, Clare	 49	Dawlish W arren	1:28.60	1:29.02	 	
-4	Attwell, Annette	 45	Jersey	1:40.00	1:34.91	 	
-5	Gale, Sonia	 49	Bournemouth	1:35.46	1:36.51	 	
-6	Nyom, Sarah	 49	Pen y Bont	1:52.00	1:49.14	 	
- 
-Event 82  Men 45-49 100 LC Meter Manikin Tow (Fins) Individual
-Record:	1:13.17	R	22/04/2017	Neil Richardson	Saunton	
-Name	Age	Team	Seed Time	Finals Time	
-1	Robinson, Craig	 46	Pen y Bont	1:00.01	1:05.05	R	 	
-2	Skinner, Paul	 45	Portreath	1:12.47	1:13.27	 	
-3	Attwell, Adrian	 49	Jersey	1:17.00	1:17.84	 	
-4	Baxter, David	 49	Bideford Bay	NT	1:17.99	 	
-5	Phil, Bateman	 48	Portreath	1:29.09	1:19.28	 	
-6	Parkinson, Andy	 46	Langland Bay	NT	1:21.32	 	
-7	W isden, Mark	 48	Pen y Bont	1:22.00	1:21.82	 	
-8	Chandler, Mark	 49	Blyth	1:35.04	1:40.78	 	
- 
-Event 83  W omen 50-54 100 LC Meter Manikin Tow (Fins) Individual
-Name	Age	Team	Seed Time	Finals Time	
-1	Priddis, Allie	 53	Saunton Sands	1:37.00	1:36.12	 	
-2	Yates, Mel	 53	Bournemouth	1:43.54	1:43.87	 	
----	Ramsden-Hare, Louise	 44	Mumbles	1:30.00	X1:33.58	 	
----	Rowden, Helen	 50	Saunton Sands	1:25.00	DQ	 	
- 
-Event 84  Men 50-54 100 LC Meter Manikin Tow (Fins) Individual
-Record:	1:20.07	R	15/04/2018	Simon Parker	Vale	
-Name	Age	Team	Seed Time	Finals Time	
-1	Parker, Simon	 52	Vale	1:20.00	1:20.03	R
-
-2	Priddis, Jeff	 54	Saunton Sands	1:22.00	1:22.40	 	
-3	Lewis, Adrian	 50	Mumbles	1:30.00	1:29.62	 	
- 
-Event 85  W omen 55-59 100 LC Meter Manikin Tow (Fins) Individual
-Record:	1:36.84	R	15/04/2018	Jennifer Amos	Crawley Town	
-Name	Age	Team	Seed Time	Finals Time	
-1	Amos, Jennifer	 57	Crawley Town	1:39.96	1:42.18	 	
- 
-Event 86  Men 55-59 100 LC Meter Manikin Tow (Fins) Individual
-Record:	1:14.98	R	15/04/2018	Ian Yates	Pen y Bont	
-Name	Age	Team	Seed Time	Finals Time	
-1	Spencer, Geoffrey	 56	Bideford Bay	NT	1:19.22	 	
-2	Purchase, Martin	 59	Saunton Sands	1:20.00	1:20.64	 	
-3	Tobin, Paul	 55	Bideford Bay	NT	1:20.75	 	
-4	Bailey, Ian	 57	Mumbles	1:25.53	1:27.31	 	
-5	W illiams, Paul	 59	Langland Bay	NT	1:36.60	 	
-6	Graham, Dave	 57	Blyth	1:12.16	1:37.41	 	
-7	John, Chris	 59	Langland Bay	NT	1:43.98	 	
----	McMaster, Tony	 55	Blyth	1:19.97	DQ	 	
- 
-Event 87  W omen 60-64 100 LC Meter Manikin Tow (Fins) Individual
-Name	Age	Team	Seed Time	Finals Time	
-1	W ebb, Romaine	 60	Nth W orcester	1:50.12	1:47.96	 	
- 
-Event 88  Men 60-64 100 LC Meter Manikin Tow (Fins) Individual
-Name	Age	Team	Seed Time	Finals Time	
-1	Gwynn, Jon	 60	Mumbles	1:20.00	1:20.54	 	
-2	Bunney, Bob	 62	Saunton Sands	1:31.00	1:26.97	 	
-3	Lee, Gary	 60	Crawley Town	1:45.00	1:48.36	 	
- 
-Event 89  W omen 65 & Over 100 LC Meter Manikin Tow (Fins) Individual
-Name	Age	Team	Seed Time	Finals Time	
-1	Lewis, Elaine	 65	Bournemouth	1:34.10	1:33.39	 	
-2	Fakley, Maureen	 82	Crawley Town	4:50.00	4:07.50	 	
----	Ewington, Gemma	 43	Vale	NT	X1:28.24	 	
----	Leonard, Lois	 42	Gyllyngvase	NT	X1:28.91	 	
----	Hopkin, Nia	 42	Vale	NT	X1:34.60	 	
----	Amos, Jennifer	 57	Crawley Town	NT	X1:42.18	 	
----	Helmore, Rebecca	 44	Vale	NT	X1:44.55	 	
----	W ebb, Romaine	 60	Nth W orcester	NT	X1:47.96	 	
- 
-Event 90  Men 65 & Over 100 LC Meter Manikin Tow (Fins) Individual
-Name	Age	Team	Seed Time	Finals Time	
-1	Johnson, Neil	 66	Dawlish W arren	1:32.40	1:29.37	 	
-2	Carr, Paul	 67	Langland Bay	NT	1:39.90	 	
----	Parker, Simon	 52	Vale	NT	X1:20.03	 	
----	Gwynn, Jon	 60	Mumbles	NT	X1:20.54	 	
----	Priddis, Jeff	 54	Saunton Sands	NT	X1:22.40	 	
----	Bunney, Bob	 62	Saunton Sands	NT	X1:26.97	 	
----	Lewis, Adrian	 50	Mumbles	NT	X1:29.62	 	
----	Lee, Gary	 60	Crawley Town	NT	X1:48.36	 	
- 
-Event 91  W omen 100 LC Meter Manakin Tow (Fins) Individual
-Record:	1:02.36	R	15/04/2018	Devon Amos	Crawley Town	
-Name	Age	Team	Seed Time	Finals Time	
-1	Macartney, Marina	 29	Crawley Town	1:02.25	1:03.61	 	
-2	McCourt, Rhiannah	 18	Blyth	1:08.70	1:09.03	 	
-3	Gordon, Lauren	 18	Blyth	1:10.43	1:09.52	 	
-4	Little-Seccombe, Jessica	 17	Blyth	1:10.43	1:09.88	 	
-5	Kendall, Emma	 18	Portreath	1:10.87	1:09.94	 	
-6	Chandler, Cadie	 20	Blyth	1:07.06	1:10.40	 	
-7	Rees, Millie	 17	Mumbles	1:13.01	1:10.81	 	
-8	Carpenter, Sam	 23	Blyth	1:10.99	1:11.38	 	
-9	Rule, Mia	 16	Gyllyngvase	1:11.53	1:11.54	 	
-10	Parker, Emily	 16	Vale	1:10.00	1:11.96	 	
-11	Peterson, Brooke	 17	Vale	1:15.00	1:12.05
-
-(Event 91  W omen 100 LC Meter Manakin Tow (Fins) Individual)
-Name	Age	Team	Seed Time	Finals Time	
-12	Stevens, Rachael	 25	Beacon	1:10.54	1:12.28	 	
-13	Briggs, Isobel	 19	Unattached	1:10.65	1:12.67	 	
-14	Dickerson-W eedy, Ellie	 17	Blyth	1:11.76	1:12.82	 	
-15	W ard, Phoebe	 20	W oolacombe	1:15.00	1:12.89	 	
-16	Blake, Hannah	 20	Vale	1:14.99	1:13.06	 	
-17	Hawkins, Georgia	 17	Gyllyngvase	1:15.31	1:13.16	 	
-18	Peterson, Kelsea	 21	Vale	1:12.45	1:13.48	 	
-19	Gardiner, Tesni	 17	Vale	1:15.02	1:13.73	 	
-20	Hood, Millie	 20	W oolacombe	1:23.00	1:13.81	 	
-21	Bell, Charlotte	 17	St Ives	1:16.00	1:13.83	 	
-22	Saunders, Emelye	 20	Blyth	1:12.77	1:14.67	 	
-23	Howgate, Morgan	 20	Saunton Sands	NT	1:14.86	 	
-24	Hand, Jade	 19	Crawley Town	1:16.00	1:15.33	 	
-25	Rodda, Caja	 16	Portreath	1:15.01	1:15.65	 	
-26	Elliott, Zara	 18	St Ives	1:15.00	1:16.14	 	
-27	Peterson, Ellie	 19	Vale	1:18.00	1:16.96	 	
-28	Buttle, Chantelle	 17	Portreath	1:19.10	1:17.27	 	
-29	Owen, Samantha	 17	Portreath	1:15.58	1:17.54	 	
-30	James, Mali	 25	Mumbles	1:20.00	1:17.80	 	
-31	Mann, Jasmine	 20	Pen y Bont	1:15.00	1:19.33	 	
-32	Elliott, Kezia	 17	Gyllyngvase	1:18.71	1:20.58	 	
-33	Hocking, Freya	 17	Gyllyngvase	1:15.89	1:20.69	 	
-34	Piotrowicz, Kerenza	 16	Portreath	1:21.05	1:20.76	 	
-35	Yeomans, Lauren	 25	Nth W orcester	1:17.22	1:20.93	 	
-36	Malorey-Vibert, Cara	 25	Jersey	1:29.00	1:21.17	 	
-37	Ford, Billie-jo	 18	Saunton Sands	NT	1:23.44	 	
-38	Bradley, Milly	 16	Blyth	1:17.40	1:24.18	 	
-39	W all, Georgia	 20	Rhoose	NT	1:29.41	 	
-40	Duncan, Rececca	 25	Jersey	1:34.00	1:31.25	 	
- 
-Event 92  Men 100 LC Meter Manakin Tow (Fins) Individual
-Record:	56.08	R	15/04/2018	Simon W orne	Crawley Town	
-Name	Age	Team	Seed Time	Finals Time	
-1	Lawman, Samuel	 24	Crawley Town	56.51	57.15	 	
-2	Jagger, Richard	 30	Crawley Town	56.20	58.42	 	
-3	Trebilcock, Thomas	 16	Gyllyngvase	1:01.90	59.58	 	
-4	W arren, James	 29	Crawley Town	57.12	1:00.17	 	
-5	Meggitt, Jack	 19	Gyllyngvase	1:05.98	1:00.85	 	
-6	Ryan, W heeler	 24	Beacon	1:00.89	1:01.32	 	
-7	Lewis, Steven	 19	Portreath	1:04.87	1:02.26	 	
-8	Briggs, Calum	 23	Unattached	1:02.33	1:03.03	 	
-9	Jackson, Alex	 18	Crawley Town	1:00.20	1:03.14	 	
-10	Dungavel, Finn	 17	Gyllyngvase	1:06.20	1:03.27	 	
-11	Grice, Jason	 19	Pen y Bont	1:01.00	1:04.43	 	
-12	W oollard, Joseph	 19	Crawley Town	1:01.75	1:04.63	 	
-13	W eightman, Daniel	 22	Blyth	1:01.72	1:05.09	 	
-14	Norton, Sam	 17	Gyllyngvase	1:09.47	1:06.27	 	
-15	Northcott, Ben	 19	Saunton Sands	NT	1:07.08	 	
-16	Redrup, Calum	 18	W oolacombe	1:05.00	1:07.98	 	
-17	Evans, Ioan	 17	Pen y Bont	1:04.00	1:08.34	 	
-18	Ingham, Conor	 24	Beacon	1:07.07	1:08.49	 	
-19	Deasy, Sean	 27	W oolacombe	1:05.00	1:08.96	 	
-20	Vuliyerys, Gerasimas	 16	Crawley Town	1:15.00	1:10.14	 	
-21	Hopkin, Reuben	 16	Vale	1:09.00	1:10.70	 	
-22	Dickinson, Mace	 17	Gyllyngvase	1:11.63	1:10.94	 	
-23	Gilroy, Callum	 20	Blyth	1:09.26	1:12.31	 	
-(Event 92  Men 100 LC Meter Manakin Tow (Fins) Individual)
-Name	Age	Team	Seed Time	Finals Time	
-24	Luke, Cooke	 16	W oolacombe	1:16.00	1:14.33	 	
-25	Stevens, Elliott	 25	Beacon	1:10.56	1:15.48	 	
-26	Schofield, Martin	 20	Crawley Town	58.43	1:17.68	 	
-27	Arkley, Daniel	 27	Blyth	2:01.75	2:13.58	 	
----	Deasy, Niall	 23	W oolacombe	1:10.00	DQ	 	
----	Miller, David	 20	W oolacombe	1:02.50	DNF
-
-Event 93  Mixed LC Meter Lifesaver Relay Individual
-Record:	2:00.19	R	15/04/2018	Crawley Town	Crawley Town	
-Team	 	Relay	Seed Time	Finals Time	
-1	Crawley Town	    A	2:10.00	2:14.57	 	
-2	W oolacombe	    A	NT	2:17.89	 	
-3	Portreath	    A	2:19.39	2:24.88	 	
-4	Blyth	    A	2:15.41	2:25.95	 	
-5	W oolacombe	    B	NT	2:28.13	 	
-6	Blyth	    B	2:20.03	2:34.10	 	
-7	Portreath	    B	2:34.51	2:37.81	 	
-8	Rhoose	    A	2:00.00	2:38.28	 	
-9	Vale	    A	NT	2:42.04	 	
-10	Vale	    B	NT	2:42.12	 	
-11	Nth W orcester	    A	2:37.78	2:44.57	 	
-12	Gyllyngvase	    B	2:40.00	2:47.42	 	
-13	Blyth	    C	2:38.73	2:48.98	 	
-14	Saunton Sands	    B	NT	2:56.14	 	
-15	Saunton Sands	    A	NT	2:56.92	 	
-16	Nth W orcester	    B	2:48.24	2:59.84	 	
-17	Blyth	    D	3:00.00	3:18.56	 	
----	Gyllyngvase	    A	2:25.00	DQ	 	
- 
-Event 94  Mixed 30 & Over 4x50 LC Meter Medley Relay Relay
-Record:	1:51.63	R	22/04/2017	Pen y Bont	Pen y Bont	
-Team	 	Relay	Seed Time	Finals Time	
-1	Pen y Bont	    A	1:45.00	1:59.66	 	
-2	Nth W orcester	    A	2:01.00	2:01.22	 	
-3	Portreath	    A	NT	2:09.19	 	
-4	Saunton Sands	    A	NT	2:16.38	 	
-5	Rest Bay	    A	NT	2:16.57	 	
-6	Crawley Town	    A	3:00.00	2:24.34	 	
-7	Langland Bay	    A	NT	2:32.46	 	
-8	Blyth	    A	2:30.00	2:35.62	 	
-9	Saunton Sands	    B	NT	2:38.22	 	
-10	Pen y Bont	    B	2:02.02	2:38.71	 	
-11	Mumbles	    A	1:50.00	2:44.13	 	
-12	Vale	    A	2:20.00	2:45.74	 	
-13	Bournemouth	    A	2:50.31	2:56.82	 	
- 
-Event 95  W omen 4x50 LC Meter Medley Relay Relay
-Record:	1:49.34	R	15/04/2018	Crawley Town	Crawley Town	
-Team	 	Relay	Seed Time	Finals Time	
-1	Blyth	    C	2:02.45	2:03.21	 	
-2	W oolacombe	    A	NT	2:03.96	 	
-3	Gyllyngvase	    A	2:06.29	2:06.01	 	
-4	Blyth	    A	2:03.15	2:06.42	 	
-5	Portreath	    B	2:02.90	2:10.31	 	
-6	Saunton Sands	    A	NT	2:10.82	 	
-7	Portreath	    A	1:56.88	2:16.44	 	
-(Event 95  W omen 4x50 LC Meter Medley Relay Relay)
-Team	 	Relay	Seed Time	Finals Time	
-8	Blyth	    B	2:14.68	2:17.79	 	
-9	Nth W orcester	    A	2:24.62	2:23.31	 	
-10	Rhoose	    A	NT	2:28.01	 	
----	Vale	    A	2:10.00	DQ	 	
- 
-Event 96  Men 4x50 LC Meter Medley Relay Relay
-Record:	1:36.56	R	15/04/2018	Crawley Town	Crawley Town	
-Team	 	Relay	Seed Time	Finals Time	
-1	Crawley Town	    A	1:40.00	1:38.48	 	
-2	Crawley Town	    B	1:45.00	1:43.04	 	
-3	Gyllyngvase	    A	1:48.98	1:44.18	 	
-4	Portreath	    A	1:51.02	1:45.33	 	
-5	Pen y Bont	    A	1:45.00	1:45.63	 	
-6	W oolacombe	    A	NT	1:45.66
-
-7	Beacon	    A	1:50.77	1:47.25	 	
-8	Saunton Sands	    A	NT	1:53.43	 	
-9	Blyth	    A	1:54.77	1:53.96	 	
-10	Rhoose	    A	1:54.29	1:54.61	 	
-11	Gyllyngvase	    B	1:53.68	1:55.17	 	
-12	Vale	    A	1:55.00	1:59.29	 	
-13	W oolacombe	    B	NT	2:00.17	 	
-14	Nth W orcester	    A	2:00.00	2:03.17	 	
-15	Langland Bay	    A	NT	2:23.38	 	
-16	Blyth	    B	3:00.00	2:55.43
+200 m. natación con obstáculos / obstacles F
+ 
+Final: A
+ 
+Socorrista / Lifeguard
+ Año/Year
+ Club / Team
+ Tiempo/Time
+ 
+1
+ SANCHEZ GONZALEZ
+ , 
+ VERONICA
+ 1992
+ Club Noja Playa Dorada
+ 
+2
+ OPPERMAN
+ , 
+ BIANCA
+ 2002
+ South Africa
+ 
+3
+ LOPEZ RUIZ
+ , 
+ ELSA
+ 2002
+ Alcarreño de Salvamento y Socorrismo
+ 
+4
+ PAYOLA ANGLADA
+ , 
+ NURIA
+ 1999
+ SOS Santjoan
+ 
+5
+ MARTINEZ MANZANO
+ , 
+ MIRIAM
+ 2002
+ Alcarreño de Salvamento y Socorrismo
+ 
+6
+ GARCIA DE LA VIRGEN
+ , 
+ ESTHER
+ 1999
+ Club Salvamento y Natacion Silla
+ 
+7
+ MALAVE CASCALES
+ , 
+ LAURA
+ 1998
+ Club Natación Mirasierra 
+ 
+8
+ VILA GARRO
+ , 
+ NEREA
+ 1998
+ Club A.C.N. Marisma
+ 
+Final: B
+ 
+Socorrista / Lifeguard
+ Año/Year
+ Club / Team
+ Tiempo/Time
+ 
+1
+ GANADO AMADOR
+ , 
+ CAROLINA
+ 1999
+ Club Salvamento y Socorrismo Benavente
+ 
+2
+ SANCHEZ IBERTI
+ , 
+ EMMA
+ 2002
+ Club Top Ten
+ 
+3
+ RODRIGUEZ FERNANDEZ
+ , 
+ YANIRA
+ 2002
+ Club Natacion y Salvamento Oriol Imperial
+ 
+4
+ RODRIGUEZ RODRIGUEZ DE LA SIERRA
+ , 
+ MARIA
+ 2004
+ Club Natación Martianez
+ 
+5
+ NORIEGA MARTIN
+ , 
+ CLAUDIA
+ 2003
+ C.D.B. Vallecas S.O.S
+ 
+6
+ ACUÑA MUÑOZ
+ , 
+ CAROLA
+ 2001
+ C.D.B. Vallecas S.O.S
+ 
+7
+ IÑIGUEZ SEGUI
+ , 
+ NAIARA
+ 2004
+ Club Top Ten
+ 
+8
+ DE DIOS LASA
+ , 
+ MIRIAM
+ 2002
+ Club Natacion y Salvamento Oriol Imperial
+ Página 1 de 1
+ Finales
+ 
+ VII ABIERTO INTERNACIONAL 
+ 
+ Campeonato de España de primavera 2019
+ 
+04 may. 2019 - 05 may. 2019
+ (
+ Piscina/Pool: 50 E
+ )
+ Torrevieja

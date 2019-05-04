@@ -49,7 +49,7 @@ class Competition
     /**
      * @return Event|null
      */
-    private function getCurrentEvent()
+    public function getCurrentEvent()
     {
         if ($this->events) {
             return array_values(array_slice($this->events, -1))[0];
@@ -90,7 +90,8 @@ class Competition
         $currentEvent = $this->getCurrentEvent();
         if (!$currentEvent) return true;
         elseif ($event->getGender() !== $currentEvent->getGender()
-            || $event->getId() !== $currentEvent->getId()) return true;
+            || $event->getId() !== $currentEvent->getId()
+            || $event->getRoundNumber() !== $currentEvent->getRoundNumber()) return true;
         return false;
     }
 
@@ -114,5 +115,4 @@ class Competition
         }
         return $count;
     }
-
 }

@@ -22,7 +22,10 @@ switch (pathinfo($fileName, PATHINFO_EXTENSION)) {
     case 'pdf':
         $parser = new \Smalot\PdfParser\Parser();
         $pdf = $parser->parseFile($fileName);
-        $lines = explode("\n", $pdf->getText());
+        $text = $pdf->getText();
+        $text = str_replace('&#39;', "'", $text);
+        $text = preg_replace('/\h+/', ' ', $text);
+        $lines = explode("\n", $text);
         define('ENCODING', "UTF-8");
         break;
     case 'txt':
@@ -70,6 +73,12 @@ foreach ($lines as $line) {
 
             $competition->addResultToCurrentEvent($result);
             break;
+        case 'round':
+            $roundNumber = $competitionParser->getRoundFromLine($line);
+            $currentEvent = $competition->getCurrentEvent();
+            $event = Event::create($currentEvent->getId(), $currentEvent->getGender(), true, $currentEvent->getOriginalLine(), $roundNumber);
+            $competition->addEvent($event);
+            break;
     }
 }
 
@@ -77,8 +86,8 @@ $competition->removeNullEvents();
 
 try {
     printCompetition($competition, 'template');
-    $dbHelper = new DbHelper();
-    $dbHelper->saveCompetitionToDatabase($competition);
+//    $dbHelper = new DbHelper();
+//    $dbHelper->saveCompetitionToDatabase($competition);
 } catch (Exception $e) {
     print_r('Something terrible happened' . PHP_EOL);
     print_r($e->getMessage());

@@ -47,6 +47,11 @@ function slugify($string)
 function toSqlInterval($time)
 {
     $time = str_replace(',', '.', $time);
+
+    if (strpos($time, '.') === false) {
+        $time = substr_replace($time, '.', strrpos($time, ':'), strlen(':'));
+    }
+
     if (strlen($time) == 4) {
         $time = '00:00:0' . $time;
     } elseif (strlen($time) == 5) {
@@ -85,7 +90,7 @@ function printCompetition($competition, $type)
     print_r('Number of results: ' . $competition->countResults() . PHP_EOL);
     sleep(1);
     foreach ($competition->getEvents() as $event) {
-        print_r($disciplines[$event->getId()][0] . " " . $event->getGenderName() . PHP_EOL);
+        print_r($disciplines[$event->getId()][0] . " " . $event->getGenderName() . " round: " . $event->getRoundNumber() . PHP_EOL);
 //        usleep(400000);
     }
     usleep(400000);
