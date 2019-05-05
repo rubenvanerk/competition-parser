@@ -11,25 +11,25 @@ $config = yaml_parse_file($config);
 
 $competition = new Competition($config['name'], $config['date'], $config['location'], $config['clock_type']);
 
-$competitionParser = new CompetitionParser($config);
 $fileName = RESULTS_DIR . $config['file'];
 
 switch (pathinfo($fileName, PATHINFO_EXTENSION)) {
     case 'csv':
         $lines = file($fileName, FILE_IGNORE_NEW_LINES);
+        define('FILETYPE', 'csv');
         define('ENCODING', "UTF-8");
         break;
     case 'pdf':
         $parser = new \Smalot\PdfParser\Parser();
         $pdf = $parser->parseFile($fileName);
         $text = $pdf->getText();
-        $text = str_replace('&#39;', "'", $text);
-//        $text = preg_replace('/\h+/', ' ', $text);
         $lines = explode("\n", $text);
+        define('FILETYPE', 'pdf');
         define('ENCODING', "UTF-8");
         break;
     case 'txt':
         $lines = file($fileName, FILE_IGNORE_NEW_LINES);
+        define('FILETYPE', 'txt');
         define('ENCODING', "UTF-8");
         break;
     default:
@@ -38,7 +38,9 @@ switch (pathinfo($fileName, PATHINFO_EXTENSION)) {
         break;
 }
 
+$competitionParser = new CompetitionParser($config);
 $lines = $competitionParser->createUsableLines($lines);
+$lines = $competitionParser->cleanLines($lines);
 
 writeToFile($lines);
 
@@ -50,7 +52,8 @@ foreach ($lines as $line) {
             $eventId = $competitionParser->getEventIdFromLine($line);
             $gender = $competitionParser->getGenderFromLine($line);
             $includeEvent = $competitionParser->shouldIncludeEvent($line);
-            $event = Event::create($eventId, $gender, $includeEvent, $line);
+            $roundNumber = $competitionParser->getRoundFromLine($line);
+            $event = Event::create($eventId, $gender, $includeEvent, $line, $roundNumber);
             $competition->addEvent($event);
             break;
         case 'gender':

@@ -4,17 +4,22 @@ regex:
     2: '/[0-9]{1}:?[0-9]{2}\,[0-9]{2}/'         # 1:35,22
     3: '/([0-9]:)?[0-9]{2}\.[0-9]{2}/'          # 1:35.22
     4: '/[0-9]{0,2}[:]?[0-9]{1,2}[:][0-9]{2}/'  # 01:35:22
+    5: '/[0-9]{2}:?[0-9]{2}\,[0-9]{2}/'         # 01:35,22
   name:
     1: >
       /([A-z\x{00C0}-\x{02A0}\x{0390}-\x{0520}\-\'\’\.]{2,}\s?)+(,\s?)([A-z\x{00C0}-\x{02A0}\x{0390}-\x{0520}\-\'\’\.]{2,}\s?)+/u
     2: >
-      /([A-z\x{00C0}-\x{02A0}\x{0390}-\x{0520}\-\'\’\.]\s?)+/u
+      /([A-z\x{00C0}-\x{02A0}\x{0390}-\x{0520}])([A-z\x{00C0}-\x{02A0}\x{0390}-\x{0520}\-\'\’\.]\s?)+/u
+    3: >
+        /(?:(?!DIS)\w)([A-z\x{00C0}-\x{02A0}\x{0390}-\x{0520}])([A-z\x{00C0}-\x{02A0}\x{0390}-\x{0520}\-\'\’\.]\s?)+/u
   yob:
     1: '/\s[0-9]{2}\s/'   # 96
     2: '/\s[0-9]{4}\s/'   # 1996
 event_signifiers:
   - 'Programmanr'
   - 'Event'
+  - 'Heat '
+  - 'Final'
 event_designifiers:
   - 'DISKWALIFICATIE CODES'
   - 'Leaving the water after an event before permission is given by the official.'
@@ -30,12 +35,16 @@ dq_signifiers:
   - '5:00.00'
   - 'DNF'
   - 'DSQ'
+  - 'DIS'
+  - 'Forfait'
+  - '00:00,00'
 result_rejectors:
   - 'DNS'
   - 'Splash Meet Manager'
   - 'Record'
   - 'Australian:'
   - 'World:'
+  - 'rekord'
 genders:
   male_signifiers:
     - 'Men'
@@ -96,6 +105,7 @@ disciplines:
     - '200 LC Meter 0bstacles'
     - '200 Meter Obstacle'
     - '200 m. natación con obstáculos'
+    - '200 Obstacle Swim'
   4:
     - '100m manikin tow with fins'
     - '100m lifesaver'
@@ -131,6 +141,7 @@ disciplines:
     - '100 LC Meter Rescue Medley'
     - '100 LC Meter LIFESAVING MEDLEY'
     - '100m Rescuemedley'
+    - '100 Rescue medley'
   6:
     - '200m Super Lifesaver'
     - '200m superlifesaver'
@@ -144,6 +155,7 @@ disciplines:
     - 'uper Lifesaver'
     - '200 Meter superlifesaver'
     - 'LC Meter Super Life Saver Individual'
+    - '200 SLS'
   7:
     - '50 m obstacle swim'
     - '50m Obstacle Swim'
@@ -171,3 +183,4 @@ disciplines:
     - '100 LC Meter Obstacle'
     - '100 LC Meter Obstacles'
     - '100m Obstacle'
+    - '100 Obstacle Swim'

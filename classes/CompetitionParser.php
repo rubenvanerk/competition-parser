@@ -10,6 +10,11 @@ class CompetitionParser
     private $nameIndex;
     private $lineConversion;
     private $rounds;
+    private $utf8Encoded;
+
+    private $csvNameIndexes;
+    private $csvTimeIndex;
+    private $csvYobIndex;
 
     public function __construct($config)
     {
@@ -23,8 +28,15 @@ class CompetitionParser
         $this->timeRegex = $this->config['regex']['time'][$this->config['parser_config']['formats']['time_format']];
         $this->lineConversion = $this->config['parser_config']['line_conversion'];
         $this->rounds = isset($this->config['parser_config']['rounds']) ? $this->config['parser_config']['rounds'] : null;
+        $this->utf8Encoded = isset($this->config['parser_config']['utf8_encoded']) ? boolval($this->config['parser_config']['utf8_encoded']) : false;
         if (PARSE_YOB) {
             $this->yobRegex = $this->config['regex']['yob'][$this->config['parser_config']['formats']['yob_format']];
+        }
+
+        if (FILETYPE == 'csv') {
+            $this->csvNameIndexes = $this->config['parser_config']['csv']['name'];
+            $this->csvTimeIndex = $this->config['parser_config']['csv']['time'];
+            $this->csvYobIndex = $this->config['parser_config']['csv']['yob'];
         }
 
     }
@@ -126,6 +138,23 @@ class CompetitionParser
         }
     }
 
+
+
+    public function cleanLines(array $lines)
+    {
+        $i = 0;
+        foreach ($lines as $line) {
+            $line = str_replace('&#39;', "'", $line);
+            $line = preg_replace('/\h/', ' ', $line);
+            if ($this->utf8Encoded) {
+                $line = utf8_decode($line);
+            }
+            $lines[$i] = $line;
+            $i++;
+        }
+        return $lines;
+    }
+
     /**
      * @param $line
      * @return bool
@@ -144,6 +173,14 @@ class CompetitionParser
      */
     public function getNameFromLine($line)
     {
+        if (FILETYPE == 'csv') {
+            $names = [];
+            $csv = str_getcsv($line);
+            foreach ($this->csvNameIndexes as $nameIndex) {
+                $names[] = $csv[$nameIndex];
+            }
+            return implode(' ', $names);
+        }
         $matches = array();
         preg_match_all($this->nameRegex, $line, $matches);
 
@@ -177,9 +214,18 @@ class CompetitionParser
     public function getYearOfBirthFromLine($line)
     {
         if(!PARSE_YOB) return 'unknown';
+
+        if (FILETYPE == 'csv') {
+            $csv = str_getcsv($line);
+            return $csv[$this->csvYobIndex];
+        }
+
         $matches = array();
         preg_match($this->yobRegex, $line, $matches);
-        if (!$matches) print_r($line . PHP_EOL);
+        if (!$matches) {
+//            print_r($line . PHP_EOL);
+            return 'unknown';
+        }
 
         $yearOfBirth = intval(trim($matches[0]));
 
@@ -193,6 +239,11 @@ class CompetitionParser
      */
     public function getTimesFromLine($line)
     {
+        if (FILETYPE == 'csv') {
+            $csv = str_getcsv($line);
+            return [$csv[$this->csvTimeIndex]];
+        }
+
         $times = array();
         preg_match_all($this->timeRegex, $line, $times);
         $times = $times[0];
@@ -229,7 +280,6 @@ class CompetitionParser
                 return $roundNumber;
             }
         }
-        print_r('Could not find round in: ' . $line . PHP_EOL);
         return 0;
     }
 
