@@ -2,3 +2,4 @@ competitions/*
 composer.phar
 /vendor/
 .idea
+lines.txt

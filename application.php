@@ -24,7 +24,7 @@ switch (pathinfo($fileName, PATHINFO_EXTENSION)) {
         $pdf = $parser->parseFile($fileName);
         $text = $pdf->getText();
         $text = str_replace('&#39;', "'", $text);
-        $text = preg_replace('/\h+/', ' ', $text);
+//        $text = preg_replace('/\h+/', ' ', $text);
         $lines = explode("\n", $text);
         define('ENCODING', "UTF-8");
         break;
@@ -68,12 +68,17 @@ foreach ($lines as $line) {
             if (!$competition->hasCurrentEvent()) continue;
             $name = $competitionParser->getNameFromLine($line);
             $yearOfBirth = $competitionParser->getYearOfBirthFromLine($line);
-            $times = $competitionParser->getTimesFromLine($line);
-            $result = Result::create($name, $yearOfBirth, $times, $line);
+            if(($isDq = $competitionParser->isDq($line))) {
+                $times = ['59:59.99'];
+            } else {
+                $times = $competitionParser->getTimesFromLine($line);
+            }
+            $result = Result::create($name, $yearOfBirth, $times, $isDq, $line);
 
             $competition->addResultToCurrentEvent($result);
             break;
         case 'round':
+            if (!$competition->hasCurrentEvent()) continue;
             $roundNumber = $competitionParser->getRoundFromLine($line);
             $currentEvent = $competition->getCurrentEvent();
             $event = Event::create($currentEvent->getId(), $currentEvent->getGender(), true, $currentEvent->getOriginalLine(), $roundNumber);
@@ -86,8 +91,8 @@ $competition->removeNullEvents();
 
 try {
     printCompetition($competition, 'template');
-//    $dbHelper = new DbHelper();
-//    $dbHelper->saveCompetitionToDatabase($competition);
+    $dbHelper = new DbHelper();
+    $dbHelper->saveCompetitionToDatabase($competition);
 } catch (Exception $e) {
     print_r('Something terrible happened' . PHP_EOL);
     print_r($e->getMessage());

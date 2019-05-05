@@ -38,8 +38,10 @@ class Event
             $event = new Event($eventId, $gender, $line, $roundNumber);
             return $event;
         }
-        print_r('EVENT COULD NOT BE PARSED, VALUES(event, gender, includeevent): ' . $eventId . ' ' . $gender . ' ' . $includeEvent . PHP_EOL);
-        print_r($line . PHP_EOL . PHP_EOL);
+        if($includeEvent) {
+            print_r('EVENT COULD NOT BE PARSED, VALUES(event, gender, includeevent): ' . $eventId . ' ' . $gender . ' ' . $includeEvent . PHP_EOL);
+            print_r($line . PHP_EOL . PHP_EOL);
+        }
         return null;
     }
 

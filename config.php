@@ -10,6 +10,13 @@ return array(
         'port' => getenv('DB_PARSER_PORT'),
     ],
 //    'database' => [
+//        'host' => 'localhost',
+//        'name' => 'lifesavingrankings_django',
+//        'username' => 'eulntgnb',
+//        'password' => 'fr0z3n',
+//        'port' => getenv('DB_PARSER_PORT'),
+//    ],
+//    'database' => [
 //        'host' => getenv('DB_PARSER_HOST'),
 //        'name' => 'finswimming_rankings',
 //        'username' => 'finswimming_rankings',

@@ -46,7 +46,7 @@ class DbHelper
         foreach($result->getTimes() as $time) {
             $time = toSqlInterval($time);
             $stmt = $this->connection->prepare("INSERT INTO rankings_individualresult 
-              VALUES (DEFAULT, '{$time}', '{$athleteId}', '{$competition->getId()}', '{$event->getId()}', NULL, 0, '{$result->getOriginalLine()}', {$event->getRoundNumber()})");
+              VALUES (DEFAULT, '{$time}', '{$athleteId}', '{$competition->getId()}', '{$event->getId()}', NULL, 0, '{$result->getOriginalLine()}', {$event->getRoundNumber()}, {$result->isDq()})");
             $stmt->execute();
         }
     }
@@ -128,8 +128,8 @@ class DbHelper
         '{$competition->location}', 
         '{$competition->clockType}', 
         '" . $competitionSlug . "', 
-        'true'" .
-        ", false)"
+        'true', 'false'" .
+        ", NULL)"
         );
         $stmt->execute();
 

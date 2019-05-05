@@ -101,7 +101,7 @@ class CompetitionParser
      */
     function createUsableLines($lines)
     {
-        switch ($this->lineConversion) {
+        switch (strval($this->lineConversion)) {
             case 'name-yob-club-time':
                 $newLines = [];
                 $i = 0;
@@ -133,8 +133,9 @@ class CompetitionParser
     protected function hasValidResult($line)
     {
         $hasResult = preg_match($this->timeRegex, $line);
+        $isDq = $this->lineContains($line, $this->config['dq_signifiers']);
         $isValid = !$this->lineContains($line, $this->config['result_rejectors']);
-        return $hasResult && $isValid;
+        return ($hasResult || $isDq) && $isValid;
     }
 
     /**
@@ -230,5 +231,10 @@ class CompetitionParser
         }
         print_r('Could not find round in: ' . $line . PHP_EOL);
         return 0;
+    }
+
+    public function isDq($line)
+    {
+        return $this->lineContains($line, $this->config['dq_signifiers']);
     }
 }

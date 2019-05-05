@@ -96,7 +96,7 @@ function printCompetition($competition, $type)
     usleep(400000);
     foreach ($competition->getEvents() as $event) {
         print_r(PHP_EOL);
-        print_r($disciplines[$event->getId()][0] . " " . $event->getGenderName() . PHP_EOL);
+        print_r($disciplines[$event->getId()][0] . " " . $event->getGenderName() . " round: " . $event->getRoundNumber() . PHP_EOL);
         usleep(400000);
         foreach ($event->getResults() as $result) {
             print_r($result->getYearOfBirth() . " " . $result->getName() . " " . json_encode($result->getTimes()) . PHP_EOL);
