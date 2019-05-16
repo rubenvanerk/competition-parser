@@ -86,9 +86,12 @@ function printCompetition($competition, $type)
         5 => ["100m Rescue Medley"],
         6 => ["200m Super Lifesaver"],
         7 => ["50m Obstacle Swim"],
+        8 => ["50m freestyle"],
         9 => ["50m Freestyle with Fins"],
         10 => ["50m Manikin Carry (relay leg 3)"],
+        11 => ["50m person tow"],
         12 => ["25m Manikin Carry"],
+        13 => ["50m freestyle with tube"],
         14 => ["50m Manikin Carry with Fins (relay leg 4)"],
         18 => ["100m obs"],
     ];
@@ -108,6 +111,7 @@ function printCompetition($competition, $type)
             print_r($result->getYearOfBirth() . " " . $result->getName() . " " . json_encode($result->getTimes()) . PHP_EOL);
 //            usleep(200000);
         }
+        if($event->countResults() > 0 && $event->getGender() == 0) sleep(5);
     }
 }
 

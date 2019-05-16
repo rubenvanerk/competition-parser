@@ -32,6 +32,11 @@ switch (pathinfo($fileName, PATHINFO_EXTENSION)) {
         define('FILETYPE', 'txt');
         define('ENCODING', "UTF-8");
         break;
+    case 'html':
+        $lines = file($fileName, FILE_IGNORE_NEW_LINES);
+        define('FILETYPE', 'html');
+        define('ENCODING', "UTF-8");
+        break;
     default:
         print_r('Unknown filetype ' . pathinfo($fileName, PATHINFO_EXTENSION));
         exit;
@@ -71,12 +76,12 @@ foreach ($lines as $line) {
             if (!$competition->hasCurrentEvent()) continue;
             $name = $competitionParser->getNameFromLine($line);
             $yearOfBirth = $competitionParser->getYearOfBirthFromLine($line);
-            if(($isDq = $competitionParser->isDq($line))) {
+            if(($isDq = $competitionParser->isDq($line)) || ($isDns = $competitionParser->isDns($line))) {
                 $times = ['59:59.99'];
-            } else {
+            }  else {
                 $times = $competitionParser->getTimesFromLine($line);
             }
-            $result = Result::create($name, $yearOfBirth, $times, $isDq, $line);
+            $result = Result::create($name, $yearOfBirth, $times, $isDq, $isDns, $line);
 
             $competition->addResultToCurrentEvent($result);
             break;
@@ -87,7 +92,11 @@ foreach ($lines as $line) {
             $event = Event::create($currentEvent->getId(), $currentEvent->getGender(), true, $currentEvent->getOriginalLine(), $roundNumber);
             $competition->addEvent($event);
             break;
+        case 'stop-event':
+            $competition->addEvent(null);
+            break;
     }
+    $i++;
 }
 
 $competition->removeNullEvents();

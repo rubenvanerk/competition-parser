@@ -2,31 +2,49 @@ regex:
   time:
     1: '/[0-9]{0,2}[:]?[0-9]{1,2}[.][0-9]{2}/'  # 01:35.22
     2: '/[0-9]{1}:?[0-9]{2}\,[0-9]{2}/'         # 1:35,22
-    3: '/([0-9]:)?[0-9]{2}\.[0-9]{2}/'          # 1:35.22
+    3: '/([0-9]:)?[0-9]{2}\.[0-9]{2}/'          # 1:35.22 | 35.22
     4: '/[0-9]{0,2}[:]?[0-9]{1,2}[:][0-9]{2}/'  # 01:35:22
     5: '/[0-9]{2}:?[0-9]{2}\,[0-9]{2}/'         # 01:35,22
+    6: '/(?<=\s)([0-9]:)?[0-9]{2}\.[0-9]{2}/'   # 1:35.22
   name:
     1: >
-      /([A-z\x{00C0}-\x{02A0}\x{0390}-\x{0520}\-\'\’\.]{2,}\s?)+(,\s?)([A-z\x{00C0}-\x{02A0}\x{0390}-\x{0520}\-\'\’\.]{2,}\s?)+/u
+        /([A-z\x{00C0}-\x{02A0}\x{0390}-\x{0520}\-\'\’\.]{1,}\s?)+(,\s?)([A-z\x{00C0}-\x{02A0}\x{0390}-\x{0520}\-\'\’\.]{1,}\s?(?!DQ)(?!XDQ))/u
     2: >
-      /([A-z\x{00C0}-\x{02A0}\x{0390}-\x{0520}])([A-z\x{00C0}-\x{02A0}\x{0390}-\x{0520}\-\'\’\.]\s?)+/u
+        /([A-z\x{00C0}-\x{02A0}\x{0390}-\x{0520}])([A-z\x{00C0}-\x{02A0}\x{0390}-\x{0520}\-\'\’\.]\s?)+/u
     3: >
-        /(?:(?!DIS)\w)([A-z\x{00C0}-\x{02A0}\x{0390}-\x{0520}])([A-z\x{00C0}-\x{02A0}\x{0390}-\x{0520}\-\'\’\.]\s?)+/u
+        /(?!.*DSQ|DIS|DNS|dis)\b([A-z\x{00C0}-\x{02A0}\x{0390}-\x{0520}])([A-z\x{00C0}-\x{02A0}\x{0390}-\x{0520}\-\'\’\.]\s?)+/u
+    4: >
+        /(([A-z\x{00C0}-\x{02A0}\x{0390}-\x{0520}\-\'\’]\s?)+(,?\s?))+/u
+    5: >
+        /(?!.*DSQ|DIS|DNS|dis)\b([A-z\x{00C0}-\x{02A0}\x{0390}-\x{0520}\-\'\’\.]{2,}\s?)+(,\s?)([A-z\x{00C0}-\x{02A0}\x{0390}-\x{0520}\-\'\’\.]{2,}\s?(?!DQ)(?!XDQ))/u
+  first_name:
+    1: >
+      {02A0}\x{0390}-\x{0520}\-\'\’\.]{1,}\s?)+(,\s?)([A-z\x{00C0}-\x{02A0}\x{0390}-\x{0520}\-\'\’\.]{1,}\s?(?!DQ)(?!XDQ))/u
+  last_name:
+    1: >
+      {02A0}\x{0390}-\x{0520}\-\'\’\.]{1,}\s?)+(,\s?)([A-z\x{00C0}-\x{02A0}\x{0390}-\x{0520}\-\'\’\.]{1,}\s?(?!DQ)(?!XDQ))/u
   yob:
-    1: '/\s[0-9]{2}\s/'   # 96
-    2: '/\s[0-9]{4}\s/'   # 1996
-event_signifiers:
+    1: '/\s[0-9]{2}\s/'         # 96
+    2: '/\s[0-9]{4}\s/'         # 1996
+    3: '/\s[0-9],[0-9]{3}\s/'   # 1,996
+event_signifiers: # if a line contains one of these, the line should contain an event
   - 'Programmanr'
   - 'Event'
   - 'Heat '
-  - 'Final'
-event_designifiers:
+event_designifiers: # if a line contains one of these, the line shouldn't contain an event
   - 'DISKWALIFICATIE CODES'
   - 'Leaving the water after an event before permission is given by the official.'
   - 'Not completing the event in accordance with the event description or general rules.'
   - 'Team Rankings'
-event_rejectors:
+  - 'Age Name Team Finals Time'
+  - 'Name TeamFinals Time'
+event_rejectors: # if a line contains one of these, the complete event should be ignored
   - 'Relay'
+  - 'Team'
+  - 'LC Meter Brick Carry'
+  - '35 LC Meter Manikin Carry'
+event_stopper: # if a line contains one of these, the current event should be completed and following results are not added
+  - 'Open Age Group - Full Results'
 round_signifiers:
   - 'Final'
 dq_signifiers:
@@ -38,21 +56,35 @@ dq_signifiers:
   - 'DIS'
   - 'Forfait'
   - '00:00,00'
-result_rejectors:
+  - '88:88.88'
+dns_signifiers:
   - 'DNS'
+result_rejectors: # if a line contains one of these, the result should be ignored
   - 'Splash Meet Manager'
   - 'Record'
   - 'Australian:'
   - 'World:'
   - 'rekord'
+  - 'NR:'
+  - 'CR:'
+  - 'NR ('
+  - 'CR ('
+  - 'NR('
+  - 'CR('
 genders:
   male_signifiers:
     - 'Men'
     - 'Heren'
     - 'Boys'
+    - 'Jongens'
+    - 'Masculino'
+    - 'Male'
   female_signifiers:
     - 'Women'
     - 'Dames'
+    - 'Meisjes'
+    - 'Femenino'
+    - 'Female'
 disciplines:
   1:
     - '100m manikin carry with fins'
@@ -75,6 +107,7 @@ disciplines:
     - '100 Meter manikin carry+fins'
     - '100 LC Meter Manakin Carry (Fins)'
     - '100m Manikin Carry'
+    - 'Manikin Carry with Fins (100 m)'
   2:
     - '50m manikin carry'
     - '50m Manikin Carry'
@@ -90,6 +123,9 @@ disciplines:
     - '50 LC Meter mankin carry'
     - '50 Meter mankin carry'
     - '50 LC Meter Manakin Carry'
+    - '50m Manikin Carry'
+    - '50 M Manikin Carry'
+    - 'Manikin Carry (50 m)'
   3:
     - '200m obstacle swim'
     - '200m Obstacle Swim'
@@ -126,6 +162,7 @@ disciplines:
     - '100 m. socorrista / manikin tube with fins'
     - '100m Manikin Tow w. Fins'
     - '100m Manikin Tow'
+    - 'Manikin Tow with Fins (100 m)'
   5:
     - '100m rescue medley'
     - '100m Rescue Medley'
@@ -142,6 +179,8 @@ disciplines:
     - '100 LC Meter LIFESAVING MEDLEY'
     - '100m Rescuemedley'
     - '100 Rescue medley'
+    - '100m Medley'
+    - 'Rescue Medley (100 m)'
   6:
     - '200m Super Lifesaver'
     - '200m superlifesaver'
@@ -152,31 +191,37 @@ disciplines:
     - '200 LC Metre Super Lifesaver'
     - '200 LC Meter Super Lifesaver'
     - '200 LC Meter Su'
-    - 'uper Lifesaver'
     - '200 Meter superlifesaver'
     - 'LC Meter Super Life Saver Individual'
     - '200 SLS'
+    - '200m Pool Lifesaver'
+    - 'Super Lifesaver (200 m) '
   7:
     - '50 m obstacle swim'
     - '50m Obstacle Swim'
   8:
     - '50 m free style'
+    - '50m vrije slag'
   9:
     - '50 m freestyle with fins'
     - '50m Freestyle with Fins'
+    - '50 LC Meter Swim with Fins'
   10:
-    - '50 m manikin'
     - '50m Manikin Carry (relay leg 3)'
+    - '50m popvervoeren (start met pop)'
   11:
-    - '50 m slepen'
+    - '50 m slepen torpedo en drenkeling'
   12:
     - '25 m pop'
     - '25m Manikin Carry'
+    - '25m pop'
   13:
     - '50 m vrij met torpedo'
+    - '50m torpedoboei'
   14:
     - '50 m pop met vliezen'
     - '50m Manikin Carry with Fins (relay leg 4)'
+    - '50 m pop  met vliezen'
   18:
     - '100m Obstacle Swim'
     - '100 Meter Obstacle'
@@ -184,3 +229,6 @@ disciplines:
     - '100 LC Meter Obstacles'
     - '100m Obstacle'
     - '100 Obstacle Swim'
+    - '100m Obstacles'
+    - '100 m. natación con obstáculos / 100 m. obstacles'
+    - 'A1-100m Hinderniszwemmen/Obstacles'

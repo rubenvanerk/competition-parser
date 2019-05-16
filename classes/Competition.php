@@ -30,6 +30,7 @@ class Competition
             return true;
         } elseif (is_null($event)) {
             $this->events[] = $event;
+            return true;
         } else {
             return false;
         }

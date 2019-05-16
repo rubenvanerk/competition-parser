@@ -6,7 +6,7 @@ class Event
     private $gender;
     private $results;
     private $originalLine;
-    private $roundNumber = 0;
+    private $roundNumber = null;
 
     /**
      * Event constructor.
@@ -15,7 +15,7 @@ class Event
      * @param $line
      * @param int $roundNumber
      */
-    public function __construct($eventId, $gender, $line, $roundNumber = 0)
+    public function __construct($eventId, $gender, $line, $roundNumber = null)
     {
         $this->eventId = $eventId;
         $this->gender = $gender;
@@ -32,9 +32,9 @@ class Event
      * @param int $roundNumber
      * @return Event|null
      */
-    public static function create($eventId, $gender, $includeEvent, $line, $roundNumber = 0)
+    public static function create($eventId, $gender, $includeEvent, $line, $roundNumber = null)
     {
-        if($eventId && $gender && $includeEvent) {
+        if($eventId && ($gender || SEPARATE_GENDER) && $includeEvent) {
             $event = new Event($eventId, $gender, $line, $roundNumber);
             return $event;
         }
@@ -100,5 +100,10 @@ class Event
     public function getRoundNumber()
     {
         return $this->roundNumber;
+    }
+
+    public function countResults()
+    {
+        return count($this->results);
     }
 }

@@ -43,12 +43,21 @@ class DbHelper
     {
         $athleteId = $this->getOrInsertAthlete($result, $event);
 
-        foreach($result->getTimes() as $time) {
+        $round = 0;
+        foreach ($result->getTimes() as $time) {
+            $roundNumber = is_null($event->getRoundNumber()) ? $round : $event->getRoundNumber();
             $time = toSqlInterval($time);
             $stmt = $this->connection->prepare("INSERT INTO rankings_individualresult 
-              VALUES (DEFAULT, '{$time}', '{$athleteId}', '{$competition->getId()}', '{$event->getId()}', NULL, 0, '{$result->getOriginalLine()}', {$event->getRoundNumber()}, {$result->isDq()})");
+              VALUES (DEFAULT, '{$time}', '{$athleteId}', '{$competition->getId()}', '{$event->getId()}', NULL, 0, '{$result->getOriginalLine()}', {$roundNumber}, {$result->isDq()}, {$result->isDns()})");
             $stmt->execute();
+            if(intval($stmt->errorCode())) {
+                print_r('Error (' . $stmt->errorCode() . ') while inserting result' . PHP_EOL);
+                print_r($result);
+                exit;
+            }
+            $round++;
         }
+
     }
 
     /**
@@ -57,10 +66,11 @@ class DbHelper
      * @return int athlete id
      * @throws Exception
      */
-    private function getOrInsertAthlete($result, $event) {
+    private function getOrInsertAthlete($result, $event)
+    {
         $sql = "SELECT * FROM rankings_athlete WHERE LOWER(name) = LOWER('{$result->getName()}')";
         $sql .= " AND gender = {$event->getGender()}";
-        if($result->getYearOfBirth() !== 'unknown') $sql .= " AND year_of_birth = {$result->getYearOfBirth()}";
+        if ($result->getYearOfBirth() !== 'unknown') $sql .= " AND year_of_birth = {$result->getYearOfBirth()}";
         $stmt = $this->connection->prepare($sql);
         $stmt->execute();
 
@@ -79,22 +89,23 @@ class DbHelper
      * @return mixed
      * @throws Exception
      */
-    private function insertAthlete($result, $event) {
+    private function insertAthlete($result, $event)
+    {
         $slug = slugify($result->getName());
-        if(!$slug) {
+        if (!$slug) {
             throw new Exception("Created slug is empty for " . $result->getName());
         }
 
         $inserted = false;
 
-        while(!$inserted) {
+        while (!$inserted) {
             $stmt = $this->connection->prepare("SELECT * FROM rankings_athlete WHERE slug = '$slug'");
             $stmt->execute();
             if (!$stmt->fetch()) {
                 $stmtRes = $this->connection->prepare("INSERT INTO rankings_athlete
                         VALUES (DEFAULT, NULL, NULL,
                         {$result->getYearOfBirthOrNull()}, '{$event->getGender()}', '{$slug}', '{$result->getName()}')")->execute();
-                if(!$stmtRes)
+                if (!$stmtRes)
                     throw new Exception("Failed to insert: " . print_r($result, 1));
                 $inserted = true;
             } else {
@@ -118,37 +129,21 @@ class DbHelper
      */
     private function saveCompetition($competition)
     {
-        $competitionSlug = slugify($competition->name);
-        if(strlen($competitionSlug) >= 50) $competitionSlug = substr($competitionSlug, 0, 49);
-
-        $stmt = $this->connection->prepare("INSERT INTO rankings_competition VALUES 
-        (DEFAULT, 
-        '{$competition->name}', 
-        '{$competition->date}', 
-        '{$competition->location}', 
-        '{$competition->clockType}', 
-        '" . $competitionSlug . "', 
-        'true', 'false'" .
-        ", NULL)"
-        );
+        $sql = "SELECT * FROM rankings_competition WHERE name = '{$competition->name}'";
+        $stmt = $this->connection->prepare($sql);
         $stmt->execute();
 
-        print_r($stmt);
+        $row = $stmt->fetch();
+        $competitionId = $row[0];
 
-        if($stmt->errorCode() == '23505') {
-            $sql = "SELECT * FROM rankings_competition WHERE name = '{$competition->name}'";
-            $stmt = $this->connection->prepare($sql);
-            $stmt->execute();
 
-            $row = $stmt->fetch();
-            $competitionId = $row[0];
-
-            print_r('Found competition with same name: ' . $competitionId . PHP_EOL);
-            sleep(5);
-
-            return $competitionId;
+        if (!$competitionId) {
+            print_r('Add the competition before importing');
+            exit;
         }
 
-        return $this->connection->lastInsertId();
+        print_r('Found competition with same name: ' . $competitionId . PHP_EOL);
+
+        return $competitionId;
     }
 }

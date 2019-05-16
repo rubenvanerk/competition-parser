@@ -4,6 +4,8 @@ class CompetitionParser
 {
     protected $config;
     private $nameRegex;
+    private $firstNameRegex;
+    private $lastNameRegex;
     private $timeRegex;
     private $yobRegex;
     private $timeIndex;
@@ -11,6 +13,8 @@ class CompetitionParser
     private $lineConversion;
     private $rounds;
     private $utf8Encoded;
+    private $mirrorTimes;
+    private $commaOrSpaceExplode;
 
     private $csvNameIndexes;
     private $csvTimeIndex;
@@ -21,14 +25,21 @@ class CompetitionParser
         $this->config = yaml_parse_file('config.yaml');
         $this->config = array_merge($this->config, $config);
         define("PARSE_YOB", intval($this->config['parser_config']['formats']['yob_format']) > 0);
+        define("SEPARATE_GENDER", intval($this->config['parser_config']['separate_gender']) > 0);
 
         $this->nameRegex = $this->config['regex']['name'][$this->config['parser_config']['formats']['name_format']];
+        $this->firstNameRegex = isset($this->config['parser_config']['formats']['first_name_format']) ? $this->config['parser_config']['formats']['first_name_format'] : false;
+        $this->lastNameRegex = isset($this->config['parser_config']['formats']['last_name_format']) ? $this->config['parser_config']['formats']['last_name_format'] : false;
+
+
         $this->timeIndex = $this->config['parser_config']['time_index'];
         $this->nameIndex = isset($this->config['parser_config']['name_index']) ? $this->config['parser_config']['name_index'] : 0;
         $this->timeRegex = $this->config['regex']['time'][$this->config['parser_config']['formats']['time_format']];
         $this->lineConversion = $this->config['parser_config']['line_conversion'];
-        $this->rounds = isset($this->config['parser_config']['rounds']) ? $this->config['parser_config']['rounds'] : null;
+        $this->rounds = isset($this->config['parser_config']['rounds']) ? $this->config['parser_config']['rounds'] : [];
         $this->utf8Encoded = isset($this->config['parser_config']['utf8_encoded']) ? boolval($this->config['parser_config']['utf8_encoded']) : false;
+        $this->mirrorTimes = isset($this->config['parser_config']['mirror_times']) ? boolval($this->config['parser_config']['mirror_times']) : false;
+        $this->commaOrSpaceExplode = isset($this->config['parser_config']['name_comma_or_space_explode']) ? boolval($this->config['parser_config']['name_comma_or_space_explode']) : false;
         if (PARSE_YOB) {
             $this->yobRegex = $this->config['regex']['yob'][$this->config['parser_config']['formats']['yob_format']];
         }
@@ -50,13 +61,16 @@ class CompetitionParser
         if ($this->lineContains($line, $this->config['event_signifiers'])
             && !$this->lineContains($line, $this->config['event_designifiers'])) {
             return 'event';
-        } elseif ($this->hasValidResult($line) && $this->hasName($line)) {
+        } elseif ($this->hasValidResult($line) && $this->hasName($line) && (!PARSE_YOB || $this->getYearOfBirthFromLine($line) !== 'unknown')) {
             return 'result';
         } elseif ($this->getGenderFromLine($line) && $this->config['parser_config']['separate_gender']) {
             return 'gender';
         } elseif (!is_null($this->rounds) && $this->lineContains($line, $this->config['round_signifiers'])) {
             return 'round';
+        } elseif ($this->lineContains($line, $this->config['event_stopper'])) {
+            return 'stop-event';
         }
+
 
         return '';
     }
@@ -133,11 +147,53 @@ class CompetitionParser
                 }
                 return $newLines;
                 break;
+            case 'name-yobclub-time':
+                $newLines = [];
+                $i = 0;
+                foreach ($lines as $line) {
+                    if (!$this->hasValidResult($line)) {
+                        $newLines[] = $line;
+                        $i++;
+                        continue;
+                    }
+                    $resultLine = '';
+                    $resultLine .= $lines[$i - 2] . "   ";
+                    $resultLine .= $lines[$i - 1] . "   ";
+                    $resultLine .= $lines[$i] . "   ";
+                    $newLines[] = $resultLine;
+                    $i++;
+                }
+                return $newLines;
+                break;
+            case 'club-time-name':
+                $newLines = [];
+                $i = 0;
+                foreach ($lines as $line) {
+                    if (!$this->hasValidResult($line)) {
+                        $newLines[] = $line;
+                        $i++;
+                        continue;
+                    }
+                    $resultLine = '';
+                    $resultLine .= $lines[$i + 1] . "   ";
+                    $resultLine .= $lines[$i] . "   ";
+                    $resultLine .= $lines[$i - 1] . "   ";
+                    $newLines[] = $resultLine;
+                    $i++;
+                }
+                return $newLines;
+            case 'striptags':
+                $newLines = [];
+                $i = 0;
+                foreach ($lines as $line) {
+                    $newLines[] = strip_tags($line);
+                    $i++;
+                }
+                return $newLines;
             default:
                 return $lines;
         }
     }
-
 
 
     public function cleanLines(array $lines)
@@ -145,7 +201,7 @@ class CompetitionParser
         $i = 0;
         foreach ($lines as $line) {
             $line = str_replace('&#39;', "'", $line);
-            $line = preg_replace('/\h/', ' ', $line);
+//            $line = preg_replace('/\h/', ' ', $line);
             if ($this->utf8Encoded) {
                 $line = utf8_decode($line);
             }
@@ -163,14 +219,11 @@ class CompetitionParser
     {
         $hasResult = preg_match($this->timeRegex, $line);
         $isDq = $this->lineContains($line, $this->config['dq_signifiers']);
+        $isDns = $this->lineContains($line, $this->config['dns_signifiers']);
         $isValid = !$this->lineContains($line, $this->config['result_rejectors']);
-        return ($hasResult || $isDq) && $isValid;
+        return ($hasResult || $isDq || $isDns) && $isValid;
     }
 
-    /**
-     * @param $line
-     * @return string
-     */
     public function getNameFromLine($line)
     {
         if (FILETYPE == 'csv') {
@@ -180,7 +233,22 @@ class CompetitionParser
                 $names[] = $csv[$nameIndex];
             }
             return implode(' ', $names);
+        } elseif(isset($this->config['parser_config']['formats']['first_name_format']) &&
+            isset($this->config['parser_config']['formats']['last_name_format'])
+        ) {
+            return $this->getFirstNameFromLine($line) . ' ' . $this->getLastNameFromLine($line);
+        } elseif (isset($this->config['parser_config']['formats']['name_format'])) {
+            return $this->getFullNameFromLine($line);
         }
+        return null;
+    }
+
+    /**
+     * @param $line
+     * @return string
+     */
+    public function getFullNameFromLine($line)
+    {
         $matches = array();
         preg_match_all($this->nameRegex, $line, $matches);
 
@@ -191,16 +259,43 @@ class CompetitionParser
             $nameParts = array_map('trim', $nameParts);
             $nameParts = array_reverse($nameParts);
             $name = implode(' ', $nameParts);
+        } elseif ($this->commaOrSpaceExplode == true) {
+            $nameParts = explode(' ', $name);
+            $nameParts = array_map('trim', $nameParts);
+            $nameParts = array_reverse($nameParts);
+            $name = implode(' ', $nameParts);
         }
 
         $name = preg_replace("/\-{2,}/", "", $name); // remove multiple -
         $name = preg_replace("/\s{2,}/", " ", $name); // replace multiple space with one
-        $name = preg_replace("/W\s(?=[a-z])/", "W", $name); // replace W\s with W
 
         return trim($name);
     }
 
+    public function getFirstNameFromLine($line)
+    {
+        $matches = array();
+        preg_match_all($this->firstNameRegex, $line, $matches);
 
+        $name = $matches[0][0];
+
+        $name = preg_replace("/\s{2,}/", " ", $name); // replace multiple space with one
+
+        return trim($name);
+    }
+
+    public function getLastNameFromLine($line)
+    {
+
+        $matches = array();
+        preg_match_all($this->lastNameRegex, $line, $matches);
+
+        $name = $matches[0][0];
+
+        $name = preg_replace("/\s{2,}/", " ", $name); // replace multiple space with one
+
+        return trim($name);
+    }
 
     private function hasName(string $line)
     {
@@ -213,7 +308,7 @@ class CompetitionParser
      */
     public function getYearOfBirthFromLine($line)
     {
-        if(!PARSE_YOB) return 'unknown';
+        if (!PARSE_YOB) return 'unknown';
 
         if (FILETYPE == 'csv') {
             $csv = str_getcsv($line);
@@ -226,10 +321,10 @@ class CompetitionParser
 //            print_r($line . PHP_EOL);
             return 'unknown';
         }
+        $yearOfBirth = preg_replace('/[^0-9]/', '', $matches[0]);
+        $yearOfBirth = intval($yearOfBirth);
 
-        $yearOfBirth = intval(trim($matches[0]));
-
-        if($yearOfBirth < 100) $yearOfBirth += ($yearOfBirth < 19 ? 2000 : 1900);
+        if ($yearOfBirth < 100) $yearOfBirth += ($yearOfBirth < 19 ? 2000 : 1900);
         return $yearOfBirth;
     }
 
@@ -249,6 +344,9 @@ class CompetitionParser
         $times = $times[0];
         switch ($this->timeIndex) {
             case 'all':
+                if ($this->mirrorTimes) {
+                    return array_reverse($times);
+                }
                 return $times;
                 break;
             case 'first':
@@ -280,11 +378,17 @@ class CompetitionParser
                 return $roundNumber;
             }
         }
-        return 0;
+        return null;
     }
 
     public function isDq($line)
     {
         return $this->lineContains($line, $this->config['dq_signifiers']);
+    }
+
+
+    public function isDns($line)
+    {
+        return $this->lineContains($line, $this->config['dns_signifiers']);
     }
 }
