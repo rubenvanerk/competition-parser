@@ -1,4 +1,6 @@
 <?php
+use thiagoalessio\TesseractOCR\TesseractOCR;
+
 define("RESULTS_DIR", 'competitions/');
 
 include 'vendor/autoload.php';
@@ -11,31 +13,38 @@ $config = yaml_parse_file($config);
 
 $competition = new Competition($config['name'], $config['date'], $config['location'], $config['clock_type']);
 
-$fileName = RESULTS_DIR . $config['file'];
+$fileName = __DIR__ . DIRECTORY_SEPARATOR . RESULTS_DIR . $config['file'];
 
-switch (pathinfo($fileName, PATHINFO_EXTENSION)) {
+$fileType = pathinfo($fileName, PATHINFO_EXTENSION);
+define('FILETYPE', $fileType);
+$competitionParser = new CompetitionParser($config);
+
+switch ($fileType) {
     case 'csv':
         $lines = file($fileName, FILE_IGNORE_NEW_LINES);
-        define('FILETYPE', 'csv');
         define('ENCODING', "UTF-8");
         break;
     case 'pdf':
         $parser = new \Smalot\PdfParser\Parser();
         $pdf = $parser->parseFile($fileName);
         $text = $pdf->getText();
+        $text = $competitionParser->createUsableText($text);
         $lines = explode("\n", $text);
-        define('FILETYPE', 'pdf');
         define('ENCODING', "UTF-8");
         break;
     case 'txt':
-        $lines = file($fileName, FILE_IGNORE_NEW_LINES);
-        define('FILETYPE', 'txt');
+        $text = file_get_contents($fileName);
+        $text = $competitionParser->createUsableText($text);
+        $lines = explode("\n", $text);
         define('ENCODING', "UTF-8");
         break;
     case 'html':
-        $lines = file($fileName, FILE_IGNORE_NEW_LINES);
-        define('FILETYPE', 'html');
+        $text = file($fileName, FILE_IGNORE_NEW_LINES);
         define('ENCODING', "UTF-8");
+        break;
+    case 'tiff':
+        $text = (new TesseractOCR($fileName))->lang('ita')->run();
+        $lines = explode("\n", $text);
         break;
     default:
         print_r('Unknown filetype ' . pathinfo($fileName, PATHINFO_EXTENSION));
@@ -43,15 +52,16 @@ switch (pathinfo($fileName, PATHINFO_EXTENSION)) {
         break;
 }
 
-$competitionParser = new CompetitionParser($config);
 $lines = $competitionParser->createUsableLines($lines);
 $lines = $competitionParser->cleanLines($lines);
 
 writeToFile($lines);
 
 $i = 1;
+$classification = 1;
 foreach ($lines as $line) {
     $lineType = $competitionParser->getLineType($line);
+
     switch ($lineType) {
         case 'event':
             $eventId = $competitionParser->getEventIdFromLine($line);
@@ -59,7 +69,9 @@ foreach ($lines as $line) {
             $includeEvent = $competitionParser->shouldIncludeEvent($line);
             $roundNumber = $competitionParser->getRoundFromLine($line);
             $event = Event::create($eventId, $gender, $includeEvent, $line, $roundNumber);
+
             $competition->addEvent($event);
+            $classification = 1;
             break;
         case 'gender':
             $gender = $competitionParser->getGenderFromLine($line);
@@ -74,16 +86,32 @@ foreach ($lines as $line) {
             break;
         case 'result':
             if (!$competition->hasCurrentEvent()) continue;
+
             $name = $competitionParser->getNameFromLine($line);
             $yearOfBirth = $competitionParser->getYearOfBirthFromLine($line);
-            if(($isDq = $competitionParser->isDq($line)) || ($isDns = $competitionParser->isDns($line))) {
+            $times = $competitionParser->getTimesFromLine($line);
+            if((($isDq = $competitionParser->isDq($line)) || ($isDns = $competitionParser->isDns($line))) && (!$times || !$competitionParser->multipleResultsPerLine)) {
                 $times = ['59:59.99'];
-            }  else {
-                $times = $competitionParser->getTimesFromLine($line);
             }
-            $result = Result::create($name, $yearOfBirth, $times, $isDq, $isDns, $line);
 
-            $competition->addResultToCurrentEvent($result);
+            $round = 0;
+            foreach ($times as $time) {
+                $isDq = $competitionParser->timeIsDq($time);
+                if ($isDq && IGNORE_DQ) {
+                    continue;
+                }
+                $isDns = $competitionParser->timeIsDns($time);
+                if($isDns || $isDq) {
+
+                    $time = '59:59.99';
+                }
+                $result = Result::create($name, $yearOfBirth, [$time], $isDq, $isDns, $line, $round, $classification);
+                $competition->addResultToCurrentEvent($result);
+                $round++;
+            }
+
+            $classification++;
+
             break;
         case 'round':
             if (!$competition->hasCurrentEvent()) continue;

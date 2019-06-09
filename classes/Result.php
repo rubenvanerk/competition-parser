@@ -8,6 +8,8 @@ class Result
     private $originalLine;
     private $isDq;
     private $isDns;
+    private $round;
+    private $classification;
 
     /**
      * Result constructor.
@@ -15,9 +17,12 @@ class Result
      * @param int $yearOfBirth last two digits of the year
      * @param array $times
      * @param $isDq
+     * @param $isDns
      * @param $line
+     * @param int $round
+     * @param int $classification
      */
-    public function __construct($name, $yearOfBirth, $times, $isDq, $isDns, $line)
+    public function __construct($name, $yearOfBirth, $times, $isDq, $isDns, $line, $round = 0, $classification = 0)
     {
         $this->name = $name;
         $this->yearOfBirth = $yearOfBirth;
@@ -25,13 +30,15 @@ class Result
         $this->isDq = $isDq;
         $this->isDns = $isDns;
         $this->originalLine = $line;
+        $this->round = $round;
+        $this->classification = $classification;
     }
 
-    public static function create($name, $yearOfBirth, $times, $isDq, $isDns, $line)
+    public static function create($name, $yearOfBirth, $times, $isDq, $isDns, $line, $round = 0, $classification = 0)
     {
         $name = preg_replace('/\s{2,}/', '', $name);
-        if($name && $times && (!PARSE_YOB || $yearOfBirth)) {
-            return new Result($name, $yearOfBirth, $times, $isDq, $isDns, $line);
+        if($name && $times && (!PARSE_YOB || $yearOfBirth || IGNORE_YOB_NOT_FOUND)) {
+            return new Result($name, $yearOfBirth, $times, $isDq, $isDns, $line, $round, $classification);
         }
         var_dump($name, $yearOfBirth, $times, $line);
         sleep(5);
@@ -106,5 +113,21 @@ class Result
     public function isDns()
     {
         return $this->isDns ? 'true' : 'false';
+    }
+
+    /**
+     * @return int
+     */
+    public function getRound(): int
+    {
+        return $this->round;
+    }
+
+    /**
+     * @return int
+     */
+    public function getClassification(): int
+    {
+        return $this->classification;
     }
 }

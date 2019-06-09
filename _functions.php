@@ -58,6 +58,8 @@ function toSqlInterval($time)
         $time = substr_replace($time, '.', strrpos($time, ':'), strlen(':'));
     }
 
+    $time = str_replace("'", ':', $time);
+
     if (strlen($time) == 4) {
         $time = '00:00:0' . $time;
     } elseif (strlen($time) == 5) {
@@ -108,7 +110,7 @@ function printCompetition($competition, $type)
         print_r($disciplines[$event->getId()][0] . " " . $event->getGenderName() . " round: " . $event->getRoundNumber() . PHP_EOL);
         usleep(400000);
         foreach ($event->getResults() as $result) {
-            print_r($result->getYearOfBirth() . " " . $result->getName() . " " . json_encode($result->getTimes()) . PHP_EOL);
+            print_r($result->getYearOfBirth() . " '" . $result->getName() . "' " . json_encode($result->getTimes()) . PHP_EOL);
 //            usleep(200000);
         }
         if($event->countResults() > 0 && $event->getGender() == 0) sleep(5);

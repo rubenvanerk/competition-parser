@@ -24,11 +24,13 @@ class DbHelper
     {
         $competitionId = $this->saveCompetition($competition);
         $competition->setCompetitionId($competitionId);
+        $i = 1;
         foreach ($competition->getEvents() as $event) {
             print_r("EVENTID " . $event->getId() . PHP_EOL);
             foreach ($event->getResults() as $result) {
-                print_r($result->getName() . ' ' . json_encode($result->getTimes()) . PHP_EOL);
+                print_r($i . '/' . $competition->countResults() . ' | ' .$result->getClassification() . ' round:' . $result->getRound() . ' ' . $result->getName() . ' ' . json_encode($result->getTimes()) . PHP_EOL);
                 $this->saveResult($result, $event, $competition);
+                $i++;
             }
         }
     }
@@ -42,16 +44,19 @@ class DbHelper
     private function saveResult($result, $event, $competition)
     {
         $athleteId = $this->getOrInsertAthlete($result, $event);
+        $athletesPerRound = 8;
 
-        $round = 0;
+        $round = $result->getRound();
         foreach ($result->getTimes() as $time) {
             $roundNumber = is_null($event->getRoundNumber()) ? $round : $event->getRoundNumber();
+            if($roundNumber > 0 && $result->getClassification() <= $athletesPerRound) $roundNumber++;
             $time = toSqlInterval($time);
             $stmt = $this->connection->prepare("INSERT INTO rankings_individualresult 
               VALUES (DEFAULT, '{$time}', '{$athleteId}', '{$competition->getId()}', '{$event->getId()}', NULL, 0, '{$result->getOriginalLine()}', {$roundNumber}, {$result->isDq()}, {$result->isDns()})");
             $stmt->execute();
             if(intval($stmt->errorCode())) {
                 print_r('Error (' . $stmt->errorCode() . ') while inserting result' . PHP_EOL);
+                print_r($stmt->queryString);
                 print_r($result);
                 exit;
             }
