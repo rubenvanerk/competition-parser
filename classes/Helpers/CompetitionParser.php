@@ -1,4 +1,4 @@
-<?php
+<?php namespace CompetitionParser\Classes\Helpers;
 
 class CompetitionParser
 {
@@ -23,6 +23,7 @@ class CompetitionParser
     private $csvNameIndexes;
     private $csvTimeIndex;
     private $csvYobIndex;
+    private $csvNationalityIndex;
 
     public function __construct($config)
     {
@@ -53,10 +54,11 @@ class CompetitionParser
             $this->yobRegex = $this->config['regex']['yob'][$this->config['parser_config']['formats']['yob_format']];
         }
 
-        if (FILETYPE == 'csv') {
+        if (FILETYPE == 'csv' || FILETYPE == 'dir') {
             $this->csvNameIndexes = $this->config['parser_config']['csv']['name'];
             $this->csvTimeIndex = $this->config['parser_config']['csv']['time'];
             $this->csvYobIndex = $this->config['parser_config']['csv']['yob'];
+            $this->csvNationalityIndex = $this->config['parser_config']['csv']['nationality'];
         }
 
     }
@@ -134,7 +136,7 @@ class CompetitionParser
      * @param int $type
      * @return array
      */
-    function createUsableLines($lines)
+    function createUsableLines($lines, $competitionParser)
     {
         switch (strval($this->lineConversion)) {
             case 'name-yob-club-time':
@@ -248,7 +250,7 @@ class CompetitionParser
                 $newLines = [];
                 $i = 0;
                 foreach ($lines as $line) {
-                    $newLines[] = preg_replace('/(?<=\sW) (?=[a-z])/', '', $line);
+                    $newLines[] = preg_replace('/(?<=\sW) (?=[A-z])/', '', $line);
                     $i++;
                 }
                 return $newLines;
@@ -272,6 +274,9 @@ class CompetitionParser
                     $i++;
                 }
                 return $newLines;
+                break;
+            case 'jauswertung':
+                return moveEventsInJauswertung($lines, $competitionParser);
                 break;
             default:
                 return $lines;
@@ -334,7 +339,7 @@ class CompetitionParser
 
     public function getNameFromLine($line)
     {
-        if (FILETYPE == 'csv') {
+        if (FILETYPE == 'csv' || FILETYPE == 'dir') {
             $names = [];
             $csv = str_getcsv($line);
             foreach ($this->csvNameIndexes as $nameIndex) {
@@ -423,7 +428,7 @@ class CompetitionParser
     {
         if (!PARSE_YOB) return 'unknown';
 
-        if (FILETYPE == 'csv') {
+        if (FILETYPE == 'csv'  || FILETYPE == 'dir') {
             $csv = str_getcsv($line);
             return $csv[$this->csvYobIndex];
         }
@@ -448,7 +453,7 @@ class CompetitionParser
      */
     public function getTimesFromLine($line)
     {
-        if (FILETYPE == 'csv') {
+        if (FILETYPE == 'csv' || FILETYPE == 'dir') {
             $csv = str_getcsv($line);
             return [$csv[$this->csvTimeIndex]];
         }
@@ -484,6 +489,19 @@ class CompetitionParser
 
     /**
      * @param $line
+     */
+    public function getNationalityFromLine($line)
+    {
+        $nationality = null;
+        if ($this->csvNationalityIndex && (FILETYPE == 'csv' || FILETYPE == 'dir')) {
+            $csv = str_getcsv($line);
+            $nationality = $csv[$this->csvNationalityIndex];
+        }
+        return $nationality;
+    }
+
+    /**
+     * @param $line
      * @return bool
      */
     public function shouldIncludeEvent($line)
@@ -498,7 +516,7 @@ class CompetitionParser
                 return $roundNumber;
             }
         }
-        return null;
+        return 0;
     }
 
     public function isDq($line)

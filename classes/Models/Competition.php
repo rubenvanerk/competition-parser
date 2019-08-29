@@ -1,7 +1,12 @@
-<?php
+<?php namespace CompetitionParser\Classes\Models;
 
-class Competition
+use Illuminate\Database\Eloquent\Model;
+
+class Competition extends Model
 {
+    protected $table = 'rankings_competition';
+    public $timestamps = false;
+
     private $competitionId;
     private $events;
     public $name;
@@ -9,14 +14,6 @@ class Competition
     public $location;
     public $clockType;
 
-    public function __construct($name, $date, $location, $clockType)
-    {
-        $this->events = [];
-        $this->name = $name;
-        $this->date = $date;
-        $this->location = $location;
-        $this->clockType = $clockType;
-    }
 
     /**
      * @param Event $event
@@ -24,7 +21,7 @@ class Competition
      */
     public function addEvent($event)
     {
-        if (!is_null($event) && get_class($event) == 'Event'
+        if (!is_null($event) && get_class($event) == 'CompetitionParser\Classes\Models\Event'
             && $this->currentEventIsNullOrDifferent($event)) {
             $this->events[] = $event;
             return true;
@@ -37,7 +34,7 @@ class Competition
     }
 
     /**
-     * @param Result $result
+     * @param IndividualResult $result
      */
     public function addResultToCurrentEvent($result)
     {

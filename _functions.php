@@ -1,4 +1,7 @@
 <?php
+
+use CompetitionParser\Classes\Models\Competition;
+
 $config = include('config.php');
 
 /**
@@ -125,4 +128,26 @@ function writeToFile($lines)
         fwrite($file, $line . PHP_EOL);
     }
     fclose($file);
+}
+
+
+/**
+ * @param $lines
+ * @param \CompetitionParser\Classes\Helpers\CompetitionParser$competitionParser
+ */
+function moveEventsInJauswertung($lines, $competitionParser)
+{
+    $i = 0;
+    foreach ($lines as $line) {
+        if ($competitionParser->getEventIdFromLine($line) && $competitionParser->lineContains($lines[$i + 2], ['Ergebnisse'])) {
+            for($j = $i; ; $j--) {
+                if (substr($lines[$j], 0, 2) == '1 ') {
+                    $lines[$j - 1] = $line . ' ' . $lines[$i + 2];
+                    break;
+                }
+            }
+        }
+        $i++;
+    }
+    return $lines;
 }

@@ -1,9 +1,17 @@
 {
   "require": {
     "smalot/pdfparser": "^0.14.0",
-    "thiagoalessio/tesseract_ocr": "^2.7"
+    "thiagoalessio/tesseract_ocr": "^2.7",
+    "leonverschuren/lenex": "dev-master",
+    "illuminate/database": "^5.8"
   },
   "require-dev": {
     "phpstan/phpstan": "^0.11.0"
-  }
+  },
+  "repositories": [
+    {
+      "type": "vcs",
+      "url": "https://github.com/leonverschuren/lenex-php"
+    }
+  ]
 }

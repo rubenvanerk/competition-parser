@@ -1,4 +1,4 @@
-<?php
+<?php namespace CompetitionParser\Classes\Models;
 
 class Event
 {
@@ -46,7 +46,7 @@ class Event
     }
 
     /**
-     * @param Result $result
+     * @param IndividualResult $result
      */
     public function addResult($result)
     {
@@ -54,7 +54,7 @@ class Event
     }
 
     /**
-     * @return Result[]
+     * @return IndividualResult[]
      */
     public function getResults()
     {
