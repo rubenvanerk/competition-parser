@@ -19,10 +19,9 @@ $config = $argv[1];
 $config = yaml_parse_file($config);
 
 DbHelper::bootEloquent();
+$competition = Competition::findOrCreate($config['name'], $config['date'], $config['location'], $config['file']);
 
-$competition = Competition::where('name', $config['name'])->first();
-
-if(!$competition) {
+if (!$competition) {
     print_r('ADD COMPETITION ' . $config['name']);
     exit;
 }
@@ -47,6 +46,7 @@ switch ($fileType) {
         $text = $competitionParser->createUsableText($text);
         $lines = explode("\n", $text);
         define('ENCODING', "UTF-8");
+//        define('ENCODING', "WINDOWS-1252");
         break;
     case 'txt':
         $text = file_get_contents($fileName);
@@ -99,8 +99,47 @@ if ($fileType == 'lxf' || $fileType == 'lef') {
 
     $dbHelper = new DbHelper();
     $dbHelper->saveLenexCompetition($result, $events, $competition);
+} elseif (isset($config['parser_config']['csv']['times'])) {
+
+    foreach ($lines as $line) {
+        if (!$competitionParser->hasValidResult($line)) {
+            continue;
+        }
+        $csv = str_getcsv($line);
+
+        $names = [];
+        foreach ($competitionParser->csvNameIndexes as $nameIndex) {
+            $names[] = $csv[$nameIndex];
+        }
+        $name = implode(' ', $names);
+        $yearOfBirth = $csv[$competitionParser->csvYobIndex];
+        if ($yearOfBirth < 100) $yearOfBirth += ($yearOfBirth < 19 ? 2000 : 1900);
+        $gender = $config['parser_config']['gender'];
+
+        $athlete = Athlete::findOrCreate($name, $gender, $yearOfBirth);
+
+        foreach ($config['parser_config']['csv']['times'] as $eventId => $column) {
+            if ($csv[$column]) {
+                $time = $csv[$column];
+
+                $result = new IndividualResult();
+                $result->athlete_id = $athlete->id;
+                $result->event_id = $eventId;
+                $result->competition_id = $competition->id;
+                $result->time = toSqlInterval($time);
+                $result->points = 0;
+                $result->original_line = $line;
+                $result->round = 0;
+                $result->disqualified = false;
+                $result->did_not_start = false;
+                $result->save();
+
+            }
+        }
+    }
+
 } else {
-    $lines = $competitionParser->createUsableLines($lines, $competitionParser);
+    $lines = $competitionParser->createUsableLines($lines);
     $lines = $competitionParser->cleanLines($lines);
 
     writeToFile($lines);
@@ -112,7 +151,7 @@ if ($fileType == 'lxf' || $fileType == 'lef') {
     $currentEvent = null;
     $unparsableEventLines = [];
     foreach ($lines as $line) {
-        print_r($i . '/' . $totalLines . PHP_EOL);
+        print_r($i . '/' . $totalLines . '   ');
         $lineType = $competitionParser->getLineType($line);
 
         switch ($lineType) {
@@ -123,7 +162,9 @@ if ($fileType == 'lxf' || $fileType == 'lef') {
                 $roundNumber = $competitionParser->getRoundFromLine($line);
                 $currentEvent = Event::create($eventId, $gender, $includeEvent, $line, $roundNumber);
 
-                if(!$currentEvent) {
+                print_r('Event: ' . $eventId . ', gender: ' . $gender);
+
+                if (!$currentEvent) {
                     $unparsableEventLines[] = $line;
                 }
 
@@ -140,8 +181,13 @@ if ($fileType == 'lxf' || $fileType == 'lef') {
                 if (is_null($currentEvent)) continue;
                 $lineIsDns = false;
 
-                $name = $competitionParser->getNameFromLine($line);
+                $name = $competitionParser->nameConversion($competitionParser->getNameFromLine($line));
                 $yearOfBirth = $competitionParser->getYearOfBirthFromLine($line);
+                if (($yearOfBirth < 1900 || $yearOfBirth > date("Y")) && $yearOfBirth != 'unknown') {
+                    print_r('invalid year of birth on line ' . $i . ' ');
+                    print_r($line);
+                    exit;
+                }
                 $nationality = $competitionParser->getNationalityFromLine($line);
                 $times = $competitionParser->getTimesFromLine($line);
                 if ((($lineIsDq = $competitionParser->isDq($line)) || ($lineIsDns = $competitionParser->isDns($line))) && (!$times || !$competitionParser->multipleResultsPerLine)) {
@@ -150,16 +196,21 @@ if ($fileType == 'lxf' || $fileType == 'lef') {
 
                 $round = $currentEvent->getRoundNumber();
                 $athlete = Athlete::findOrCreate($name, $currentEvent->getGender(), $yearOfBirth, $nationality);
-                print_r($name . ' | ' . $currentEvent->getGender() . ' | ' . $yearOfBirth . PHP_EOL);
+                print_r($name . ' | ' . $currentEvent->getGender() . ' | ' . $yearOfBirth . ' | round: ' . $round);
                 foreach ($times as $time) {
-                    $timeIsDq = $competitionParser->timeIsDq($time);
-                    if ($lineIsDq && IGNORE_DQ) {
+                    if (!$competitionParser->timeIsValid($time)) {
                         continue;
                     }
+                    $timeIsDq = $competitionParser->timeIsDq($time);
                     $timeIsDns = $competitionParser->timeIsDns($time);
+                    if (($timeIsDns || $timeIsDq) && IGNORE_DQ) {
+                        continue;
+                    }
                     if ($timeIsDns || $timeIsDq) {
                         $time = '59:59.99';
                     }
+
+                    print_r(' | ' . $time);
 
                     $result = new IndividualResult();
                     $result->athlete_id = $athlete->id;
@@ -173,21 +224,24 @@ if ($fileType == 'lxf' || $fileType == 'lef') {
                     $result->did_not_start = $lineIsDns;
                     $result->save();
 
-
-                    $round++;
+                    if ($competitionParser->multipleRoundsPerLine) {
+                        $round++;
+                    }
                 }
 
                 $classification++;
 
                 break;
             case 'round':
-                if (!is_null($currentEvent)) continue;
+                if (is_null($currentEvent)) continue;
                 $roundNumber = $competitionParser->getRoundFromLine($line);
+                $currentEvent->setRoundNumber($roundNumber);
                 break;
             case 'stop-event':
                 $currentEvent = null;
                 break;
         }
+        print_r(PHP_EOL);
         $i++;
     }
 
@@ -195,4 +249,7 @@ if ($fileType == 'lxf' || $fileType == 'lef') {
         print_r('Unparsable events:' . PHP_EOL);
         print_r($unparsableEventLines);
     }
+
+    print_r(PHP_EOL);
+    print_r('https://www.lifesavingrankings.com/rankings/competition/' . $competition->slug . PHP_EOL);
 }

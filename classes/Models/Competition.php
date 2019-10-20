@@ -9,10 +9,28 @@ class Competition extends Model
 
     private $competitionId;
     private $events;
-    public $name;
-    public $date;
-    public $location;
-    public $clockType;
+
+    public static function findOrCreate($name, $date, $location, $fileName)
+    {
+        $competition = Competition::where('name', $name)->first();
+
+        if (!$competition) {
+            $competition = new Competition();
+            $competition->name = $name;
+            $competition->slug = slugify($name);
+            $competition->date = $date;
+            $competition->location = $location;
+            $competition->file_name = $fileName;
+
+            $competition->type_of_timekeeping = 0; // unknown
+            $competition->is_concept = false;
+            $competition->status = 1; // scheduled for import
+
+            $competition->save();
+        }
+
+        return $competition;
+    }
 
 
     /**

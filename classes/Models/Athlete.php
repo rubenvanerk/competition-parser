@@ -43,6 +43,8 @@ class Athlete extends Model
             $athlete->slug = $slug;
             if ($yearOfBirth !== 'unknown') {
                 $athlete->year_of_birth = $yearOfBirth;
+            } else {
+                $athlete->year_of_birth = null;
             }
 
             $athlete->save();

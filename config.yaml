@@ -2,19 +2,21 @@ regex:
   time:
     1: '[0-9]{0,2}[:]?[0-9]{1,2}[.][0-9]{2}'  # 01:35.22
     2: '[0-9]{1}:[0-9]{2}\,[0-9]{2}'         # 1:35,22
-    3: '(?<!X)(?<=\s)([0-9]:)?[0-9]{2}\.[0-9]{2}'          # 1:35.22 | 35.22
+    3: '(?<!X)(?<=\s)([0-9]:)?[0-9]{2}[\.\,][0-9]{2}'          # no X, space, 1:35.22 | 35.22 | 35,22 | 1:35,22
     4: '[0-9]{0,2}[:]?[0-9]{1,2}[:][0-9]{2}'  # 01:35:22
     5: '(?!99:99,99)[0-9]{2}:[0-9]{2}\,[0-9]{2}'         # 01:35,22
     6: '(?<=\s)([0-9]:)?[0-9]{2}\.[0-9]{2}'   # 1:35.22
     7: '([0-9]'')?[0-9]{2}\.[0-9]{2}'
     8: '[0-9]{1}:[0-9]{2}\,[0-9]{2}'         # 1:35,22
+    9: '[0-9]{1}''[0-9]{2}""[0-9]{2}'         # 1'35""22
+    10: '(?<!X)([0-9]:)?[0-9]{2}\.[0-9]{2}'          # no X, 1:35.22 | 35.22
   name:
     1: >
         /([A-z\x{00C0}-\x{02A0}\x{0390}-\x{0520}\-\'\’\.]{1,}[ ]?)+(,\s?)([A-z\x{00C0}-\x{02A0}\x{0390}-\x{0520}\-\'\’\.]{1,}[ ]?(?!DQ)(?!XDQ))/u
     2: >
         /([A-z\x{00C0}-\x{02A0}\x{0390}-\x{0520}])([A-z\x{00C0}-\x{02A0}\x{0390}-\x{0520}\-\'\’\.]\s?)+/u
     3: >
-        /(?!.*DSQ|DIS|DNS|dis)\b([A-z\x{00C0}-\x{02A0}\x{0390}-\x{0520}])([A-z\x{00C0}-\x{02A0}\x{0390}-\x{0520}\-\'\’\.]\s?)+/u
+        /(?!.*DSQ|DIS|DNS|dis)\b([A-z\x{00C0}-\x{02A0}\x{0390}-\x{0520}])([A-z\x{00C0}-\x{02A0}\x{0390}-\x{0520}\-\'\’\.] ?)+/u
     4: >
         /(?<=\s)(([A-z\x{00C0}-\x{02A0}\x{0390}-\x{0520}\-\'\’]+[ ]?)+(,?[ ]?))+/u
     5: >
@@ -30,9 +32,11 @@ regex:
   yob:
     1: '/\s[0-9]{2}\s/'         # 96
     2: '/\s[0-9]{4}\s/'         # 1996
-    3: '/\s[0-9],[0-9]{3}\s/'   # 1,996
+    3: '/[0-9],[0-9]{3}/'   # 1,996
     4: '/\s(?!0.000)[0-9]\.[0-9]{3}\s/'   # 1.996
     5: '/(?<=[A-Z])[0-9]{2}(?=[A-Z])/'         # 96
+    6: '/(?<=\()[0-9]{4}(?=\))/'        # (1996)
+    7: '/(?<=\,)[0-9]{4}(?=\,)/'        # ,1996,
 event_signifiers: # if a line contains one of these, the line should contain an event
   - 'Programmanr'
   - 'Event'
@@ -47,6 +51,7 @@ event_designifiers: # if a line contains one of these, the line shouldn't contai
   - 'Team Rankings'
   - 'Age Name Team Finals Time'
   - 'Name TeamFinals Time'
+  - 'relevos'
 event_rejectors: # if a line contains one of these, the complete event should be ignored
   - 'Relay'
   - 'Team'
@@ -73,15 +78,16 @@ dq_signifiers:
   - '5:00.00'
   - 'DNF'
   - 'DSQ'
-  - 'DIS'
   - 'Forfait'
   - '00:00,00'
   - 'DISQ'
   - 'Squalif'
+  - '00:00.00'
 dq_times:
   - '88:88,88'
   - '59:59.99'
   - '88:88:88'
+  - '00:00.00'
 dns_signifiers:
   - 'DNS'
   - 'n.a.'
@@ -174,6 +180,12 @@ disciplines:
     - '100m ratowanie w płetwach'
     - '100 m ratowanie manekina w płetwach'
     - '100m dukke'
+    - '100m Retten mit Flossen'
+    - '100m Retten einer Puppe mit Flossen'
+    - '100 m Maniqui Aletas'
+    - '100 LC Meter Carry with Fins'
+    - '100m Remolque de maniquí con alettas'
+    - '100m Remolque de maniquí con aletas'
   2:
     - '50m manikin carry'
     - '50m Manikin Carry'
@@ -217,6 +229,8 @@ disciplines:
     - '50m holowanie manekina'
     - '50 m ratowanie manekina'
     - '50m Dukke'
+    - '50m Retten'
+    - '50m Remolque Maniquí '
   3:
     - '200m obstacle swim'
     - '200m Obstacle Swim'
@@ -257,6 +271,8 @@ disciplines:
     - '200m z przeszkodami'
     - '200m Obstcle'
     - '200m Forhindring'
+    - '200m Hindernisschwimmen'
+    - '200m Natación Obstáculos'
   4:
     - '100m manikin tow with fins'
     - '100m lifesaver'
@@ -306,6 +322,9 @@ disciplines:
     - '100m ratownik'
     - '100 m ratownik'
     - '100m redning RTP'
+    - '100m Retten mit Flossen und Gurtretter'
+    - '100 LC Meter Tow with Fins'
+    - '100m Socorrista'
   5:
     - '100m rescue medley'
     - '100m Rescue Medley'
@@ -344,6 +363,9 @@ disciplines:
     - 'Red-medley'
     - '100m  Rescue Medley'
     - 'Rescue Medley'
+    - '100m Kombinierte Rettungsübung'
+    - '100m Combinada de Salvamento'
+    - '100m Combinada Salvamento'
   6:
     - '200m Super Lifesaver'
     - '200m superlifesaver'
@@ -372,6 +394,8 @@ disciplines:
     - '200m super ratownik'
     - '200m super'
     - 'Super  Lifesaver'
+    - '200m Super-Lifesaver'
+    - '200m Súper socorrista'
   7:
     - '50 m obstacle swim'
     - '50m Obstacle Swim'
@@ -453,3 +477,5 @@ disciplines:
     - '100 LC Metre Obstacle'
     - '100 LC Metre Masters Obstacle'
     - '100m z przeszkodami'
+    - '100 m. natación con obstáculos'
+    - '100 M Obstacle Swim'

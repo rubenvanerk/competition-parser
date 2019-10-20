@@ -56,12 +56,14 @@ function slugify($string) {
 function toSqlInterval($time)
 {
     $time = str_replace(',', '.', $time);
+    $time = str_replace("'", ':', $time);
+    $time = str_replace('"', '.', $time);
+    $time = preg_replace('/(?<=\.[0-9]{2})0/', '', $time);
 
     if (strpos($time, '.') === false) {
         $time = substr_replace($time, '.', strrpos($time, ':'), strlen(':'));
     }
 
-    $time = str_replace("'", ':', $time);
 
     if (strlen($time) == 4) {
         $time = '00:00:0' . $time;
@@ -133,7 +135,8 @@ function writeToFile($lines)
 
 /**
  * @param $lines
- * @param \CompetitionParser\Classes\Helpers\CompetitionParser$competitionParser
+ * @param \CompetitionParser\Classes\Helpers\CompetitionParser $competitionParser
+ * @return mixed
  */
 function moveEventsInJauswertung($lines, $competitionParser)
 {

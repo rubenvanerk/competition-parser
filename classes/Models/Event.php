@@ -32,7 +32,7 @@ class Event
      * @param int $roundNumber
      * @return Event|null
      */
-    public static function create($eventId, $gender, $includeEvent, $line, $roundNumber = null)
+    public static function create($eventId, $gender, $includeEvent, $line, $roundNumber = 0)
     {
         if($eventId && ($gender || SEPARATE_GENDER) && $includeEvent) {
             $event = new Event($eventId, $gender, $line, $roundNumber);
