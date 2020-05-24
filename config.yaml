@@ -43,6 +43,7 @@ event_signifiers: # if a line contains one of these, the line should contain an 
   - 'over all heats Finale'
   - 'heat by heat'
   - 'Ergebnisse'
+  - 'Epreuve'
 event_designifiers: # if a line contains one of these, the line shouldn't contain an event
   - 'DISKWALIFICATIE CODES'
   - 'Leaving the water after an event before permission is given by the official.'
@@ -123,6 +124,7 @@ genders:
     - 'männlich'
     - 'Maschi'
     - 'Mens'
+    - 'Garçons'
   female_signifiers:
     - 'Women'
     - 'Dames'
@@ -135,6 +137,7 @@ genders:
     - 'weiblich'
     - 'Femmine'
     - 'Womens'
+    - 'Filles'
 disciplines:
   1:
     - '100m manikin carry with fins'
@@ -186,6 +189,12 @@ disciplines:
     - '100 LC Meter Carry with Fins'
     - '100m Remolque de maniquí con alettas'
     - '100m Remolque de maniquí con aletas'
+    - '100m Mannequin avec palmes'
+    - '100m Carry Manikin with Fins'
+    - 'Manikin Carry with Fins;'
+    - 'Manikin Carry with Fins -'
+    - 'Manikin Carry with Fins –'
+    - '100m MANIKINFINS'
   2:
     - '50m manikin carry'
     - '50m Manikin Carry'
@@ -231,6 +240,7 @@ disciplines:
     - '50m Dukke'
     - '50m Retten'
     - '50m Remolque Maniquí '
+    - '50m MANIKIN'
   3:
     - '200m obstacle swim'
     - '200m Obstacle Swim'
@@ -273,6 +283,7 @@ disciplines:
     - '200m Forhindring'
     - '200m Hindernisschwimmen'
     - '200m Natación Obstáculos'
+    - 'Obstacle Swim-200'
   4:
     - '100m manikin tow with fins'
     - '100m lifesaver'
@@ -325,6 +336,9 @@ disciplines:
     - '100m Retten mit Flossen und Gurtretter'
     - '100 LC Meter Tow with Fins'
     - '100m Socorrista'
+    - '100m TOWFINS'
+    - '100m Tow Manikin with Fins'
+    - 'Manikin Tow with Fins'
   5:
     - '100m rescue medley'
     - '100m Rescue Medley'
@@ -369,6 +383,7 @@ disciplines:
   6:
     - '200m Super Lifesaver'
     - '200m superlifesaver'
+    - '200m Superlifesaver'
     - '200 m. supersocorrista'
     - '200m super lifesaver'
     - '200 m Super Lifesaver'
@@ -412,6 +427,7 @@ disciplines:
     - '50m vrije slag'
     - 'Open 50m Freestyle'
     - '50 LC Meter Swim'
+    - '50m free style'
   9:
     - '50 m freestyle with fins'
     - '50m Freestyle with Fins'
@@ -434,6 +450,7 @@ disciplines:
     - '50m popvervoeren (start met pop)'
   11:
     - '50 m slepen torpedo en drenkeling'
+    - '50 m tow rescue tube and victim'
   12:
     - '25 m pop'
     - '25m Manikin Carry'
@@ -442,10 +459,12 @@ disciplines:
     - '50 m vrij met torpedo'
     - '50m torpedoboei'
     - '50 m freestyle towing a rescue tube'
+    - '50m rescue tube'
   14:
     - '50 m pop met vliezen'
     - '50m Manikin Carry with Fins (relay leg 4)'
     - '50 m pop  met vliezen'
+    - '50m manikin carry with finss (start with manikin)'
   18:
     - '100m Obstacle Swim'
     - '100 Meter Obstacle'
@@ -479,3 +498,5 @@ disciplines:
     - '100m z przeszkodami'
     - '100 m. natación con obstáculos'
     - '100 M Obstacle Swim'
+    - '100m Hinderniszwemmen'
+    - 'Obstacle Swim-100'

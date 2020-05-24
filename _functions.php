@@ -142,7 +142,7 @@ function moveEventsInJauswertung($lines, $competitionParser)
 {
     $i = 0;
     foreach ($lines as $line) {
-        if ($competitionParser->getEventIdFromLine($line) && $competitionParser->lineContains($lines[$i + 2], ['Ergebnisse'])) {
+        if ($competitionParser->getEventIdFromLine($line) && $competitionParser->lineContains($lines[$i + 2], ['Ergebnis'])) {
             for($j = $i; ; $j--) {
                 if (substr($lines[$j], 0, 2) == '1 ') {
                     $lines[$j - 1] = $line . ' ' . $lines[$i + 2];

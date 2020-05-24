@@ -87,7 +87,10 @@ if ($fileType == 'lxf' || $fileType == 'lef') {
     foreach ($result->getMeets() as $meet) {
         foreach ($meet->getSessions() as $session) {
             foreach ($session->getEvents() as $event) {
-                $eventName = $event->getSwimStyle()->getName();
+                $swimStyle = $event->getSwimStyle();
+                if(!($eventName = $swimStyle->getName())) {
+                    $eventName = $swimStyle->getDistance() . 'm ' . $swimStyle->getStroke();
+                }
                 $eventId = $competitionParser->getEventIdFromLine($eventName);
                 if (!$eventId) {
                     print_r('Could not find event id for ' . $eventName . PHP_EOL);
@@ -151,13 +154,14 @@ if ($fileType == 'lxf' || $fileType == 'lef') {
     $currentEvent = null;
     $unparsableEventLines = [];
     foreach ($lines as $line) {
-        print_r($i . '/' . $totalLines . '   ');
+        print_r($i . '/' . $totalLines . ' | ');
         $lineType = $competitionParser->getLineType($line);
+        print_r($lineType . ' | ');
 
         switch ($lineType) {
             case 'event':
                 $eventId = $competitionParser->getEventIdFromLine($line);
-                $gender = $competitionParser->getGenderFromLine($line);
+                $gender = $competitionParser->getEventGenderFromLine($line);
                 $includeEvent = $competitionParser->shouldIncludeEvent($line);
                 $roundNumber = $competitionParser->getRoundFromLine($line);
                 $currentEvent = Event::create($eventId, $gender, $includeEvent, $line, $roundNumber);
@@ -171,14 +175,14 @@ if ($fileType == 'lxf' || $fileType == 'lef') {
                 $classification = 1;
                 break;
             case 'gender':
-                $gender = $competitionParser->getGenderFromLine($line);
+                $gender = $competitionParser->getEventGenderFromLine($line);
 
-                if (is_null($currentEvent) || !$currentEvent) continue;
+                if (is_null($currentEvent) || !$currentEvent) break;
 
                 $currentEvent = Event::create($currentEvent->getId(), $gender, true, $currentEvent->getOriginalLine());
                 break;
             case 'result':
-                if (is_null($currentEvent)) continue;
+                if (is_null($currentEvent)) break;
                 $lineIsDns = false;
 
                 $name = $competitionParser->nameConversion($competitionParser->getNameFromLine($line));
@@ -195,8 +199,9 @@ if ($fileType == 'lxf' || $fileType == 'lef') {
                 }
 
                 $round = $currentEvent->getRoundNumber();
-                $athlete = Athlete::findOrCreate($name, $currentEvent->getGender(), $yearOfBirth, $nationality);
-                print_r($name . ' | ' . $currentEvent->getGender() . ' | ' . $yearOfBirth . ' | round: ' . $round);
+                $gender = $competitionParser->getResultGenderFromLine($line) ?: $currentEvent->getGender();
+                $athlete = Athlete::findOrCreate($name, $gender, $yearOfBirth, $nationality);
+                print_r($name . ' | ' . $gender . ' | ' . $yearOfBirth . ' | round: ' . $round);
                 foreach ($times as $time) {
                     if (!$competitionParser->timeIsValid($time)) {
                         continue;
@@ -233,7 +238,7 @@ if ($fileType == 'lxf' || $fileType == 'lef') {
 
                 break;
             case 'round':
-                if (is_null($currentEvent)) continue;
+                if (is_null($currentEvent)) break;
                 $roundNumber = $competitionParser->getRoundFromLine($line);
                 $currentEvent->setRoundNumber($roundNumber);
                 break;

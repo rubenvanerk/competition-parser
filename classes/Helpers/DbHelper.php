@@ -3,6 +3,7 @@
 use CompetitionParser\Classes\Models\Athlete;
 use CompetitionParser\Classes\Models\Competition;
 use CompetitionParser\Classes\Models\IndividualResult;
+use CompetitionParser\Classes\Models\IndividualResultSplit;
 use Illuminate\Database\Capsule\Manager as Capsule;
 use Illuminate\Events\Dispatcher;
 use PDO;
@@ -214,7 +215,7 @@ class DbHelper
             foreach ($meet->getClubs() as $club) {
                 foreach ($club->getAthletes() as $athlete) {
                     if(!$athlete->getResults()) continue;
-                    $athleteName = $athlete->getFirstName() . ' ' . $athlete->getLastName();
+                    $athleteName = $athlete->getFirstName() . ($athlete->getNamePrefix() ? ' ' . $athlete->getNamePrefix() : '') . ' ' . $athlete->getLastName();
                     $gender = $athlete->getGender() == 'F' ? 2 : 1;
                     if ($athlete->getBirthDate()) {
                         $yearOfBirth = $athlete->getBirthDate()->format('Y');
@@ -226,7 +227,6 @@ class DbHelper
                         $gender,
                         $yearOfBirth,
                         $athlete->getNation()
-
                     );
                     foreach ($athlete->getResults() as $lenexResult) {
 
@@ -246,6 +246,14 @@ class DbHelper
                         $individualResult->points = 0;
 
                         $individualResult->save();
+
+                        foreach ($lenexResult->getSplits() as $split) {
+                            IndividualResultSplit::create([
+                                'time' => $split->getSwimTime(),
+                                'distance' => $split->getDistance(),
+                                'individual_result_id' => $individualResult->id
+                            ]);
+                        }
 
                         print_r($resultCount++ . ' Inserted result for ' . $athleteName . PHP_EOL);
                     }

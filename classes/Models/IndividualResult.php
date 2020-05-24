@@ -15,6 +15,12 @@ class IndividualResult extends Model
     public $isDns;
     public $classification;
 
+
+    public function splits()
+    {
+        return $this->hasMany('CompetitionParser\Classes\Models\IndividualResultSplit', 'individual_result_id');
+    }
+
     /**
      * @return string
      */

@@ -24,11 +24,13 @@ class CompetitionParser
     private $mirrorTimes;
     private $commaOrSpaceExplode;
     private $invalidTimes;
+    private $csvDelimiter;
 
     public $csvNameIndexes;
     private $csvTimeIndex;
     public $csvYobIndex;
     private $csvNationalityIndex;
+    private $csvGenderIndex;
 
     public function __construct($config)
     {
@@ -63,11 +65,13 @@ class CompetitionParser
             $this->yobRegex = $this->config['regex']['yob'][$this->config['parser_config']['formats']['yob_format']];
         }
 
-        if (FILETYPE == 'csv' || FILETYPE == 'dir') {
+        if (FILETYPE === 'csv' || FILETYPE === 'dir') {
             $this->csvNameIndexes = $this->config['parser_config']['csv']['name'];
             $this->csvTimeIndex = $this->config['parser_config']['csv']['time'];
             $this->csvYobIndex = $this->config['parser_config']['csv']['yob'];
             $this->csvNationalityIndex = $this->config['parser_config']['csv']['nationality'];
+            $this->csvGenderIndex = $this->config['parser_config']['csv']['gender'];
+            $this->csvDelimiter = $this->config['parser_config']['csv']['delimiter'] ?? ',';
         }
 
     }
@@ -76,22 +80,24 @@ class CompetitionParser
      * @param string $line
      * @return string
      */
-    public function getLineType($line)
+    public function getLineType($line): string
     {
+        if ($this->lineContains($line, $this->config['event_stopper'])) {
+            return 'stop-event';
+        }
         if ($this->lineContains($line, $this->config['event_signifiers'])
             && !$this->lineContains($line, $this->config['event_designifiers'])) {
             return 'event';
-        } elseif ($this->hasValidResult($line) && $this->hasName($line) && (!PARSE_YOB || IGNORE_YOB_NOT_FOUND || $this->getYearOfBirthFromLine($line) !== 'unknown')) {
-            return 'result';
-        } elseif ($this->getGenderFromLine($line) && $this->config['parser_config']['separate_gender']) {
-            return 'gender';
-        } elseif (!is_null($this->rounds) && $this->lineContains($line, $this->config['round_signifiers']) && !$this->lineContains($line, $this->config['round_designifiers'])) {
-            return 'round';
-        } elseif ($this->lineContains($line, $this->config['event_stopper'])) {
-            return 'stop-event';
         }
-
-
+        if ($this->hasValidResult($line) && $this->hasName($line) && (!PARSE_YOB || IGNORE_YOB_NOT_FOUND || $this->getYearOfBirthFromLine($line) !== 'unknown')) {
+            return 'result';
+        }
+        if ($this->getEventGenderFromLine($line) && $this->config['parser_config']['separate_gender']) {
+            return 'gender';
+        }
+        if (!is_null($this->rounds) && $this->lineContains($line, $this->config['round_signifiers']) && !$this->lineContains($line, $this->config['round_designifiers'])) {
+            return 'round';
+        }
         return '';
     }
 
@@ -99,14 +105,15 @@ class CompetitionParser
      * @param $line
      * @return int
      */
-    public function getEventIdFromLine($line)
+    public function getEventIdFromLine($line): int
     {
         $disciplines = $this->config['disciplines'];
 
         $discipline = 0;
         foreach ($disciplines as $eventId) {
             foreach ($eventId as $description) {
-                if (stristr($line, $description)) {
+                $description = str_replace('/', '\/', $description);
+                if (preg_match('/' . $description . '/', $line)) {
                     $discipline = array_search($eventId, $disciplines);
                 }
             }
@@ -119,10 +126,33 @@ class CompetitionParser
      * @param $line
      * @return string
      */
-    public function getGenderFromLine($line)
+    public function getEventGenderFromLine($line): string
     {
-        if ($this->lineContains($line, $this->config['genders']['female_signifiers'])) return 2;
-        elseif ($this->lineContains($line, $this->config['genders']['male_signifiers'])) return 1;
+        if ($this->lineContains($line, $this->config['genders']['female_signifiers'])) {
+            return 2;
+        }
+        if ($this->lineContains($line, $this->config['genders']['male_signifiers'])) {
+            return 1;
+        }
+        return 0;
+    }
+
+    /**
+     * @param $line
+     * @return string
+     */
+    public function getResultGenderFromLine($line): string
+    {
+        if (FILETYPE === 'csv' || FILETYPE === 'dir') {
+            $csv = str_getcsv($line, $this->csvDelimiter);
+            $gender = trim($csv[$this->csvGenderIndex]);
+            if ($gender === 'F') {
+                return 2;
+            }
+            if ($gender === 'M') {
+                return 1;
+            }
+        }
         return 0;
     }
 
@@ -132,10 +162,12 @@ class CompetitionParser
      * @param array $needles
      * @return bool
      */
-    function lineContains($line, array $needles)
+    public function lineContains($line, array $needles)
     {
         foreach ($needles as $needle) {
-            if (stripos($line, $needle) !== false) return true;
+            if (stripos($line, $needle) !== false) {
+                return true;
+            }
         }
         return false;
     }
@@ -144,19 +176,19 @@ class CompetitionParser
      * @param array $lines
      * @return array
      */
-    function createUsableLines($lines)
+    public function createUsableLines($lines)
     {
         if(is_array($this->lineConversion)) {
             foreach ($this->lineConversion as $conversionType) {
                 $lines = $this->convertLines($lines, strval($conversionType));
             }
             return $lines;
-        } else {
-            return $this->convertLines($lines, strval($this->lineConversion));
         }
+
+        return $this->convertLines($lines, strval($this->lineConversion));
     }
 
-    function convertLines($lines, $type)
+    public function convertLines($lines, $type)
     {
         switch ($type) {
             case 'name-yob-club-time':
@@ -270,7 +302,7 @@ class CompetitionParser
                 $newLines = [];
                 $i = 0;
                 foreach ($lines as $line) {
-                    $newLines[] = preg_replace('/(?<=\sW) (?=[A-z])/', '', $line);
+                    $newLines[] = preg_replace('/(?<=W) (?=[A-z])/', '', $line);
                     $i++;
                 }
                 return $newLines;
@@ -383,9 +415,9 @@ class CompetitionParser
     {
         if (FILETYPE == 'csv' || FILETYPE == 'dir') {
             $names = [];
-            $csv = str_getcsv($line);
+            $csv = str_getcsv($line, $this->csvDelimiter);
             foreach ($this->csvNameIndexes as $nameIndex) {
-                $names[] = $csv[$nameIndex];
+                $names[] = trim($csv[$nameIndex]);
             }
             return implode(' ', $names);
         } elseif(isset($this->config['parser_config']['formats']['first_name_format']) &&
@@ -471,7 +503,7 @@ class CompetitionParser
         if (!PARSE_YOB) return 'unknown';
 
         if ((FILETYPE == 'csv'  || FILETYPE == 'dir') && $this->csvYobIndex) {
-            $csv = str_getcsv($line);
+            $csv = str_getcsv($line, $this->csvDelimiter);
             return $csv[$this->csvYobIndex];
         }
 
@@ -496,7 +528,7 @@ class CompetitionParser
     public function getTimesFromLine($line)
     {
         if (FILETYPE == 'csv' || FILETYPE == 'dir') {
-            $csv = str_getcsv($line);
+            $csv = str_getcsv($line, $this->csvDelimiter);
             return str_replace('""', '"', [$csv[$this->csvTimeIndex]]);
         }
 
@@ -536,7 +568,7 @@ class CompetitionParser
     {
         $nationality = null;
         if ($this->csvNationalityIndex && (FILETYPE == 'csv' || FILETYPE == 'dir')) {
-            $csv = str_getcsv($line);
+            $csv = str_getcsv($line, $this->csvDelimiter);
             $nationality = $csv[$this->csvNationalityIndex];
         }
         return $nationality;
