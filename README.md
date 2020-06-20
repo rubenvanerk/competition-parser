@@ -1,6 +1,6 @@
 # DEPRECATED
 
-This project is soon to be replaced by a complete rewrite with a GUI.
+This project is superseded by [competition-parser-lumen](https://github.com/rubenvanerk/competition-parser-lumen).
 
 # competition-parser
 A parser to convert pdf to results for Lifesaving Rankings
